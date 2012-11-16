@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApplication2.Task"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tâche" Height="550" Width="650">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="34" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Nom:" />
+            <Label Grid.Row="1" Grid.Column="0" Content="Echéance:" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Priorité:" />
+            <Label Grid.Row="3" Grid.Column="0" Content="Complétion:" />
+            <Label Grid.Row="4" Grid.Column="0" Content="Tags:" />
+            <Label Grid.Row="5" Grid.Column="0" Content="Description:" />
+            <TextBox Grid.Row="0" Grid.Column="1" Name="txtName" />
+            <DatePicker Grid.Row="1" Grid.Column="1" Name="dtpDueDate" />
+            <ComboBox Grid.Row="2" Grid.Column="1" Name="cbPriority" />
+            <ComboBox Grid.Row="3" Grid.Column="1" Name="cbCompletion" />
+            <TextBox Grid.Row="4" Grid.Column="1" Name="txtTags" />
+            <TextBox Grid.Row="5" Grid.Column="1" Name="txtDescription" />
+        </Grid>
+        <GroupBox Grid.Row="1" Header="Alertes">
+            <DataGrid Name="dgAlerts" />
+        </GroupBox>
+        <GroupBox Grid.Row="2" Header="Sous-tâches">
+            <DataGrid Name="dgSubTasks" />
+        </GroupBox>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="btnSave" Margin="4" Content="Enregistrer" />
+            <Button Name="btnCancel" Margin="4" Content="Annuler" />
+        </StackPanel>
+    </Grid>
+</Window>
