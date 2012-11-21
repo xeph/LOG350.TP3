@@ -1,0 +1,17 @@
+﻿<Window x:Class="OdbcSQLite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <ListView Margin="5" Name="TasksListView" Initialized="TasksListView_Initialized">
+        <ListView.View>
+            <GridView>
+                <GridView.Columns>
+                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Path=Name}" />
+                    <GridViewColumn Header="Échéance" DisplayMemberBinding="{Binding Path=DeadlineID}" />
+                    <GridViewColumn Header="Complétion" DisplayMemberBinding="{Binding Path=PriorityID}" />
+                    <GridViewColumn Header="Priorité" DisplayMemberBinding="{Binding Path=Completion}" />
+                </GridView.Columns>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</Window>
