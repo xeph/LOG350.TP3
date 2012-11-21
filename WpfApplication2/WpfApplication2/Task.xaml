@@ -63,10 +63,10 @@
             <TextBox Grid.Row="5" Grid.Column="1" Name="txtDescription" />
         </Grid>
         <GroupBox Grid.Row="1" Header="Alertes">
-            <DataGrid Name="dgAlerts" ContextMenu="{StaticResource genericContextMenu}" />
+            <DataGrid Name="dgAlerts" ContextMenu="{StaticResource genericContextMenu}" Initialized="DataGridAlerts_Initialized" />
         </GroupBox>
         <GroupBox Grid.Row="2" Header="Sous-tâches">
-            <DataGrid Name="dgSubTasks" ContextMenu="{StaticResource genericContextMenu}" />
+            <DataGrid Name="dgSubTasks" ContextMenu="{StaticResource genericContextMenu}" Initialized="DataGridSubTasks_Initialized" />
         </GroupBox>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="btnSave" Margin="4" Content="Enregistrer" Click="SaveButton_Click" />

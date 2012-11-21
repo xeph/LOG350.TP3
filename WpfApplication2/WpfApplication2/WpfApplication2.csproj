@@ -76,6 +76,7 @@
     <Compile Include="Priority.xaml.cs">
       <DependentUpon>Priority.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StaticPath.cs" />
     <Compile Include="Task.xaml.cs">
       <DependentUpon>Task.xaml</DependentUpon>
     </Compile>

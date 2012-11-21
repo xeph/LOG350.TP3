@@ -43,7 +43,7 @@ Title="ToDo.Any" Height="550" Width="650" Icon="Images/notebook.ico">
                         <Button Height="30" Width="50" Margin="0,5,10,5" Content="Settings" Click="SettingsButton_Click" />
                     </StackPanel>
                     <ListView Grid.Row="1">
-                        <DataGrid Name="DataGrid1" Margin="10,5,10,5" Width="605" IsReadOnly="True" CanUserReorderColumns="False" 
+                        <DataGrid Name="dgList" Margin="10,5,10,5" Width="605" IsReadOnly="True" CanUserReorderColumns="False" 
                                   CanUserSortColumns="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
                                   SelectionMode="Single" ContextMenu="{StaticResource genericContextMenu}"/>
                     </ListView>

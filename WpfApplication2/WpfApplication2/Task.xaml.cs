@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace WpfApplication2
 {
@@ -7,7 +8,7 @@ namespace WpfApplication2
     /// </summary>
     public partial class Task : Window
     {
-        Database.SQLite DB = new Database.SQLite(StaticPath.GetEnumDescription(StaticPath.Path.DB));
+        Database.SQLite DB = new Database.SQLite(StaticPath.DBPath);
 
         public Task()
         {
@@ -15,9 +16,37 @@ namespace WpfApplication2
             InitializeComponent();
         }
 
+        private void DataGridSubTasks_Initialized(object sender, EventArgs e)
+        {
+            System.Console.WriteLine("DataGridSubTasks_Initialized");
+
+            this.DB.openConnection();
+            this.DB.beginTransaction();
+            // add sql queries here
+            this.DB.endTransaction();
+            this.DB.closeConnection();
+        }
+
+        private void DataGridAlerts_Initialized(object sender, EventArgs e)
+        {
+            System.Console.WriteLine("DataGridAlerts_Initialized");
+
+            this.DB.openConnection();
+            this.DB.beginTransaction();
+            // add sql queries here
+            this.DB.endTransaction();
+            this.DB.closeConnection();
+        }
+
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             System.Console.WriteLine("SAVE BUTTON CLICKED");
+
+            this.DB.openConnection();
+            this.DB.beginTransaction();
+            // add sql queries here
+            this.DB.endTransaction();
+            this.DB.closeConnection();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

@@ -68,11 +68,6 @@ namespace WpfApplication2
             Save();
         }
 
-        private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Save();
-        }
-
         private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Close();
