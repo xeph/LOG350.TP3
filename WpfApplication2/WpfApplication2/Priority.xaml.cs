@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Data;
+using System.Collections.Generic;
 
 namespace WpfApplication2
 {
@@ -7,6 +8,7 @@ namespace WpfApplication2
     {
         private Database.SQLite DB = new Database.SQLite(@"C:\Users\Don\Documents\GitHub\LOG350.TP3\WpfApplication2\WpfApplication2\ToDoAny.sqlite");
         private DataTable loadedTable = new DataTable();
+        private List<System.Int32> deletedIDs = new List<System.Int32>();
         private System.Data.DataTable sourceDataTable;
         private System.Data.DataTable SourceDataTable
         {
@@ -30,15 +32,20 @@ namespace WpfApplication2
 
         private void Save()
         {
+            foreach (System.Int32 x in deletedIDs)
+            {
+                this.DB.executeQuery("delete from priorities where ID=" + x);
+            }
+
             foreach (DataRow x in SourceDataTable.Rows)
             {
-                if (loadedTable.Select("ID = " + System.Convert.ToInt32(x["ID"])).Length == 0)
+                if (x["ID"] == System.DBNull.Value)
                 {
-                    //this.DB.executeQuery("insert into ");
+                    this.DB.executeQuery("insert into priorities(name, value, active) values('"+x["name"]+"', "+x["value"]+", "+x["active"]+")");
                 }
                 else
                 {
-                    this.DB.executeQuery("update priorities set name='" + x["name"] + "', value=" + x["value"] + ", active=" + x["active"]);
+                    this.DB.executeQuery("update priorities set name='" + x["name"] + "', value=" + x["value"] + ", active=" + System.Convert.ToInt32(x["active"]) + " where ID=" + x["ID"]);
                 }
 
             }
@@ -60,21 +67,20 @@ namespace WpfApplication2
                 SourceDataTable.Rows.Add(System.Convert.ToInt32(x["ID"]), System.Convert.ToString(x["name"]), System.Convert.ToInt32(x["value"]), System.Convert.ToBoolean(x["active"]));
             }
 
-            this.DB.closeConnection();
-        }
-
-        private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Save();
+            
         }
 
         private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            this.DB.closeConnection();
             Close();
         }
 
         private void DeleteMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            //Add ID to deletedIDs
+            object test = ((System.Data.DataRowView)PropertiesDataGrid.SelectedItem)["ID"];
+            deletedIDs.Add(1);
             ((System.Data.DataRowView)PropertiesDataGrid.SelectedItem).Delete();
         }
 
