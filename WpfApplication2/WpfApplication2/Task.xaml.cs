@@ -7,6 +7,8 @@ namespace WpfApplication2
     /// </summary>
     public partial class Task : Window
     {
+        Database.SQLite DB = new Database.SQLite(StaticPath.GetEnumDescription(StaticPath.Path.DB));
+
         public Task()
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
