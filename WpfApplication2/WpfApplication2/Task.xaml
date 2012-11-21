@@ -36,10 +36,50 @@
             <TextBox Grid.Row="5" Grid.Column="1" Name="txtDescription" />
         </Grid>
         <GroupBox Grid.Row="1" Header="Alertes">
-            <DataGrid Name="dgAlerts" />
+            <DataGrid Name="dgAlerts" >
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Ajouter" >
+                            <MenuItem.Icon>
+                                <Image Source="Images/add.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Modifier" >
+                            <MenuItem.Icon>
+                                <Image Source="Images/edit.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Supprimer" >
+                            <MenuItem.Icon>
+                                <Image Source="Images/delete.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
         </GroupBox>
         <GroupBox Grid.Row="2" Header="Sous-tâches">
-            <DataGrid Name="dgSubTasks" />
+            <DataGrid Name="dgSubTasks" >
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Ajouter" >
+                            <MenuItem.Icon>
+                                <Image Source="Images/add.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Modifier" >
+                            <MenuItem.Icon>
+                                <Image Source="Images/edit.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Supprimer" >
+                            <MenuItem.Icon>
+                                <Image Source="Images/delete.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
         </GroupBox>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="btnSave" Margin="4" Content="Enregistrer" />
