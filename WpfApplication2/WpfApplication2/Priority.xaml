@@ -9,8 +9,8 @@
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" Name="dgPriorities" />
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Name="btnSave" Margin="4" Content="Enregistrer" />
-            <Button Name="btnCancel" Margin="4" Content="Annuler" />
+            <Button Name="btnSave" Margin="4" Content="Enregistrer" Click="SaveButton_Click" />
+            <Button Name="btnCancel" Margin="4" Content="Annuler" Click="CancelButton_Click" />
         </StackPanel>
     </Grid>
 </Window>

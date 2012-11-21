@@ -6,17 +6,17 @@
     <Grid>
         <Grid.Resources>
             <x:Array Type="{x:Type MenuItem}" x:Key="genericContextMenuItems">
-                <MenuItem Header="Ajouter" >
+                <MenuItem Header="Ajouter" Click="ContextualMenuAdd_Click" >
                     <MenuItem.Icon>
                         <Image Source="Images/add.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Modifier" >
+                <MenuItem Header="Modifier" Click="ContextualMenuModify_Click" >
                     <MenuItem.Icon>
                         <Image Source="Images/edit.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Supprimer" >
+                <MenuItem Header="Supprimer" Click="ContextualMenuDelete_Click" >
                     <MenuItem.Icon>
                         <Image Source="Images/delete.png" />
                     </MenuItem.Icon>
@@ -69,8 +69,8 @@
             <DataGrid Name="dgSubTasks" ContextMenu="{StaticResource genericContextMenu}" />
         </GroupBox>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Name="btnSave" Margin="4" Content="Enregistrer" />
-            <Button Name="btnCancel" Margin="4" Content="Annuler" />
+            <Button Name="btnSave" Margin="4" Content="Enregistrer" Click="SaveButton_Click" />
+            <Button Name="btnCancel" Margin="4" Content="Annuler" Click="CancelButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

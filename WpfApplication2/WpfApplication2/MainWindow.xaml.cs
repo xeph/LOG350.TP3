@@ -32,6 +32,21 @@ namespace WpfApplication2
             priorityWindow.Close();
         }
 
+        private void ContextualMenuAdd_Click(object sender, RoutedEventArgs e)
+        {
+            System.Console.WriteLine("CONTEXTUAL MENU ADD CLICKED");
+        }
+
+        private void ContextualMenuModify_Click(object sender, RoutedEventArgs e)
+        {
+            System.Console.WriteLine("CONTEXTUAL MENU MODIFY CLICKED");
+        }
+
+        private void ContextualMenuDelete_Click(object sender, RoutedEventArgs e)
+        {
+            System.Console.WriteLine("CONTEXTUAL MENU DELETE CLICKED");
+        }
+
         private List<Author> LoadCollectionData()
         {
             List<Author> authors = new List<Author>();
