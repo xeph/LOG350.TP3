@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Documents;
 
 namespace WpfApplication2
@@ -11,9 +12,24 @@ namespace WpfApplication2
 
         public MainWindow()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             this.DataGrid1.ItemsSource = LoadCollectionData();
             this.newTabNumber = 1;
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Task taskWindow = new Task();
+            taskWindow.ShowDialog();
+            taskWindow.Close();
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Priority priorityWindow = new Priority();
+            priorityWindow.ShowDialog();
+            priorityWindow.Close();
         }
 
         private List<Author> LoadCollectionData()
