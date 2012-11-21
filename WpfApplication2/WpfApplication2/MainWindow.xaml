@@ -13,8 +13,8 @@ Title="ToDo.Any" Height="550" Width="650">
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Horizontal">
                         <TextBox Height="30" Width="500" Margin="10,5,10,5" />
-                        <Button Height="30" Width="50" Margin="0,5,10,5" Content="Ajouter" />
-                        <Button Height="30" Width="50" Margin="0,5,10,5" Content="Settings" />
+                        <Button Height="30" Width="50" Margin="0,5,10,5" Content="Ajouter" Click="AddButton_Click"/>
+                        <Button Height="30" Width="50" Margin="0,5,10,5" Content="Settings" Click="SettingsButton_Click" />
                     </StackPanel>
                     <ListView Grid.Row="1">
                         <DataGrid Name="DataGrid1" Margin="10,5,10,5" Width="605" IsReadOnly="True" CanUserReorderColumns="False" 
