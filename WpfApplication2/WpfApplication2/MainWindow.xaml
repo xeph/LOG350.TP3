@@ -7,6 +7,32 @@ Title="ToDo.Any" Height="550" Width="650">
         <my:ChromeTabControl Name="chrometabs">
             <my:ChromeTabItem Header="Evenement">
                 <Grid>
+                    <Grid.Resources>
+                        <x:Array Type="{x:Type MenuItem}" x:Key="genericContextMenuItems">
+                            <MenuItem Header="Ajouter" >
+                                <MenuItem.Icon>
+                                    <Image Source="Images/add.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Modifier" >
+                                <MenuItem.Icon>
+                                    <Image Source="Images/edit.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Supprimer" >
+                                <MenuItem.Icon>
+                                    <Image Source="Images/delete.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </x:Array>
+                        <ContextMenu x:Key="genericContextMenu">
+                            <ContextMenu.ItemsSource>
+                                <CompositeCollection>
+                                    <CollectionContainer Collection="{StaticResource genericContextMenuItems}" />
+                                </CompositeCollection>
+                            </ContextMenu.ItemsSource>
+                        </ContextMenu>
+                    </Grid.Resources>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40" />
                         <RowDefinition />
@@ -19,7 +45,7 @@ Title="ToDo.Any" Height="550" Width="650">
                     <ListView Grid.Row="1">
                         <DataGrid Name="DataGrid1" Margin="10,5,10,5" Width="605" IsReadOnly="True" CanUserReorderColumns="False" 
                                   CanUserSortColumns="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
-                                  SelectionMode="Single"/>
+                                  SelectionMode="Single" ContextMenu="{StaticResource genericContextMenu}"/>
                     </ListView>
                 </Grid>
             </my:ChromeTabItem>
