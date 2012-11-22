@@ -19,9 +19,9 @@
                   Initialized="DataGrid_Initialized">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="SizeToHeader" Binding="{Binding Path=ID}" Visibility="Hidden" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Nom" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Valeur" Width="SizeToHeader" Binding="{Binding Path=Value}"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Actif" Width="SizeToHeader" Binding="{Binding Path=Active}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Nom" Width="*" Binding="{Binding Path=name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Valeur" Width="SizeToHeader" Binding="{Binding Path=value}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Actif" Width="SizeToHeader" Binding="{Binding Path=active}"></DataGridCheckBoxColumn>
             </DataGrid.Columns>
             <DataGrid.Resources>
                 <ContextMenu x:Key="DataRowContextMenu">
