@@ -1,0 +1,78 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arica et Yarman-Vural(2002)]{Arica2002}
+Arica, N. et Fatos~T. Yarman-Vural, 2002.
+\newblock Optical character recognition for cursive handwriting.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 24\penalty0 (6):\penalty0 801--813.
+
+\bibitem[Avidan(2007)]{Avidan2007}
+Avidan, S., 2007.
+\newblock Ensemble tracking.
+\newblock \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, 29\penalty0
+  (2):\penalty0 261--271.
+\newblock ISSN 0162-8828.
+\newblock \doi{http://dx.doi.org/10.1109/TPAMI.2007.35}.
+
+\bibitem[Baldi et Chauvin(1994)]{Baldi1994}
+Baldi, P. et Y.~Chauvin, 1994.
+\newblock Smooth on-line learning algorithms for hidden {M}arkov models.
+\newblock \emph{Neural Computation}, 6\penalty0 (2):\penalty0 179--190.
+
+\bibitem[Ballard(1981)]{Ballard1981}
+Ballard, D.~H., 1981.
+\newblock Generalizing the hough transform to detect arbitrary shapes.
+\newblock \emph{Pattern Recognition}, 13\penalty0 (2):\penalty0 111--122.
+
+\bibitem[Binsztok et Artières(2005)]{Binsztok2005}
+Binsztok, H. et Thierry Artières, 2005.
+\newblock Learning model structure from data: An application to on-line
+  handwriting.
+\newblock \emph{Electronic Letters on Computer Vision and Image Analysis},
+  5\penalty0 (2):\penalty0 30--46.
+
+\bibitem[Bojovic et Savic(2000)]{Bojovic2000}
+Bojovic, M. et Milan~D. Savic, 2000.
+\newblock Training of hidden markov models for cursive handwritten word
+  recognition.
+\newblock  \emph{Proceedings of 15th International Conference on Pattern
+  Recognition}.
+
+\bibitem[Britto et~al.(2000)Britto, Sabourin, Lethelier, Bortolozzi, et
+  Suen]{Britto2000}
+Britto, A.~S., R.~Sabourin, E.~Lethelier, F.~Bortolozzi, et C.~Y. Suen, 2000.
+\newblock Improvement in handwritten numeral string recognition by slant
+  normalization and contextual information.
+\newblock  \emph{Proceedings of Seventh International Workshop on Frontiers in
+  Handwriting Recognition, (IWFHR-7)}, pages 601--606.
+
+\bibitem[Britto et~al.(2003)Britto, Sabourin, Bortolozzi, et Suen]{Britto2003}
+Britto, A.~S., Robert Sabourin, Flávio Bortolozzi, et Chyng~Y. Suen, 2003.
+\newblock Recognition of numeral strings using a two-stage {HMM}-based method.
+\newblock \emph{Internation Journal on Document Analysis and Recognition},
+  5\penalty0 (2):\penalty0 102--117.
+
+\bibitem[Britto(2001)]{Britto2001}
+Britto, A.~S., 2001.
+\newblock \emph{A Two-Stage {HMM}-Based Method For Recognizing Handwritten
+  Numeral Strings}.
+\newblock PhD thesis, Pontifícia Universidade Católica do Paraná.
+
+\bibitem[Britto et~al.(2004)Britto, Sabourin, Bortolozzi, et Suen]{Britto2004}
+Britto, A.~S., Robert Sabourin, Flávio Bortolozzi, et Chyng~Y. Suen, 2004.
+\newblock Foreground and background information in an hmm-based method for
+  recognition of isolated characters and numeral strings.
+\newblock  \emph{9th International Workshop on Frontiers in Handwriting
+  Recognition (IWFHR-9)}, pages 371--376, Tokyo, Japan, 2004.
+
+\bibitem[ÉTS(2010)]{ETS2010}
+ÉTS, 2010.
+\newblock Site web de l'Éts.
+\newblock URL \url{http://www.etsmtl.ca}.
+
+\end{thebibliography}

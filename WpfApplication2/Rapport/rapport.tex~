@@ -1,4 +1,5 @@
-﻿\documentclass[12pt,a4paper,oneside]{article}
+%\documentclass[12pt,a4paper,oneside]{reportu}
+\documentclass[letterpaper, oneside, 12pt, these, creativecommons]{thETS}
 \usepackage{times}
 \usepackage[pdftex]{graphicx}
 \usepackage{multirow}
@@ -18,15 +19,26 @@
 
 \tableofcontents
 \listoftables
-\listofigures
+\listoffigures
 
 \chapter{Introduction et sommaire du travail effectue en TP2}
+
+L'application permet la gestion simple de taches et d'evenements tout en offrant des fonctionnalites de gestion et de classification avancees. Parmi celles-ci, notons la possibilite de definir des rappels, de categoriser les elements, de definir un evenement comme echeance d'une tache ou encore de definir des sous-taches a une tache imposante.
+
+Durant notre analyse de tache, nous avons determiner que le publique cible est des personnes de 15 ans et plus desirant organiser son temps et sa vie professionnelle. De plus, nous avons conclu que notre interface devrais ressembler a des interfaces connu pour la garder familiere et garder une courbe d'apprentissage faible. Pour ce faire, nous avons dresser une liste des cas d'utilisation que l'application doit traiter pour se donner un point de depart. Par la suite, nous avons construit nos prototypes statiques.
+
+Pour construire notre prototype statique, nosu avons utiliser des fenetres virtuelles ou chaques points de chaque fenetre a ete detaille pour s'assurer que le travail devant etre effectue par chaque interface a bel et bien ete compris. De plus, chaque fonctionnalite a aussi ete detaille dans le but qu'elles soient bien comprise.
+
+Jusqu'a present, aucune modification n'a ete apporte entre les prototypes statiques et dynamiques. Tout va rester comme indique dans le document precedent.
+
+Dans le present document, les tests qui seront effectue avec des utilisateurs seront listes et detailles. Par la suite, un concensus sera fais pour chaque tache et une amelioration qui pourrait etre faite sera proposer pour ameliorer le comportement du logiciel.
 
 \chapter{Planification du travail}
 
 \begin{table}
 	\centering
 	\begin{tabular}{|l|l|}
+		\hline
 		Semaine		& Travail accomplis 	\\ \hline
 		4 novembre	& ... 			\\ \hline
 		11 novembre	& ... 			\\ \hline
@@ -43,7 +55,15 @@ Un prototype dynamique de l'application est disponible a l'adresse suivante : \u
 
 \section{Justification des choix de conception}
 
-Divers patrons de conception ont ete utilise pour parvenir a la conception de l'application que nous avons presentement. Parmi ceux-ci on compte le patron \emph{Many Workspaces} qui se retrouve a la fenetre principale de l'application ou l'utilisateur a la possibilite d'avoir plusieurs listes d'ouvertes et de les organiser comme il veut via des onglets. L'utilisateur peut donc gerer plusieurs listes a la fois. Pour la navigation entre les fenetres de l'application nous utilisons le patron \emph{Escape Hatch}. Ainsi, la navigation entre les fenetres est limite et l'utilisateur peut toujours revenir a la fenetre principale sans chercher pendant de longues minutes comment y revenir. Cela simplifie grandement l'interaction entre l'application et l'utilisateur en simplifiant le processus de navigation au maximum. Maintenant, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} sur, par exemple, la fenetre principale. Avec ce patron, nous listons donc les taches et chaque sous-tache sous sa tache correspondante sous forme d'arborescence. Nous pouvons donc afficher un maximum d'information utile a l'utilisateur lorsque celui-ci le demande. Nous utilisons aussi le patron \emph{New-Item Row} dans la fenetre Priorites pour permettre l'ajout rapide et infini de lignes dans le tableau sans que l'utilisateur n'ait besoin d'appuyer sur quoi que se soit. Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'applique et permet de trier l'information affiche en tout temps pour permettre a l'utilisateur de trouver ce qu'il veut plus rapidement. De plus, nous avons respecte le plus possible le contenu de la norme \emph{ISO 9241-120} a \emph{ISO 9241-129}.
+Divers patrons de conception ont ete utilise pour parvenir a la conception de l'application que nous avons presentement. 
+
+Parmi les divers patrons disponibles, on compte le patron \emph{Many Workspaces} qui se retrouve a la fenetre principale de l'application ou l'utilisateur a la possibilite d'avoir plusieurs listes d'ouvertes et de les organiser comme il veut via des onglets. L'utilisateur peut donc gerer plusieurs listes a la fois. 
+
+Pour la navigation entre les fenetres de l'application nous utilisons le patron \emph{Escape Hatch}. Ainsi, la navigation entre les fenetres est limite et l'utilisateur peut toujours revenir a la fenetre principale sans chercher pendant de longues minutes comment y revenir. Cela simplifie grandement l'interaction entre l'application et l'utilisateur en simplifiant le processus de navigation au maximum. 
+
+Ensuite, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} sur, par exemple, la fenetre principale. Avec ce patron, nous listons donc les taches et chaque sous-tache sous sa tache correspondante sous forme d'arborescence. Nous pouvons donc afficher un maximum d'information utile a l'utilisateur lorsque celui-ci le demande. Nous utilisons aussi le patron \emph{New-Item Row} dans la fenetre Priorites pour permettre l'ajout rapide et infini de lignes dans le tableau sans que l'utilisateur n'ait besoin d'appuyer sur quoi que se soit. Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'applique et permet de trier l'information affiche en tout temps pour permettre a l'utilisateur de trouver ce qu'il veut plus rapidement. 
+
+De plus, nous avons respecte le plus possible le contenu de la norme \emph{ISO 9241-120} a \emph{ISO 9241-129}.
 
 \section{Ameliorations possibles}
 
@@ -55,6 +75,8 @@ Une demonstration du prototype dynamique sera faite en laboratoire le XX decembr
 
 \chapter{Tests avec utilisateurs}
 
+Les caracteristiques principales des utilisateurs choisis sont la gestion de leurs taches pour les travaux et devoirs au CEGEP ou bien a l'universite et la gestion des rendez-vous pour les professionnels. Nous avons choisis ce nombre d'utilisateur, car il nous fallait un petit echantillon oeuvrant dans le meme type de vie que le publique visee mais dans des spheres professionnelles differentes. Il est pertinant d'avoir teste avec ces utilisateurs parce que se sera principalement ce type d'utilisateur qui se servira d'une application comme celle-ci.
+
 \section{Methodologie}
 
 \section{Liste des taches}
@@ -63,7 +85,8 @@ Une demonstration du prototype dynamique sera faite en laboratoire le XX decembr
 	\centering
 	\begin{tabular}{|l|l|l|}
 		\hline
-		no Tache	& Titre et description	& Elements que vous voulez verifier et hypotheses \\ \hline
+		no Tache	& Titre et description	& Elements que vous voulez verifier et hypotheses 	\\ \hline
+		0		& 0			& 0 							\\ \hline
 	\end{tabular}
 \end{table}
 
@@ -75,7 +98,8 @@ Une demonstration du prototype dynamique sera faite en laboratoire le XX decembr
 	\centering
 	\begin{tabular}{|l|l|l|}
 	\hline
-	no Tache	& Points importants de l'observation de A	& Points importants de l'observation de B \\ \hline
+	no Tache	& Points importants de l'observation de A	& Points importants de l'observation de B 	\\ \hline
+	0		& 0						& 0 						\\ \hline
 	\end{tabular}
 \end{table}
 
@@ -85,7 +109,8 @@ Une demonstration du prototype dynamique sera faite en laboratoire le XX decembr
 	\centering
 	\begin{tabular}{|l|l|l|}
 	\hline
-	no Tache	& Resume	& Recommandation \\ \hline
+	no Tache	& Resume	& Recommandation 	\\ \hline
+	0		& 0		& 0 			\\ \hline
 	\end{tabular}
 \end{table}
 

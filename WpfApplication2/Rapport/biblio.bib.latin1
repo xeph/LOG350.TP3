@@ -1,0 +1,111 @@
+@Article{Arica2002,
+  author = {Nafiz Arica and Fatos T. Yarman-Vural},
+  title = {Optical Character Recognition for Cursive Handwriting},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year = {2002},
+  volume = {24},
+  pages = {801-813},
+  number = {6},
+}
+
+
+@article{Avidan2007,
+ author = {Avidan, Shai},
+ title = {Ensemble Tracking},
+ journal = {IEEE Trans. Pattern Anal. Mach. Intell.},
+ volume = {29},
+ number = {2},
+ year = {2007},
+ issn = {0162-8828},
+ pages = {261--271},
+ doi = {http://dx.doi.org/10.1109/TPAMI.2007.35},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+ }
+
+
+@ARTICLE{Baldi1994,
+  author = {P. Baldi and Y. Chauvin},
+  title = {Smooth On-line Learning Algorithms for Hidden {M}arkov Models},
+  journal = {Neural Computation},
+  year = {1994},
+  volume = {6},
+  number = {2},
+  pages = {179-190}
+}
+
+@ARTICLE{Ballard1981,
+  author = {D. H. Ballard},
+  title = {Generalizing the Hough transform to detect arbitrary shapes},
+  journal = {Pattern Recognition},
+  year = {1981},
+  volume = {13},
+  number = {2},
+  pages = {111-122}
+}
+
+@Article{Binsztok2005,
+  author = {Henri Binsztok and Thierry Artières},
+  title = {Learning Model Structure from Data: An Application to On-Line Handwriting},
+  journal = {Electronic Letters on Computer Vision and Image Analysis},
+  year = {2005},
+  volume = {5},
+  pages = {30-46},
+  number = {2}
+}
+
+
+@INPROCEEDINGS{Bojovic2000,
+  author = {Marija Bojovic and Milan D. Savic},
+  title = {Training of Hidden Markov Models for Cursive Handwritten Word Recognition},
+  booktitle = {Proceedings of 15th International Conference on Pattern Recognition},
+  year = {2000}
+}
+
+@INPROCEEDINGS{Britto2000,
+  author = {A. S. Britto and R. Sabourin and E. Lethelier and F. Bortolozzi and C. Y. Suen},
+  title = {Improvement in Handwritten Numeral String Recognition by Slant Normalization and Contextual Information},
+  booktitle = {Proceedings of Seventh International Workshop on Frontiers in Handwriting Recognition, (IWFHR-7)},
+  year = {2000},
+  pages = {601-606}
+}
+
+
+@PHDTHESIS{Britto2001,
+  author = {Alceu S. Britto},
+  title = {A Two-Stage {HMM}-Based Method For Recognizing Handwritten Numeral
+	Strings},
+  school = {Pontifícia Universidade Católica do Paraná},
+  year = {2001}
+}
+
+@INPROCEEDINGS{Britto2004,
+  author = {Alceu S. Britto and Robert Sabourin and Flávio Bortolozzi and Chyng
+	Y. Suen},
+  title = {Foreground And Background Information in an HMM-Based Method for
+	Recognition of Isolated Characters and Numeral Strings},
+  booktitle = {9th International Workshop on Frontiers in Handwriting Recognition
+	(IWFHR-9)},
+  year = {2004},
+  pages = {371-376},
+  address = {Tokyo, Japan},
+}
+
+@ARTICLE{Britto2003,
+  author = {A. S. Britto and Robert Sabourin and Flávio Bortolozzi and Chyng
+	Y. Suen},
+  title = {Recognition of Numeral Strings Using a Two-Stage {HMM}-Based Method},
+  journal = {Internation Journal on Document Analysis and Recognition},
+  year = {2003},
+  volume = {5},
+  pages = {102-117},
+  number = {2}
+}
+
+@ONLINE{ETS2010,
+author = {ÉTS},
+title = {Site web de l'ÉTS},
+month = Octobre,
+year = {2010},
+url = {http://www.etsmtl.ca}
+}

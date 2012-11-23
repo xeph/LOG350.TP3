@@ -1,0 +1,120 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arica et Yarman-Vural(2002)Nafiz Arica et Fatos~T.
+  Yarman-Vural]{Arica2002}
+Nafiz Arica et Fatos~T. Yarman-Vural.
+\newblock 2002.
+\newblock \og Optical Character Recognition for Cursive Handwriting\fg .
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, vol.~24, n$\textdegree$~6, p. 801-813.
+
+\bibitem[Avidan(2007)Shai Avidan]{Avidan2007}
+Shai Avidan.
+\newblock 2007.
+\newblock \og Ensemble Tracking\fg .
+\newblock \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, vol.~29,
+  n$\textdegree$~2, p. 261--271.
+
+\bibitem[Baldi et Chauvin(1994)P.~Baldi et Y.~Chauvin]{Baldi1994}
+P.~Baldi et Y.~Chauvin.
+\newblock 1994.
+\newblock \og Smooth On-line Learning Algorithms for Hidden {M}arkov Models\fg
+  .
+\newblock \emph{Neural Computation}, vol.~6, n$\textdegree$~2, p. 179-190.
+
+\bibitem[Ballard(1981)D.~H. Ballard]{Ballard1981}
+D.~H. Ballard.
+\newblock 1981.
+\newblock \og Generalizing the Hough transform to detect arbitrary shapes\fg .
+\newblock \emph{Pattern Recognition}, vol.~13, n$\textdegree$~2, p. 111-122.
+
+\bibitem[Binsztok et Artières(2005)Henri Binsztok et Thierry
+  Artières]{Binsztok2005}
+Henri Binsztok et Thierry Artières.
+\newblock 2005.
+\newblock \og Learning Model Structure from Data: An Application to On-Line
+  Handwriting\fg .
+\newblock \emph{Electronic Letters on Computer Vision and Image Analysis},
+  vol.~5, n$\textdegree$~2, p. 30-46.
+
+\bibitem[{Board of Trustees of the University of Illinois}(2009)]{gridshib}
+{Board of Trustees of the University of Illinois}.
+\newblock 2009.
+\newblock \og {GridShib}\fg .
+\newblock In \emph{GridShib}. En ligne.
+\newblock
+  <\url{http://gridshib.globus.org/test/test/test/test/test/test/test/test/tes%
+t/test/test/test/test/test/test/test/}>.
+\newblock Consulté le 11 novembre 2011.
+
+\bibitem[Bojovic et Savic(2000)Marija Bojovic et Milan~D. Savic]{Bojovic2000}
+Marija Bojovic et Milan~D. Savic.
+\newblock 2000.
+\newblock \og Training of Hidden Markov Models for Cursive Handwritten Word
+  Recognition\fg .
+\newblock In \emph{Proceedings of 15th International Conference on Pattern
+  Recognition}.
+
+\bibitem[Britto\emph{ et~al.}(2000)A.~S. Britto, R.~Sabourin, E.~Lethelier,
+  F.~Bortolozzi, et C.~Y. Suen]{Britto2000}
+A.~S. Britto, R.~Sabourin, E.~Lethelier, F.~Bortolozzi, et C.~Y. Suen.
+\newblock 2000.
+\newblock \og Improvement in Handwritten Numeral String Recognition by Slant
+  Normalization and Contextual Information\fg .
+\newblock In \emph{Proceedings of Seventh International Workshop on Frontiers
+  in Handwriting Recognition, (IWFHR-7)}.
+\newblock p. 601-606.
+
+\bibitem[Britto\emph{ et~al.}(2003)A.~S. Britto, Robert Sabourin, Flávio
+  Bortolozzi, et Chyng~Y. Suen]{Britto2003}
+A.~S. Britto, Robert Sabourin, Flávio Bortolozzi, et Chyng~Y. Suen.
+\newblock 2003.
+\newblock \og Recognition of Numeral Strings Using a Two-Stage {HMM}-Based
+  Method\fg .
+\newblock \emph{Internation Journal on Document Analysis and Recognition},
+  vol.~5, n$\textdegree$~2, p. 102-117.
+
+\bibitem[Britto(2001)Alceu~S. Britto]{Britto2001}
+Alceu~S. Britto.
+\newblock 2001.
+\newblock \og A Two-Stage {HMM}-Based Method For Recognizing Handwritten
+  Numeral Strings\fg .
+\newblock PhD thesis, Pontifícia Universidade Católica do Paraná.
+
+\bibitem[Britto\emph{ et~al.}(2004)Alceu~S. Britto, Robert Sabourin, Flávio
+  Bortolozzi, et Chyng~Y. Suen]{Britto2004}
+Alceu~S. Britto, Robert Sabourin, Flávio Bortolozzi, et Chyng~Y. Suen.
+\newblock 2004.
+\newblock \og Foreground And Background Information in an HMM-Based Method for
+  Recognition of Isolated Characters and Numeral Strings\fg .
+\newblock In \emph{9th International Workshop on Frontiers in Handwriting
+  Recognition (IWFHR-9)}.
+\newblock (Tokyo, Japan\ 2004), p. 371-376.
+
+\bibitem[Sandou et Olaru(2009)G.~Sandou et S.~Olaru]{11089710}
+G.~Sandou et S.~Olaru, 2009.
+\newblock \emph{Particle swarm optimization based NMPC: an application to
+  district heating networks}, p. 551 - 9.
+\newblock Berlin, Germany, éd. Test.
+
+\bibitem[Viola et Jones(2001)P.~Viola et M.~Jones]{Viola2001}
+P.~Viola et M.~Jones.
+\newblock 2001.
+\newblock \og Robust real-time face detection\fg .
+\newblock In \emph{Proceedings of the IEEE International Conference on Computer
+  Vision}.
+\newblock (Vancouver, BC, United states\ 2001), p. 747--.
+\newblock Test: Institute of Electrical and Electronics Engineers Inc.
+
+\bibitem[ÉTS(2010)]{ETS2010}
+ÉTS.
+\newblock 2010.
+\newblock \og Site web de l'ÉTS\fg .
+\newblock <\url{http://www.etsmtl.ca}>.
+
+\end{thebibliography}
