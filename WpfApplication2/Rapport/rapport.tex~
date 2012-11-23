@@ -1,0 +1,96 @@
+﻿\documentclass[12pt,a4paper,oneside]{article}
+\usepackage{times}
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{multibib}
+\usepackage{url}
+\urlstyle{rm}
+
+\begin{document}
+
+\tableofcontents
+\listoftables
+\listofigures
+
+\chapter{Introduction et sommaire du travail effectue en TP2}
+
+\chapter{Planification du travail}
+
+\begin{table}
+	\centering
+	\begin{tabular}{|l|l|}
+		Semaine		& Travail accomplis 	\\ \hline
+		4 novembre	& ... 			\\ \hline
+		11 novembre	& ... 			\\ \hline
+		18 novembre	& ... 			\\ \hline
+		25 novembre	& ... 			\\ \hline
+		2 decembre	& ... 			\\ \hline
+		9 decembre	& ... 			\\ \hline
+	\end{tabular}
+\end{table}
+
+\chapter{Realisation du prototype dynamique}
+
+Un prototype dynamique de l'application est disponible a l'adresse suivante : \url{https://github.com/xeph/LOG350.TP3}.
+
+\section{Justification des choix de conception}
+
+Divers patrons de conception ont ete utilise pour parvenir a la conception de l'application que nous avons presentement. Parmi ceux-ci on compte le patron \emph{Many Workspaces} qui se retrouve a la fenetre principale de l'application ou l'utilisateur a la possibilite d'avoir plusieurs listes d'ouvertes et de les organiser comme il veut via des onglets. L'utilisateur peut donc gerer plusieurs listes a la fois. Pour la navigation entre les fenetres de l'application nous utilisons le patron \emph{Escape Hatch}. Ainsi, la navigation entre les fenetres est limite et l'utilisateur peut toujours revenir a la fenetre principale sans chercher pendant de longues minutes comment y revenir. Cela simplifie grandement l'interaction entre l'application et l'utilisateur en simplifiant le processus de navigation au maximum. Maintenant, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} sur, par exemple, la fenetre principale. Avec ce patron, nous listons donc les taches et chaque sous-tache sous sa tache correspondante sous forme d'arborescence. Nous pouvons donc afficher un maximum d'information utile a l'utilisateur lorsque celui-ci le demande. Nous utilisons aussi le patron \emph{New-Item Row} dans la fenetre Priorites pour permettre l'ajout rapide et infini de lignes dans le tableau sans que l'utilisateur n'ait besoin d'appuyer sur quoi que se soit. Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'applique et permet de trier l'information affiche en tout temps pour permettre a l'utilisateur de trouver ce qu'il veut plus rapidement. De plus, nous avons respecte le plus possible le contenu de la norme \emph{ISO 9241-120} a \emph{ISO 9241-129}.
+
+\section{Ameliorations possibles}
+
+Quelques ameliorations possibles seraient d'utiliser les lois psychomotrices de Fitts et Miller pour optimiser l'interface. Nous pourrions ainsi optimiser les deplacements que l'utilisateur doit faire avec sa souris pour cliquer sur les boutons et les champs de saisies dans les fenetres. Mais, par faute de temps et de ressources humaines, il nous est donc impossible d'effectuer ces tests.
+
+\chapter{Demonstration du prototype dynamique en laboratoire}
+
+Une demonstration du prototype dynamique sera faite en laboratoire le XX decembre 2012.
+
+\chapter{Tests avec utilisateurs}
+
+\section{Methodologie}
+
+\section{Liste des taches}
+
+\begin{table}
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		no Tache	& Titre et description	& Elements que vous voulez verifier et hypotheses \\ \hline
+	\end{tabular}
+\end{table}
+
+\section{Liste des utilisateurs}
+
+\section{Resultats}
+
+\begin{table}
+	\centering
+	\begin{tabular}{|l|l|l|}
+	\hline
+	no Tache	& Points importants de l'observation de A	& Points importants de l'observation de B \\ \hline
+	\end{tabular}
+\end{table}
+
+\section{Discussion et recommandations}
+
+\begin{table}
+	\centering
+	\begin{tabular}{|l|l|l|}
+	\hline
+	no Tache	& Resume	& Recommandation \\ \hline
+	\end{tabular}
+\end{table}
+
+\chapter{Changements recommandes}
+
+\chapter{Conclusion}
+
+\end{document}
