@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.11.6)  23 NOV 2012 01:25
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.11.6)  24 NOV 2012 18:38
 entering extended mode
 **rapport.tex
 
@@ -830,39 +830,66 @@ Chapitre 4
 
 ]
 Chapitre 5
-
-Overfull \hbox (8.38812pt too wide) in paragraph at lines 99--104
- [][] 
- []
-
 [8
 
 ]
+Overfull \hbox (7.5489pt too wide) in paragraph at lines 87--124
+ [][] 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
 Chapitre 6
-[9
+[13
 
 ]
 Chapitre 7
-[10
+[14
 
 ]
 (C:\Users\Marc-Andre\Documents\GitHub\LOG350.TP3\WpfApplication2\Rapport\rappor
 t.aux) ) 
 Here is how much of TeX's memory you used:
- 8047 strings out of 494045
- 113151 string characters out of 3143151
- 194539 words of memory out of 3000000
- 11179 multiletter control sequences out of 15000+200000
- 24073 words of font info for 47 fonts, out of 3000000 for 9000
+ 8049 strings out of 494045
+ 113178 string characters out of 3143151
+ 204539 words of memory out of 3000000
+ 11181 multiletter control sequences out of 15000+200000
+ 25717 words of font info for 48 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 43i,8n,45p,795b,266s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,11n,45p,795b,337s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/Program Files (x86)/New folder/fonts/enc/dvips/fontname/8r.enc}<D:/
 Program Files (x86)/New folder/fonts/type1/urw/times/utmb8a.pfb><D:/Program Fil
 es (x86)/New folder/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files (x86)/Ne
 w folder/fonts/type1/urw/times/utmri8a.pfb>
-Output written on rapport.pdf (10 pages, 55858 bytes).
+Output written on rapport.pdf (14 pages, 60774 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
+ 61 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
