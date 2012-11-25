@@ -18,13 +18,12 @@
             private System.Data.SQLite.SQLiteConnection connection;
         }
 
-        private const long DeadlineIsNull = -2;
-        private const long DeadlineIsSelectedDate = -1;
-
         private System.Data.SQLite.SQLiteConnection connection;
-        private System.Data.SQLite.SQLiteDataAdapter TaskDataAdapter;
-        private System.Data.SQLite.SQLiteDataAdapter AlertsDataAdapter;
+        private System.Data.SQLite.SQLiteDataAdapter taskDataAdapter;
+        private System.Data.SQLite.SQLiteDataAdapter alertsDataAdapter;
+        private System.Data.SQLite.SQLiteDataAdapter subTasksDataAdapter;
         private System.Data.DataSet dataSet;
+        private System.Data.DataRow row;
 
         public System.Collections.ObjectModel.ObservableCollection<System.Tuple<long, string, System.Nullable<System.DateTime>>> PossibleDeadlines { get; private set; }
 
@@ -39,11 +38,10 @@
 
         private void FillDeadline(System.Data.DataRow row)
         {
-            if (!System.DBNull.Value.Equals(row["deadline_id"]))
+            if (!row.IsNull("deadline_id"))
             {
-                long deadlineID = (long)row["deadline_id"];
-                System.Nullable<System.DateTime> date = null;
-                System.Nullable<long> eventID = null;
+                long deadlineID = (long) row["deadline_id"];
+
                 using (var automatic = new AutomaticOpenClose(connection))
                 {
                     var command = new System.Data.SQLite.SQLiteCommand("SELECT deadlines.deadline, events.ID FROM deadlines LEFT JOIN events ON deadlines.ID=events.deadline_id WHERE deadlines.ID=@id", connection);
@@ -53,16 +51,18 @@
 
                     if (reader.Read())
                     {
-                        date = reader.GetDateTime(0);
-                        if (!reader.IsDBNull(1))
-                            eventID = reader.GetInt64(1);
+                        DeadlineDatePicker.SelectedDate = reader.GetDateTime(0);
+                        if (reader.IsDBNull(1))
+                        {
+                            DeadlineIsSelectedDateRadioButton.IsChecked = true;
+                        }
+                        else
+                        {
+                            DeadlineIsEventRadioButton.IsChecked = true;
+                            EventsComboBox.SelectedValue = reader.GetInt64(1);
+                        }
                     }
                 }
-
-                if (date.HasValue)
-                    DeadlineDatePicker.SelectedDate = date.Value;
-                if (eventID.HasValue)
-                    DeadlineEventComboBox.SelectedValue = eventID.Value;
             }
         }
 
@@ -85,7 +85,29 @@
             }
         }
 
-        private void SubTasksDataGrid_Initialized(object sender, System.EventArgs e)
+        private void FillPrioritiesComboBox()
+        {
+            var dataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT ID, name FROM priorities WHERE active=1", connection);
+            var dataSet = new System.Data.DataSet();
+            dataAdapter.Fill(dataSet, "priorities");
+
+            var previousValue = PriorityComboBox.SelectedValue;
+            PriorityComboBox.ItemsSource = dataSet.Tables["priorities"].DefaultView;
+            PriorityComboBox.SelectedValue = previousValue;
+        }
+
+        private void FillEventsComboBox()
+        {
+            var dataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT deadlines.ID, events.name, deadlines.deadline FROM events LEFT JOIN deadlines ON events.deadline_id=deadlines.ID WHERE deadlines.deadline>=date('now') ORDER BY events.name", connection);
+            var dataSet = new System.Data.DataSet();
+            dataAdapter.Fill(dataSet, "events");
+
+            var previousValue = EventsComboBox.SelectedValue;
+            EventsComboBox.ItemsSource = dataSet.Tables["events"].DefaultView;
+            EventsComboBox.SelectedValue = previousValue;
+        }
+
+        private void AlertsDataGrid_Initialized(object sender, System.EventArgs e)
         {
             // TODO: Delete all this code and replace it with a simple query when database is available.
 
@@ -97,22 +119,6 @@
             AlertsDataGrid.ItemsSource = dataTable.DefaultView;
         }
 
-        private void AlertsDataGrid_Initialized(object sender, System.EventArgs e)
-        {
-            // TODO: Delete all this code and replace it with a simple query when database is available.
-
-            var dataTable = new System.Data.DataTable("Priorities");
-            dataTable.Columns.Add(new System.Data.DataColumn("ID", typeof(int)));
-            dataTable.Columns.Add(new System.Data.DataColumn("child_id", typeof(int)));
-            dataTable.Columns.Add(new System.Data.DataColumn("name", typeof(string)));
-            dataTable.Columns.Add(new System.Data.DataColumn("deadline_id", typeof(int)));
-            dataTable.Columns.Add(new System.Data.DataColumn("priority_id", typeof(int)));
-            dataTable.Columns.Add(new System.Data.DataColumn("completion", typeof(double)));
-            dataTable.Columns.Add(new System.Data.DataColumn("description", typeof(string)));
-
-            AlertsDataGrid.ItemsSource = dataTable.DefaultView;
-        }
-
         private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             var builder = new System.Text.StringBuilder();
@@ -120,114 +126,110 @@
             foreach (string tag in Util.SplitTags(TagsTextBox.Text))
                 builder.AppendLine(tag);
 
-            System.Windows.MessageBox.Show(builder.ToString());
+            if (DeadlineIsSelectedDateRadioButton.IsChecked.Value)
+            {
+                using (AutomaticOpenClose aoc = new AutomaticOpenClose(connection))
+                {
+
+                    var command = new System.Data.SQLite.SQLiteCommand("INSERT INTO deadlines(deadline) VALUES(@deadline); SELECT last_insert_rowid()", connection);
+                    command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@deadline", DeadlineDatePicker.SelectedDate));
+                    var reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        row["deadline_id"] = reader.GetInt64(0);
+                    }
+                }
+            }
+            else if (DeadlineIsEventRadioButton.IsChecked.Value)
+            {
+                row["deadline_id"] = EventsComboBox.SelectedValue;
+            }
+            else
+            {
+                row["deadline_id"] = System.DBNull.Value;
+            }
+
+            taskDataAdapter.Update(dataSet, "task");
         }
 
-        private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void ContextualMenuAdd_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-        }
-
-        private void ContextualMenuModify_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-        }
-
-        private void ContextualMenuDelete_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void DeleteSubTaskMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
         {
         }
 
         private void PriorityComboBox_Initialized(object sender, System.EventArgs e)
         {
-            var connection = new System.Data.SQLite.SQLiteConnection("Data source=" + System.Environment.CurrentDirectory.ToString() + "\\ToDoAny.sqlite;Version=3;");
-            var dataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT ID, name FROM priorities", connection);
-            var dataSet = new System.Data.DataSet();
-            var commandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(dataAdapter);
-
-            dataAdapter.Fill(dataSet, "priorities");
-
-            PriorityComboBox.ItemsSource = dataSet.Tables["priorities"].DefaultView;
+            FillPrioritiesComboBox();
         }
 
-        private void PriorityComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void EventsComboBox_Initialized(object sender, System.EventArgs e)
         {
-            System.Windows.MessageBox.Show(PriorityComboBox.SelectedValue + " selected");
+            FillEventsComboBox();
         }
 
         private void Window_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            TaskDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks WHERE ID=1", connection);
-            AlertsDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks_alerts WHERE task_id=1", connection);
+            taskDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks WHERE ID=1", connection);
+            alertsDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks_alerts WHERE task_id=1", connection);
+            subTasksDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks WHERE child_of=1", connection);
 
             dataSet = new System.Data.DataSet();
 
-            var taskCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(TaskDataAdapter);
-            var alertsCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(AlertsDataAdapter);
+            var taskCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(taskDataAdapter);
+            var alertsCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(alertsDataAdapter);
+            var subTasksCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(subTasksDataAdapter);
 
-            TaskDataAdapter.Fill(dataSet, "task");
-            AlertsDataAdapter.Fill(dataSet, "alerts");
+            taskDataAdapter.Fill(dataSet, "task");
+            alertsDataAdapter.Fill(dataSet, "alerts");
+            subTasksDataAdapter.Fill(dataSet, "sub_tasks");
 
             var parentColumn = dataSet.Tables["task"].Columns["ID"];
-            var childColumn = dataSet.Tables["alerts"].Columns["task_id"];
-            var relation = new System.Data.DataRelation("task_alerts", parentColumn, childColumn);
-            dataSet.Relations.Add(relation);
 
-            table = dataSet.Tables["task"];
+            {
+                var childColumn = dataSet.Tables["alerts"].Columns["task_id"];
+                var relation = new System.Data.DataRelation("task_alerts", parentColumn, childColumn);
+                dataSet.Relations.Add(relation);
+            }
+            {
+                var childColumn = dataSet.Tables["sub_tasks"].Columns["child_of"];
+                var relation = new System.Data.DataRelation("task_sub_tasks", parentColumn, childColumn);
+                dataSet.Relations.Add(relation);
+            }
 
-            long id = (long)table.Rows[0]["ID"];
+            var table = dataSet.Tables["task"];
+            row = table.Rows[0];
 
-            FillDeadline(table.Rows[0]);
+
+            long id = (long) row["ID"];
+
+            FillDeadline(row);
             FillTags(id);
 
             TaskGrid.DataContext = table.DefaultView;
+            SubTasksDataGrid.ItemsSource = dataSet.Tables["sub_tasks"].DefaultView;
         }
 
-        private System.Data.DataTable table;
-
-        private void DeadlineEventComboBox_Initialized(object sender, System.EventArgs e)
+        private void PriorityHyperlink_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            DeadlineEventComboBox.DataContext = this;
-            PossibleDeadlines.Add(new System.Tuple<long, string, System.Nullable<System.DateTime>>(DeadlineIsNull, "Aucune", null));
-            PossibleDeadlines.Add(new System.Tuple<long, string, System.Nullable<System.DateTime>>(DeadlineIsSelectedDate, "Date précise", null));
+            System.Nullable<bool> prioritiesChanged = new Priority().ShowDialog();
 
-            using (AutomaticOpenClose aoc = new AutomaticOpenClose(connection))
-            {
-                var command = new System.Data.SQLite.SQLiteCommand("SELECT deadlines.ID, events.name, deadlines.deadline FROM events LEFT JOIN deadlines ON events.deadline_id=deadlines.ID WHERE deadlines.deadline>=date('now') ORDER BY events.name", connection);
-
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    var id = reader.GetInt64(0);
-                    var name = reader.GetString(1);
-                    System.Nullable<System.DateTime> date = null;
-
-                    if (!reader.IsDBNull(2))
-                        date = reader.GetDateTime(2);
-
-                    PossibleDeadlines.Add(new System.Tuple<long, string, System.Nullable<System.DateTime>>(id, name, date));
-                }
-            }
-
-            DeadlineEventComboBox.SelectedValue = (long)-2;
+            if (prioritiesChanged.HasValue && prioritiesChanged.Value)
+                FillPrioritiesComboBox();
         }
 
-        private void DeadlineEventComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            var tuple = (System.Tuple<long, string, System.Nullable<System.DateTime>>) DeadlineEventComboBox.SelectedItem;
+            Close();
+        }
 
-            if (tuple.Item1 == DeadlineIsSelectedDate)
-            {
-                DeadlineDatePicker.IsEnabled = true;
-            }
+        private void EventsComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            var row = EventsComboBox.SelectedItem as System.Data.DataRowView;
+
+            if (row != null)
+                DeadlineDatePicker.SelectedDate = (System.DateTime)row["deadline"];
             else
-            {
-                DeadlineDatePicker.IsEnabled = false;
-                DeadlineDatePicker.SelectedDate = tuple.Item3;
-            }
+                DeadlineDatePicker.SelectedDate = null;
         }
     }
 }

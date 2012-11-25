@@ -7,6 +7,7 @@ namespace WpfApplication2
         private System.Data.SQLite.SQLiteConnection connection;
         private System.Data.SQLite.SQLiteDataAdapter dataAdapter;
         private System.Data.DataSet dataSet;
+        private bool prioritiesUpdated = false;
 
         private System.Data.DataTable sourceDataTable;
         private System.Data.DataTable SourceDataTable
@@ -31,6 +32,7 @@ namespace WpfApplication2
         private void Save()
         {
             dataAdapter.Update(dataSet, "priorities");
+            prioritiesUpdated = true;
         }
 
         private void DataGrid_Initialized(object sender, System.EventArgs e)
@@ -50,11 +52,6 @@ namespace WpfApplication2
         private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Save();
-        }
-
-        private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Close();
         }
 
         private void DeleteMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -83,6 +80,9 @@ namespace WpfApplication2
                         break;
                 }
             }
+
+            if (prioritiesUpdated)
+                DialogResult = true;
         }
 
         private void Window_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
