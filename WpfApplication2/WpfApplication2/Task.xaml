@@ -2,75 +2,131 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="ToDo.Any - Tâche" Height="550" Width="650" Icon="Images/notebook.ico">
-    <Grid>
-        <Grid.Resources>
-            <x:Array Type="{x:Type MenuItem}" x:Key="genericContextMenuItems">
-                <MenuItem Header="Ajouter" Click="ContextualMenuAdd_Click" >
-                    <MenuItem.Icon>
-                        <Image Source="Images/add.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Modifier" Click="ContextualMenuModify_Click" >
-                    <MenuItem.Icon>
-                        <Image Source="Images/edit.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Supprimer" Click="ContextualMenuDelete_Click" >
-                    <MenuItem.Icon>
-                        <Image Source="Images/delete.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-            </x:Array>
-            <ContextMenu x:Key="genericContextMenu">
-                <ContextMenu.ItemsSource>
-                    <CompositeCollection>
-                        <CollectionContainer Collection="{StaticResource genericContextMenuItems}" />
-                    </CompositeCollection>
-                </ContextMenu.ItemsSource>
-            </ContextMenu>
-        </Grid.Resources>
+        Title="ToDo.Any - Tâche" Height="600" Width="650" Icon="Images/notebook.ico"
+        Loaded="Window_Loaded">
+
+    <Grid Name="TaskGrid" Margin="3" Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition Height="34" />
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Content="Nom:" />
-            <Label Grid.Row="1" Grid.Column="0" Content="Echéance:" />
-            <Label Grid.Row="2" Grid.Column="0" Content="Priorité:" />
-            <Label Grid.Row="3" Grid.Column="0" Content="Complétion:" />
-            <Label Grid.Row="4" Grid.Column="0" Content="Tags:" />
-            <Label Grid.Row="5" Grid.Column="0" Content="Description:" />
-            <TextBox Grid.Row="0" Grid.Column="1" Name="txtName" />
-            <DatePicker Grid.Row="1" Grid.Column="1" Name="dtpDueDate" />
-            <ComboBox Grid.Row="2" Grid.Column="1" Name="cbPriority" />
-            <ComboBox Grid.Row="3" Grid.Column="1" Name="cbCompletion" />
-            <TextBox Grid.Row="4" Grid.Column="1" Name="txtTags" />
-            <TextBox Grid.Row="5" Grid.Column="1" Name="txtDescription" />
-        </Grid>
-        <GroupBox Grid.Row="1" Header="Alertes">
-            <DataGrid Name="dgAlerts" ContextMenu="{StaticResource genericContextMenu}" Initialized="DataGridAlerts_Initialized" />
-        </GroupBox>
-        <GroupBox Grid.Row="2" Header="Sous-tâches">
-            <DataGrid Name="dgSubTasks" ContextMenu="{StaticResource genericContextMenu}" Initialized="DataGridSubTasks_Initialized" />
-        </GroupBox>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Name="btnSave" Margin="4" Content="Enregistrer" Click="SaveButton_Click" />
-            <Button Name="btnCancel" Margin="4" Content="Annuler" Click="CancelButton_Click"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Auto">
+            <Grid Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0">Nom:</Label>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=name}"></TextBox>
+
+                <Label Grid.Row="1" Grid.Column="0">Échéance:</Label>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Grid.Column="0" Name="DeadlineEventComboBox" ItemsSource="{Binding PossibleDeadlines}" SelectedValuePath="Item1" DisplayMemberPath="Item2"
+                              Initialized="DeadlineEventComboBox_Initialized" SelectionChanged="DeadlineEventComboBox_SelectionChanged"></ComboBox>
+                    <DatePicker Grid.Column="1" Name="DeadlineDatePicker" IsEnabled="{Binding SelectedValue, Source=DeadlineEventComboBox}"/>
+                </Grid>
+
+                <Label Grid.Row="2" Grid.Column="0">Priorité:</Label>
+                <ComboBox Name="PriorityComboBox" Grid.Row="2" Grid.Column="1"
+                          SelectedValue="{Binding Path=priority_id}"
+                          SelectedValuePath="ID"
+                          DisplayMemberPath="name"
+                          Initialized="PriorityComboBox_Initialized"></ComboBox>
+
+                <Label Grid.Row="3" Grid.Column="0">Complétion:</Label>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=completion}"></TextBox>
+
+                <Label Grid.Row="4" Grid.Column="0">Tags:</Label>
+                <TextBox Name="TagsTextBox" Grid.Row="4" Grid.Column="1"></TextBox>
+
+                <Label Grid.Row="5" Grid.Column="0">Description:</Label>
+                <TextBox Grid.Row="5" Grid.Column="1" AcceptsReturn="True" MinLines="5" TextWrapping="Wrap" Text="{Binding Path=description}"></TextBox>
+
+                <Expander Grid.Row="6" Grid.ColumnSpan="2" Header="Alertes" IsExpanded="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                        </Grid.RowDefinitions>
+                        <DataGrid Name="AlertsDataGrid" MinHeight="100" AutoGenerateColumns="False" SelectionMode="Single" Initialized="AlertsDataGrid_Initialized">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Width="SizeToHeader" Binding="{Binding Path=ID}" Visibility="Hidden" IsReadOnly="True"></DataGridTextColumn>
+                                <DataGridComboBoxColumn Header="Action" Width="SizeToHeader" SelectedItemBinding="{Binding Path=action}"></DataGridComboBoxColumn>
+                                <DataGridTextColumn Header="Quand" Width="SizeToHeader" Binding="{Binding Path=delta}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                            <DataGrid.Resources>
+                                <ContextMenu x:Key="DataRowContextMenu">
+                                    <MenuItem Header="Ajouter" Click="ContextualMenuAdd_Click">
+                                        <MenuItem.Icon>
+                                            <Image Source="Images/add.png"></Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Modifier" Click="ContextualMenuModify_Click">
+                                        <MenuItem.Icon>
+                                            <Image Source="Images/edit.png"></Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Supprimer" Click="ContextualMenuDelete_Click">
+                                        <MenuItem.Icon>
+                                            <Image Source="Images/delete.png"></Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </DataGrid.Resources>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="ContextMenu" Value="{StaticResource DataRowContextMenu}"></Setter>
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
+                        <GridSplitter Grid.Row="1" Height="25" ResizeDirection="Rows" HorizontalAlignment="Stretch" ResizeBehavior="PreviousAndCurrent"></GridSplitter>
+                    </Grid>
+                </Expander>
+                <Expander Grid.Row="7" Grid.ColumnSpan="2" Header="Sous-tâches" IsExpanded="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                        </Grid.RowDefinitions>
+                        <DataGrid Name="SubTasksDataGrid" MinHeight="100" AutoGenerateColumns="False" SelectionMode="Single" Initialized="SubTasksDataGrid_Initialized">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Width="SizeToHeader" Binding="{Binding Path=ID}" Visibility="Hidden" IsReadOnly="True"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Tâche parent" Width="SizeToHeader" Binding="{Binding Path=child_id}" Visibility="Hidden" IsReadOnly="True"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Nom" Width="SizeToHeader" Binding="{Binding Path=name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Échéance" Width="SizeToHeader" Binding="{Binding Path=deadline_id}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Priorité" Width="SizeToHeader" Binding="{Binding Path=priority_id}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Complétion" Width="SizeToHeader" Binding="{Binding Path=completion}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Description" Width="SizeToHeader" Binding="{Binding Path=description}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <GridSplitter Grid.Row="1" Height="25" ResizeDirection="Rows" HorizontalAlignment="Stretch" ResizeBehavior="PreviousAndCurrent"></GridSplitter>
+                    </Grid>
+                </Expander>
+            </Grid>
+        </ScrollViewer>
+        
+        <Button Grid.Row="1" Grid.Column="1" Padding="2" Margin="3" IsDefault="True" Click="SaveButton_Click">Enregistrer</Button>
+        <Button Grid.Row="2" Grid.Column="2" Padding="2" Margin="3" IsCancel="True" Click="CloseButton_Click">Fermer</Button>
     </Grid>
 </Window>
