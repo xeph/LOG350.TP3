@@ -51,9 +51,6 @@ Dans le present document, les tests qui seront effectue avec des utilisateurs se
 
 \chapter{Realisation du prototype dynamique}
 
-Un prototype dynamique de l'application est disponible a l'adresse suivante : \\
-\url{https://github.com/xeph/LOG350.TP3}.
-
 \section{Justification des choix de conception}
 
 Divers patrons de conception ont ete utilise pour parvenir a la conception de l'application que nous avons presentement. 
@@ -74,9 +71,14 @@ Quelques ameliorations possibles seraient d'utiliser les lois psychomotrices de 
 
 Une demonstration du prototype dynamique sera faite en laboratoire le XX decembre 2012.
 
+Un prototype dynamique de l'application est disponible a l'adresse suivante : \\
+\url{https://github.com/xeph/LOG350.TP3}.
+
 \chapter{Tests avec utilisateurs}
 
 \section{Methodologie}
+
+\newpage
 
 \section{Liste des taches}
 
@@ -152,7 +154,61 @@ Les caracteristiques principales des utilisateurs choisis sont la gestion de leu
 	15		& 0						\\ \hline
 	16		& 0						\\ \hline
 	\end{tabular}
-	\caption{Resultat de l'observation avec l'utilisateur X}
+	\caption{Resultat de l'observation avec l'utilisateur 1}
+\end{table}
+
+\newpage
+
+\begin{table}
+	\centering
+	\begin{tabular}{|c|l|l|}
+	\hline
+	no Tache	& Points importants de l'observation	 	\\ \hline
+	1		& 0						\\ \hline
+	2		& 0						\\ \hline
+	3		& 0						\\ \hline
+	4		& 0						\\ \hline
+	5		& 0						\\ \hline
+	6		& 0						\\ \hline
+	7		& 0						\\ \hline
+	8		& 0						\\ \hline
+	9		& 0						\\ \hline
+	10		& 0						\\ \hline
+	11		& 0						\\ \hline
+	12		& 0						\\ \hline
+	13		& 0						\\ \hline
+	14		& 0						\\ \hline
+	15		& 0						\\ \hline
+	16		& 0						\\ \hline
+	\end{tabular}
+	\caption{Resultat de l'observation avec l'utilisateur 2}
+\end{table}
+
+\newpage
+
+\begin{table}
+	\centering
+	\begin{tabular}{|c|l|l|}
+	\hline
+	no Tache	& Points importants de l'observation	 	\\ \hline
+	1		& 0						\\ \hline
+	2		& 0						\\ \hline
+	3		& 0						\\ \hline
+	4		& 0						\\ \hline
+	5		& 0						\\ \hline
+	6		& 0						\\ \hline
+	7		& 0						\\ \hline
+	8		& 0						\\ \hline
+	9		& 0						\\ \hline
+	10		& 0						\\ \hline
+	11		& 0						\\ \hline
+	12		& 0						\\ \hline
+	13		& 0						\\ \hline
+	14		& 0						\\ \hline
+	15		& 0						\\ \hline
+	16		& 0						\\ \hline
+	\end{tabular}
+	\caption{Resultat de l'observation avec l'utilisateur 3}
 \end{table}
 
 \newpage

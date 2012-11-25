@@ -10,6 +10,10 @@
 \contentsline {section}{\numberline {5.2}Liste des taches}{9}
 \contentsline {section}{\numberline {5.3}Liste des utilisateurs}{10}
 \contentsline {section}{\numberline {5.4}Resultats}{11}
-\contentsline {section}{\numberline {5.5}Discussion et recommandations}{12}
-\contentsline {chapter}{\numberline {\MakeUppercase {Chapitre\ 6}}\MakeUppercase {Changements recommandes}}{13}
-\contentsline {chapter}{\numberline {\MakeUppercase {Chapitre\ 7}}\MakeUppercase {Conclusion}}{14}
+\contentsline {section}{\numberline {5.5}Discussion et recommandations}{14}
+\contentsline {chapter}{\numberline {\MakeUppercase {Chapitre\ 6}}\MakeUppercase {Changements recommandes}}{15}
+\contentsline {chapter}{\numberline {\MakeUppercase {Chapitre\ 7}}\MakeUppercase {Conclusion}}{16}
+\setcounter {tocdepth}{0}
+\contentsline {chapter}{\numberline {\MakeUppercase {Annexe\ I}}\MakeUppercase {Formulaire de consentement des utilisateurs}}{17}
+\contentsline {chapter}{\numberline {\MakeUppercase {Annexe\ II}}\MakeUppercase {Document de pr\IeC {\'e}sentation du projet}}{20}
+\contentsline {chapter}{\numberline {\MakeUppercase {Annexe\ III}}\MakeUppercase {Travail Pratique 2}}{30}
