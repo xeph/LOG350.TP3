@@ -161,3 +161,17 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+#############
+## Latex
+#############
+
+# Ignore common LaTeX temporary files
+*.aux
+*.blg
+*.idx
+*.ind
+*.lof
+*.lot
+*.mpx
+*.toc
