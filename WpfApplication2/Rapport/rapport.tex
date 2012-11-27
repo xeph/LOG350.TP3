@@ -23,6 +23,17 @@
 \listoftables
 \listoffigures
 
+\chapter{Glossaire}
+
+\begin{description}
+\item[C\#] est un langage de programmation orienté objet à typage fort, créé par la société Microsoft. \footnote{\url{https://fr.wikipedia.org/wiki/C_sharp}}
+\item[Windows Presentation Foundation] est la spécification graphique de Microsoft .NET 3.0. Il intègre le langage descriptif XAML qui permet de l'utiliser d'une manière proche d'une page HTML pour les développeurs. \footnote{\url{https://fr.wikipedia.org/wiki/Windows_Presentation_Foundation}}
+\item[WinForms] est le nom de l'interface graphique qui est incluse dans .NET Framework, fournissant l'accès via du Managed code à l'API Windows. \footnote{\url{https://fr.wikipedia.org/wiki/Windows_Forms}}
+\item[framework] est un kit de composants logiciels structurels, qui sert à créer les fondations ainsi que les grandes lignes de tout ou d’une partie d'un logiciel (architecture). \footnote{\url{https://fr.wikipedia.org/wiki/Framework}}
+\item[.NET 4.5] est un framework pouvant être utilisé par un système d'exploitation Microsoft Windows et Microsoft Windows Mobile depuis la version 5 (.NET Compact Framework). \footnote{\url{https://fr.wikipedia.org/wiki/Framework_.NET}}
+\item[SQLite] est une bibliothèque écrite en C qui propose un moteur de base de données relationnelle accessible par le langage SQL.\footnote{\url{https://fr.wikipedia.org/wiki/SQLite}}
+\end{description}
+
 \chapter{Introduction et sommaire du travail effectue en TP2}
 
 L'application permet la gestion simple de taches et d'evenements tout en offrant des fonctionnalites de gestion et de classification avancees. Parmi celles-ci, notons la possibilite de definir des rappels, de categoriser les elements, de definir un evenement comme echeance d'une tache ou encore de definir des sous-taches a une tache imposante.
@@ -64,6 +75,56 @@ Dans le present document, les tests qui seront effectue avec des utilisateurs se
 
 \chapter{Realisation du prototype dynamique}
 
+Dans la section suivante, nous vous présenterons notre prototype dynamique et donc, avant d'entreprendre la lecture de cette section, nous vous conseillons de lire le document se trouvant a l'annexe III. Ce document contient les informations concernant le prototype statique et toute la logique derriere le prototype dynamique.
+
+\section{Choix des outils}
+
+Pour realiser le prototype dynamique, nous avons decide d'utiliser le C\# et le Windows Presentation Foundation (WPF) comme langages de programmation. Nous avons choisi ces langages tout simplement parce que ceci nous permet de séparer le code des interfaces et que le WPF va ultimement remplacer WinForms. 
+
+Comme environnement de developpement, nous utilisons Visual Studio 2012 avec le framework .NET 4.5 pour faciliter et accelerer notre developpement. Ce framework nous donne des composantes graphiques de base qui nous simplifie la vie en nous permettant d'economiser du temps pour ne pas a avoir a developper des composants de base comme un TextBox ou un Label, par exemple.
+
+De plus, comme base de donnees, nous utilisons SQLite parce que cela nous permet d'avoir un endroit pour stocker nos donnees de facon structure et le tout dans un seul et unique fichier.
+
+Pour assurer la gestion des versions, nous utilisons un logiciel connu sous le nom de Git. Ce logiciel s'occupe de faire la gestion des versions de chaque fichier du projet.
+
+Pour la production de la documentation, nous utilisons le processeur de texte \LaTeX.
+
+\newpage
+
+\section{Captures d'ecran}
+
+\subsection{Fenetre principale}
+
+\newpage
+
+\subsection{Evenement}
+
+\newpage
+
+\subsection{Tache}
+
+C'est a partir de cet ecran que l'utilisateur peut modifier ou creer une tache. A partir de cet ecran, l'utilisateur peut aussi faire la gestion des alertes et des sous-taches appartenant a la tache parent. A la page 19 du document a l'annexe III, il y a de plus ample informations concernant cette fenetre.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{fenetre_tache.png}
+	\caption{Fenetre concernant une tache.}
+\end{figure}
+
+\newpage
+
+\subsection{Priorites}
+
+C'est a partir de cet ecran que l'utilisateur peut faire la gestion des diverses priorites disponibles dans l'application. A la page 22 du document a l'annexe III, il y a de plus ample informations concernant cette fenetre.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{fenetre_priorite.png}
+	\caption{Fenetre concernant les priorites.}
+\end{figure}
+
+\newpage
+
 \section{Justification des choix de conception}
 
 Divers patrons de conception ont ete utilise pour parvenir a la conception de l'application que nous avons presentement. 
@@ -76,16 +137,26 @@ Ensuite, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} 
 
 De plus, nous avons respecte le plus possible le contenu de la norme \emph{ISO 9241-120} a \emph{ISO 9241-129} qui traite sur les interactions sur les entrees et sorties.
 
+Quelques changements on ete effectue entre le prototype statique et dynamique. Parmi ces changements, on compte les options possibles pour une echeance dans la fenetre sur les taches. Ce changement a ete fait a cause de limitations logiciels et par faute de temps. Il est a noter que ces changements n'influence en aucun cas l'efficacite de l'application.
+
 \section{Ameliorations possibles}
 
 Quelques ameliorations possibles seraient d'utiliser les lois psychomotrices de Fitts et Miller pour optimiser l'interface. Nous pourrions ainsi optimiser les deplacements que l'utilisateur doit faire avec sa souris pour cliquer sur les boutons et les champs de saisies dans les fenetres. Mais, par faute de temps et de ressources humaines, il nous est donc impossible d'effectuer ces tests.
 
 \chapter{Demonstration du prototype dynamique en laboratoire}
 
-Une demonstration du prototype dynamique sera faite en laboratoire le XX decembre 2012.
-
-Un prototype dynamique de l'application est disponible a l'adresse suivante : 
+Un prototype dynamique de l'application est disponible a l'adresse suivante : \\
 \url{https://github.com/xeph/LOG350.TP3}.
+
+évaluation du prototype en laboratoire  : le 4 décembre 2012 au laboratoire (pour les 2 groupes).
+
+exposé oral  : le 6 décembre 2012 dans un local à définir (pour les 2 groupes).
+
+remise du code final : le 11 décembre 2012 à 23h59 maximum par courriel à log350a2012@gmail.com.
+
+remise du rapport :  le 11 décembre 2012 à 23h59 maximum en version papier dans la chute du département.
+
+remise de la présentation de l’éxposé oral : le 6 décembre 2012 à 23h59 maximum par courriel à log350a2012@gmail.com .
 
 \chapter{Tests avec utilisateurs}
 
@@ -256,7 +327,32 @@ Les caracteristiques principales des utilisateurs choisis sont la gestion de leu
 	15		& 0		& 0 			\\ \hline
 	16		& 0		& 0 			\\ \hline
 	\end{tabular}
-	\caption{Recommandations}
+	\caption{Recommandations par les observateurs}
+\end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{|l|l|l|}
+	\hline
+	no Tache	& Resume	& Recommandation 	\\ \hline
+	1		& 0		& 0 			\\ \hline
+	2		& 0		& 0 			\\ \hline
+	3		& 0		& 0 			\\ \hline
+	4		& 0		& 0 			\\ \hline
+	5		& 0		& 0 			\\ \hline
+	6		& 0		& 0 			\\ \hline
+	7		& 0		& 0 			\\ \hline
+	8		& 0		& 0 			\\ \hline
+	9		& 0		& 0 			\\ \hline
+	10		& 0		& 0 			\\ \hline
+	11		& 0		& 0 			\\ \hline
+	12		& 0		& 0 			\\ \hline
+	13		& 0		& 0 			\\ \hline
+	14		& 0		& 0 			\\ \hline
+	15		& 0		& 0 			\\ \hline
+	16		& 0		& 0 			\\ \hline
+	\end{tabular}
+	\caption{Recommandations par les utilisateurs}
 \end{table}
 
 \chapter{Changements recommandes}
