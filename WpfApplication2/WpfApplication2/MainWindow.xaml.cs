@@ -19,6 +19,7 @@ namespace WpfApplication2
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
+            
             tabmain.Content = new Search();
         }
 
@@ -36,9 +37,9 @@ namespace WpfApplication2
 
         public void AddNewTab()
         {
-            TabItem newTab = new TabItem();
+            CloseableTab newTab = new CloseableTab();
             newTab.Content = new Search();
-            newTab.Header = "new search";
+            newTab.Title = "new search";
 
             tabcontrol.Items.Insert(tabcontrol.Items.Count - 1, newTab);
             tabcontrol.SelectedIndex = tabcontrol.Items.Count-2;

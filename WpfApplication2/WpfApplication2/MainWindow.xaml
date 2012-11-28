@@ -1,17 +1,18 @@
 ﻿<Window x:Class="WpfApplication2.MainWindow"
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:my="clr-namespace:WpfApplication2"
 Title="ToDo.Any" Height="550" Width="700" Icon="Images/notebook.ico">
     <Grid>
-        <TabControl x:Name="tabcontrol" Margin="5" SelectedIndex="0">
+        <TabControl Name="tabcontrol" Margin="5">
             <!--<TabControl.LayoutTransform>
                 <ScaleTransform CenterX="0"
                     CenterY="0"
                     ScaleX="{Binding ElementName=uiScaleSlider,Path=Value}"
                     ScaleY="{Binding ElementName=uiScaleSlider,Path=Value}"/>
             </TabControl.LayoutTransform>-->
-            <TabItem Header="Main" Name="tabmain"></TabItem>
-            <TabItem Header="+" MouseUp="newtab_MouseDown_1" Name="tabadd"></TabItem>
+            <my:CloseableTab Title="Main" x:Name="tabmain"></my:CloseableTab>
+            <TabItem Header="+" MouseUp="newtab_MouseDown_1" x:Name="tabadd"></TabItem>
         </TabControl>
     </Grid>
 </Window>
