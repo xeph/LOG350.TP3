@@ -29,9 +29,12 @@ namespace WpfApplication2
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Task taskWindow = new Task();
-            taskWindow.ShowDialog();
-            taskWindow.Close();
+            System.Nullable<bool> taskChanged = new Task(1).ShowDialog();
+
+            if (taskChanged.HasValue && taskChanged.Value)
+            {
+                // Update the view since something changed in the selected task
+            }
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
