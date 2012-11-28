@@ -172,50 +172,17 @@
                         }
                     }
                 }
-
-                /*
-                var columnsNames = new System.Text.StringBuilder();
-
-                while (reader.Read())
-                    columnsNames.AppendFormat("ID:{0}\tTaskID:{1}\tTagID:{2}\tTagName:{3}\n", reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3));
-
-                System.Windows.MessageBox.Show(columnsNames.ToString());
-                */
-                /*
-                var currentTags = new System.Collections.Generic.List<string>(Util.SplitTags(TagsTextBox.Text));
-                var existingTags = new System.Collections.Generic.List<System.Tuple<long, string>>();
-                var whereInTuple = Util.SqlParametersList(currentTags);
-
-                // Delete all tags not in the current tags
-                {
-                    var command = new System.Data.SQLite.SQLiteCommand("DELETE FROM tasks_tags WHERE task_id=@id AND tag_id NOT IN(SELECT ID FROM tags WHERE name IN(" + whereInTuple.Item1 + "))", connection);
-                    
-                    command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@id", id));
-                    foreach (var parameter in whereInTuple.Item2)
-                        command.Parameters.Add(parameter);
-
-                    command.ExecuteNonQuery();
-                }
-
-                // Query for ID of current tags
-                if (currentTags.Count != 0)
-                {
-                    var command = new System.Data.SQLite.SQLiteCommand("SELECT ID, name FROM tags WHERE name IN(" + whereInTuple.Item1 + ")", connection);
-
-                    foreach (var parameter in whereInTuple.Item2)
-                        command.Parameters.Add(parameter);
-
-                    var reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                        existingTags.Add(new System.Tuple<long, string>(reader.GetInt64(0), reader.GetString(1)));
-                }
-
-                // Add current tags not in existing tags
-                {
-                    currentTags.remov
-                }*/
             }
+
+            // --------------------------------------------------
+            // Sub-Tasks
+            foreach (System.Data.DataRow row in dataSet.Tables["sub_tasks"].Rows)
+            {
+                if (row.RowState == System.Data.DataRowState.Added)
+                    row["child_of"] = id;
+            }
+
+            subTasksDataAdapter.Update(dataSet, "sub_tasks");
         }
 
         private void FillDeadline(System.Data.DataRow row)
@@ -308,6 +275,7 @@
 
         private void DeleteSubTaskMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            ((System.Data.DataRowView)SubTasksDataGrid.SelectedItem).Delete();
         }
 
         private void PriorityComboBox_Initialized(object sender, System.EventArgs e)
@@ -324,7 +292,7 @@
         {
             taskDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks WHERE ID=" + id, connection);
             alertsDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks_alerts WHERE task_id=" + id, connection);
-            subTasksDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks WHERE child_of=" + id, connection);
+            subTasksDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT ID, child_of, name FROM tasks WHERE child_of=" + id, connection);
 
             dataSet = new System.Data.DataSet();
 
@@ -367,7 +335,7 @@
                 FillPrioritiesComboBox();
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Close();
         }
@@ -380,6 +348,24 @@
                 DeadlineDatePicker.SelectedDate = (System.DateTime)row["deadline"];
             else
                 DeadlineDatePicker.SelectedDate = null;
+        }
+
+        private void SubTasksDataGrid_MouseDoubleClick_1(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var dataRowView = ((System.Windows.Controls.DataGridRow)sender).Item as System.Data.DataRowView;
+            if (dataRowView != null)
+            {
+                var dataRow = dataRowView.Row;
+                if (!dataRow.IsNull("ID"))
+                {
+                    System.Nullable<bool> taskChanged = new Task((long)dataRow["ID"]).ShowDialog();
+
+                    if (taskChanged.HasValue && taskChanged.Value)
+                    {
+                        // Update the view since something changed in the selected task
+                    }
+                }
+            }
         }
     }
 }
