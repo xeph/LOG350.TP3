@@ -70,6 +70,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Resources\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -98,6 +100,9 @@
     <Compile Include="Task.xaml.cs">
       <DependentUpon>Task.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Page Include="Events.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Task.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,7 +175,6 @@
     <Resource Include="Images\notebook.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ChromeTabs.dll" />
     <Content Include="Microsoft.Windows.Shell.dll" />
   </ItemGroup>
   <ItemGroup>

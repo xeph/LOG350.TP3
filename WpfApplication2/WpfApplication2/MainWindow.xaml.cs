@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Documents;
+using System.IO;
+using System.Windows.Markup;
+using System.Windows.Controls;
 
 namespace WpfApplication2
 {
     public partial class MainWindow
     {
 
-        private int newTabNumber;
         Database.SQLite DB = new Database.SQLite(StaticPath.DBPath);
 
         public MainWindow()
@@ -17,7 +19,7 @@ namespace WpfApplication2
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
-            this.newTabNumber = 1;
+            tabmain.Content = new Search();
         }
 
         void MainWindow_Closing(object sender, CancelEventArgs e)
@@ -27,36 +29,18 @@ namespace WpfApplication2
             this.DB.closeConnection();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void newtab_MouseDown_1(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            System.Nullable<bool> taskChanged = new Task(1).ShowDialog();
-
-            if (taskChanged.HasValue && taskChanged.Value)
-            {
-                // Update the view since something changed in the selected task
-            }
+            AddNewTab();
         }
 
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        public void AddNewTab()
         {
-            Priority priorityWindow = new Priority();
-            priorityWindow.ShowDialog();
-            priorityWindow.Close();
-        }
-
-        private void ContextualMenuAdd_Click(object sender, RoutedEventArgs e)
-        {
-            System.Console.WriteLine("CONTEXTUAL MENU ADD CLICKED");
-        }
-
-        private void ContextualMenuModify_Click(object sender, RoutedEventArgs e)
-        {
-            System.Console.WriteLine("CONTEXTUAL MENU MODIFY CLICKED");
-        }
-
-        private void ContextualMenuDelete_Click(object sender, RoutedEventArgs e)
-        {
-            System.Console.WriteLine("CONTEXTUAL MENU DELETE CLICKED");
+            TabItem test = new TabItem();
+            test.Content = new Search();
+            test.Header = "new search";
+            
+            tabcontrol.Items.Add(test);
         }
     }
 }
