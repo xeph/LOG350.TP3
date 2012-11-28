@@ -21,7 +21,7 @@ namespace WpfApplication2
         }
 
         private System.Data.SQLite.SQLiteConnection connection;
-        private System.Data.SQLite.SQLiteDataAdapter taskDataAdapter;
+        private System.Data.SQLite.SQLiteDataAdapter eventDataAdapter;
         private System.Data.SQLite.SQLiteDataAdapter alertsDataAdapter;
         private System.Data.DataSet dataSet;
         private System.Data.DataRow row;
@@ -64,7 +64,7 @@ namespace WpfApplication2
                 }
             }
 
-            taskDataAdapter.Update(dataSet, "event");
+            eventDataAdapter.Update(dataSet, "event");
 
             // --------------------------------------------------
             // Tags
@@ -114,16 +114,16 @@ namespace WpfApplication2
 
                 // delete all old tasks_tags not need for new tags
                 {
-                    var oldTasksTagsIDs = new System.Collections.Generic.List<long>();
+                    var oldEventsTagsIDs = new System.Collections.Generic.List<long>();
                     foreach (var tuple in rows)
                     {
                         if (tuple.Item1.HasValue)
-                            oldTasksTagsIDs.Add(tuple.Item1.Value);
+                            oldEventsTagsIDs.Add(tuple.Item1.Value);
                     }
 
-                    if (oldTasksTagsIDs.Count != 0)
+                    if (oldEventsTagsIDs.Count != 0)
                     {
-                        var whereInTuple2 = Util.SqlParametersList(oldTasksTagsIDs);
+                        var whereInTuple2 = Util.SqlParametersList(oldEventsTagsIDs);
                         var command = new System.Data.SQLite.SQLiteCommand("DELETE FROM events_tags WHERE event_id=@id AND ID NOT IN(" + whereInTuple2.Item1 + ")", connection);
 
                         command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@id", id));
@@ -140,7 +140,7 @@ namespace WpfApplication2
                     if (!tuple.Item1.HasValue && tuple.Item3.HasValue)
                     {
                         var tagID = tuple.Item3.Value;
-                        long newTasksTagsID = Util.InsertInto(connection, "events_tags", System.Tuple.Create("event_id", id), System.Tuple.Create("tag_id", tagID));
+                        long newEventsTagsID = Util.InsertInto(connection, "events_tags", System.Tuple.Create("event_id", id), System.Tuple.Create("tag_id", tagID));
                     }
                 }
 
@@ -232,15 +232,15 @@ namespace WpfApplication2
 
         private void Window_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            taskDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM events WHERE ID=" + id, connection);
+            eventDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM events WHERE ID=" + id, connection);
             alertsDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM events_alerts WHERE event_id=" + id, connection);
 
             dataSet = new System.Data.DataSet();
 
-            var taskCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(taskDataAdapter);
+            var eventCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(eventDataAdapter);
             var alertsCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(alertsDataAdapter);
 
-            taskDataAdapter.Fill(dataSet, "event");
+            eventDataAdapter.Fill(dataSet, "event");
             alertsDataAdapter.Fill(dataSet, "alerts");
 
             var parentColumn = dataSet.Tables["event"].Columns["ID"];
