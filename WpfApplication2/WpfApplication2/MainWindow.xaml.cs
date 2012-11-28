@@ -36,11 +36,12 @@ namespace WpfApplication2
 
         public void AddNewTab()
         {
-            TabItem test = new TabItem();
-            test.Content = new Search();
-            test.Header = "new search";
-            
-            tabcontrol.Items.Add(test);
+            TabItem newTab = new TabItem();
+            newTab.Content = new Search();
+            newTab.Header = "new search";
+
+            tabcontrol.Items.Insert(tabcontrol.Items.Count - 1, newTab);
+            tabcontrol.SelectedIndex = tabcontrol.Items.Count-2;
         }
     }
 }

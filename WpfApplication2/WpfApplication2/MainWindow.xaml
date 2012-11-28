@@ -11,7 +11,7 @@ Title="ToDo.Any" Height="550" Width="700" Icon="Images/notebook.ico">
                     ScaleY="{Binding ElementName=uiScaleSlider,Path=Value}"/>
             </TabControl.LayoutTransform>-->
             <TabItem Header="Main" Name="tabmain"></TabItem>
-            <TabItem Header="+" MouseUp="newtab_MouseDown_1" x:Name="newtab"></TabItem>
+            <TabItem Header="+" MouseUp="newtab_MouseDown_1" Name="tabadd"></TabItem>
         </TabControl>
     </Grid>
 </Window>
