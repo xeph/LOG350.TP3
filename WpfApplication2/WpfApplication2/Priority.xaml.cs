@@ -63,14 +63,7 @@ namespace WpfApplication2
         {
             if (SourceDataTable.GetChanges() != null)
             {
-                var result = System.Windows.MessageBox.Show(this,
-                    "Voulez-vous enregistrer vos modifications?",
-                    "Modifications non-enregistrées",
-                    System.Windows.MessageBoxButton.YesNoCancel,
-                    System.Windows.MessageBoxImage.None,
-                    System.Windows.MessageBoxResult.Yes);
-
-                switch (result)
+                switch (Util.AskToSaveModification(this))
                 {
                     case System.Windows.MessageBoxResult.Yes:
                         Save();

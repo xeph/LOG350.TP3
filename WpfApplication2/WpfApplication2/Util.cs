@@ -105,5 +105,15 @@
 
             return 0;
         }
+
+        public static System.Windows.MessageBoxResult AskToSaveModification(System.Windows.Window window)
+        {
+            return System.Windows.MessageBox.Show(window,
+                    "Voulez-vous enregistrer vos modifications?",
+                    "Modifications non-enregistrées",
+                    System.Windows.MessageBoxButton.YesNoCancel,
+                    System.Windows.MessageBoxImage.None,
+                    System.Windows.MessageBoxResult.Yes);
+        }
     }
 }

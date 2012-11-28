@@ -26,7 +26,20 @@
         private System.Data.DataRow row;
         private long id;
 
-        public System.Collections.ObjectModel.ObservableCollection<System.Tuple<long, string, System.Nullable<System.DateTime>>> PossibleDeadlines { get; private set; }
+
+        public static readonly System.Windows.DependencyProperty IsDirtyProperty = System.Windows.DependencyProperty.Register("IsDirty", typeof(bool), typeof(Task));
+        private bool IsDirty
+        {
+            get
+            {
+                return (bool)GetValue(IsDirtyProperty);
+            }
+            set
+            {
+                SetValue(IsDirtyProperty, value);
+            }
+        }
+        private bool IsLoading = false;
 
         public Task() : this(1)
         {
@@ -34,12 +47,60 @@
 
         public Task(long id)
         {
+            IsDirty = false;
             this.id = id;
-            PossibleDeadlines = new System.Collections.ObjectModel.ObservableCollection<System.Tuple<long, string, System.Nullable<System.DateTime>>>();
             connection = new System.Data.SQLite.SQLiteConnection("Data source=" + System.Environment.CurrentDirectory.ToString() + "\\ToDoAny.sqlite;Version=3;");
 
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
+
+            IsLoading = true;
             InitializeComponent();
+            LoadData();
+            IsLoading = false;
+        }
+
+        private void LoadData()
+        {
+            taskDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks WHERE ID=" + id, connection);
+            alertsDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks_alerts WHERE task_id=" + id, connection);
+            subTasksDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT ID, child_of, name FROM tasks WHERE child_of=" + id, connection);
+
+            dataSet = new System.Data.DataSet();
+
+            var taskCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(taskDataAdapter);
+            var alertsCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(alertsDataAdapter);
+            var subTasksCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(subTasksDataAdapter);
+
+            taskDataAdapter.Fill(dataSet, "task");
+            alertsDataAdapter.Fill(dataSet, "alerts");
+            subTasksDataAdapter.Fill(dataSet, "sub_tasks");
+
+            var parentColumn = dataSet.Tables["task"].Columns["ID"];
+
+            {
+                var childColumn = dataSet.Tables["alerts"].Columns["task_id"];
+                var relation = new System.Data.DataRelation("task_alerts", parentColumn, childColumn);
+                dataSet.Relations.Add(relation);
+            }
+            {
+                var childColumn = dataSet.Tables["sub_tasks"].Columns["child_of"];
+                var relation = new System.Data.DataRelation("task_sub_tasks", parentColumn, childColumn);
+                dataSet.Relations.Add(relation);
+            }
+
+            var table = dataSet.Tables["task"];
+            row = dataSet.Tables["task"].Rows[0];
+            dataSet.Tables["task"].RowChanged += table_RowChanged;
+            dataSet.Tables["sub_tasks"].RowChanged += table_RowChanged;
+            dataSet.Tables["sub_tasks"].RowDeleted += table_RowDeleted;
+            dataSet.Tables["sub_tasks"].TableNewRow += table_TableNewRow;
+
+            FillPrioritiesComboBox();
+            FillDeadline(row);
+            FillTags(id);
+
+            TaskGrid.DataContext = dataSet.Tables["task"].DefaultView;
+            SubTasksDataGrid.ItemsSource = dataSet.Tables["sub_tasks"].DefaultView;
         }
 
         private void Save()
@@ -127,17 +188,14 @@
                             oldTasksTagsIDs.Add(tuple.Item1.Value);
                     }
 
-                    if (oldTasksTagsIDs.Count != 0)
-                    {
-                        var whereInTuple2 = Util.SqlParametersList(oldTasksTagsIDs);
-                        var command = new System.Data.SQLite.SQLiteCommand("DELETE FROM tasks_tags WHERE task_id=@id AND ID NOT IN(" + whereInTuple2.Item1 + ")", connection);
+                    var whereInTuple2 = Util.SqlParametersList(oldTasksTagsIDs);
+                    var command = new System.Data.SQLite.SQLiteCommand("DELETE FROM tasks_tags WHERE task_id=@id AND ID NOT IN(" + whereInTuple2.Item1 + ")", connection);
 
-                        command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@id", id));
-                        foreach (var parameter in whereInTuple2.Item2)
-                            command.Parameters.Add(parameter);
+                    command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@id", id));
+                    foreach (var parameter in whereInTuple2.Item2)
+                        command.Parameters.Add(parameter);
 
-                        command.ExecuteNonQuery();
-                    }
+                    command.ExecuteNonQuery();
                 }
 
                 // link existing new tags
@@ -183,10 +241,16 @@
             }
 
             subTasksDataAdapter.Update(dataSet, "sub_tasks");
+
+            // --------------------------------------------------
+            // Clean state
+            IsDirty = false;
         }
 
         private void FillDeadline(System.Data.DataRow row)
         {
+            FillEventsComboBox();
+
             if (!row.IsNull("deadline_id"))
             {
                 long deadlineID = (long) row["deadline_id"];
@@ -263,7 +327,7 @@
             var dataTable = new System.Data.DataTable("Priorities");
             dataTable.Columns.Add(new System.Data.DataColumn("ID", typeof(int)));
             dataTable.Columns.Add(new System.Data.DataColumn("action", typeof(int)));
-            dataTable.Columns.Add(new System.Data.DataColumn("delta", typeof(string)));
+            dataTable.Columns.Add(new System.Data.DataColumn("delta", typeof(int)));
 
             AlertsDataGrid.ItemsSource = dataTable.DefaultView;
         }
@@ -278,53 +342,22 @@
             ((System.Data.DataRowView)SubTasksDataGrid.SelectedItem).Delete();
         }
 
-        private void PriorityComboBox_Initialized(object sender, System.EventArgs e)
+        private void table_RowChanged(object sender, System.Data.DataRowChangeEventArgs e)
         {
-            FillPrioritiesComboBox();
+            if (!IsLoading)
+                IsDirty = true;
         }
 
-        private void EventsComboBox_Initialized(object sender, System.EventArgs e)
+        private void table_RowDeleted(object sender, System.Data.DataRowChangeEventArgs e)
         {
-            FillEventsComboBox();
+            if (!IsLoading)
+                IsDirty = true;
         }
 
-        private void Window_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void table_TableNewRow(object sender, System.Data.DataTableNewRowEventArgs e)
         {
-            taskDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks WHERE ID=" + id, connection);
-            alertsDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM tasks_alerts WHERE task_id=" + id, connection);
-            subTasksDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT ID, child_of, name FROM tasks WHERE child_of=" + id, connection);
-
-            dataSet = new System.Data.DataSet();
-
-            var taskCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(taskDataAdapter);
-            var alertsCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(alertsDataAdapter);
-            var subTasksCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(subTasksDataAdapter);
-
-            taskDataAdapter.Fill(dataSet, "task");
-            alertsDataAdapter.Fill(dataSet, "alerts");
-            subTasksDataAdapter.Fill(dataSet, "sub_tasks");
-
-            var parentColumn = dataSet.Tables["task"].Columns["ID"];
-
-            {
-                var childColumn = dataSet.Tables["alerts"].Columns["task_id"];
-                var relation = new System.Data.DataRelation("task_alerts", parentColumn, childColumn);
-                dataSet.Relations.Add(relation);
-            }
-            {
-                var childColumn = dataSet.Tables["sub_tasks"].Columns["child_of"];
-                var relation = new System.Data.DataRelation("task_sub_tasks", parentColumn, childColumn);
-                dataSet.Relations.Add(relation);
-            }
-
-            var table = dataSet.Tables["task"];
-            row = table.Rows[0];
-
-            FillDeadline(row);
-            FillTags(id);
-
-            TaskGrid.DataContext = table.DefaultView;
-            SubTasksDataGrid.ItemsSource = dataSet.Tables["sub_tasks"].DefaultView;
+            if (!IsLoading)
+                IsDirty = true;
         }
 
         private void PriorityHyperlink_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -342,10 +375,13 @@
 
         private void EventsComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            var row = EventsComboBox.SelectedItem as System.Data.DataRowView;
+            if (!IsLoading)
+                IsDirty = true;
 
-            if (row != null)
-                DeadlineDatePicker.SelectedDate = (System.DateTime)row["deadline"];
+            var dataRowView = EventsComboBox.SelectedItem as System.Data.DataRowView;
+
+            if (dataRowView != null)
+                DeadlineDatePicker.SelectedDate = (System.DateTime)dataRowView["deadline"];
             else
                 DeadlineDatePicker.SelectedDate = null;
         }
@@ -366,6 +402,47 @@
                     }
                 }
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (IsDirty)
+            {
+                switch (Util.AskToSaveModification(this))
+                {
+                    case System.Windows.MessageBoxResult.Yes:
+                        Save();
+                        break;
+                    case System.Windows.MessageBoxResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
+
+            /*
+            if (prioritiesUpdated)
+                DialogResult = true;
+            */
+        }
+
+        private void RadioButton_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (!IsLoading)
+            {
+                IsDirty = true;
+            }
+        }
+
+        private void DeadlineDatePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (!IsLoading)
+                IsDirty = true;
+        }
+
+        private void TagsTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (!IsLoading)
+                IsDirty = true;
         }
     }
 }
