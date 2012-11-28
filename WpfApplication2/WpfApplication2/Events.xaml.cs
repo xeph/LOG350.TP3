@@ -1,6 +1,4 @@
-﻿// BUG : SUPPRESSION D'UN SEUL TAG EXISTANT NE FONCTIONNE PAS, bug supposement regler, il ne reste qu'a l'implementer dans le code
-
-namespace WpfApplication2
+﻿namespace WpfApplication2
 {
     public partial class Events : System.Windows.Window
     {
@@ -21,26 +19,75 @@ namespace WpfApplication2
         }
 
         private System.Data.SQLite.SQLiteConnection connection;
-        private System.Data.SQLite.SQLiteDataAdapter eventDataAdapter;
+        private System.Data.SQLite.SQLiteDataAdapter taskDataAdapter;
         private System.Data.SQLite.SQLiteDataAdapter alertsDataAdapter;
         private System.Data.DataSet dataSet;
         private System.Data.DataRow row;
         private long id;
 
-        public System.Collections.ObjectModel.ObservableCollection<System.Tuple<long, string, System.Nullable<System.DateTime>>> PossibleDeadlines { get; private set; }
 
-        public Events() : this(1)
+        public static readonly System.Windows.DependencyProperty IsDirtyProperty = System.Windows.DependencyProperty.Register("IsDirty", typeof(bool), typeof(Events));
+        private bool IsDirty
+        {
+            get
+            {
+                return (bool)GetValue(IsDirtyProperty);
+            }
+            set
+            {
+                SetValue(IsDirtyProperty, value);
+            }
+        }
+        private bool IsLoading = false;
+
+        public Events()
+            : this(1)
         {
         }
 
         public Events(long id)
         {
+            IsDirty = false;
             this.id = id;
-            PossibleDeadlines = new System.Collections.ObjectModel.ObservableCollection<System.Tuple<long, string, System.Nullable<System.DateTime>>>();
             connection = new System.Data.SQLite.SQLiteConnection("Data source=" + System.Environment.CurrentDirectory.ToString() + "\\ToDoAny.sqlite;Version=3;");
 
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
+
+            IsLoading = true;
             InitializeComponent();
+            LoadData();
+            IsLoading = false;
+        }
+
+        private void LoadData()
+        {
+            taskDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM events WHERE ID=" + id, connection);
+            alertsDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM events_alerts WHERE event_id=" + id, connection);
+
+            dataSet = new System.Data.DataSet();
+
+            var taskCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(taskDataAdapter);
+            var alertsCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(alertsDataAdapter);
+
+            taskDataAdapter.Fill(dataSet, "event");
+            alertsDataAdapter.Fill(dataSet, "alerts");
+
+            var parentColumn = dataSet.Tables["event"].Columns["ID"];
+
+            {
+                var childColumn = dataSet.Tables["alerts"].Columns["event_id"];
+                var relation = new System.Data.DataRelation("event_alerts", parentColumn, childColumn);
+                dataSet.Relations.Add(relation);
+            }
+
+            var table = dataSet.Tables["event"];
+            row = dataSet.Tables["event"].Rows[0];
+            dataSet.Tables["event"].RowChanged += table_RowChanged;
+
+            FillDeadline(row);
+            FillTags(id);
+
+            TaskGrid.DataContext = dataSet.Tables["event"].DefaultView;
         }
 
         private void Save()
@@ -64,7 +111,7 @@ namespace WpfApplication2
                 }
             }
 
-            eventDataAdapter.Update(dataSet, "event");
+            taskDataAdapter.Update(dataSet, "event");
 
             // --------------------------------------------------
             // Tags
@@ -114,33 +161,30 @@ namespace WpfApplication2
 
                 // delete all old tasks_tags not need for new tags
                 {
-                    var oldEventsTagsIDs = new System.Collections.Generic.List<long>();
+                    var oldTasksTagsIDs = new System.Collections.Generic.List<long>();
                     foreach (var tuple in rows)
                     {
                         if (tuple.Item1.HasValue)
-                            oldEventsTagsIDs.Add(tuple.Item1.Value);
+                            oldTasksTagsIDs.Add(tuple.Item1.Value);
                     }
 
-                    if (oldEventsTagsIDs.Count != 0)
-                    {
-                        var whereInTuple2 = Util.SqlParametersList(oldEventsTagsIDs);
-                        var command = new System.Data.SQLite.SQLiteCommand("DELETE FROM events_tags WHERE event_id=@id AND ID NOT IN(" + whereInTuple2.Item1 + ")", connection);
+                    var whereInTuple2 = Util.SqlParametersList(oldTasksTagsIDs);
+                    var command = new System.Data.SQLite.SQLiteCommand("DELETE FROM events_tags WHERE event_id=@id AND ID NOT IN(" + whereInTuple2.Item1 + ")", connection);
 
-                        command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@id", id));
-                        foreach (var parameter in whereInTuple2.Item2)
-                            command.Parameters.Add(parameter);
+                    command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@id", id));
+                    foreach (var parameter in whereInTuple2.Item2)
+                        command.Parameters.Add(parameter);
 
-                        command.ExecuteNonQuery();
-                    }
+                    command.ExecuteNonQuery();
                 }
 
                 // link existing new tags
-                    foreach (var tuple in rows)
+                foreach (var tuple in rows)
                 {
                     if (!tuple.Item1.HasValue && tuple.Item3.HasValue)
                     {
                         var tagID = tuple.Item3.Value;
-                        long newEventsTagsID = Util.InsertInto(connection, "events_tags", System.Tuple.Create("event_id", id), System.Tuple.Create("tag_id", tagID));
+                        long newTasksTagsID = Util.InsertInto(connection, "events_tags", System.Tuple.Create("event_id", id), System.Tuple.Create("tag_id", tagID));
                     }
                 }
 
@@ -167,13 +211,17 @@ namespace WpfApplication2
                     }
                 }
             }
+
+            // --------------------------------------------------
+            // Clean state
+            IsDirty = false;
         }
 
         private void FillDeadline(System.Data.DataRow row)
         {
             if (!row.IsNull("deadline_id"))
             {
-                long deadlineID = (long) row["deadline_id"];
+                long deadlineID = (long)row["deadline_id"];
 
                 using (var automatic = new AutomaticOpenClose(connection))
                 {
@@ -216,7 +264,7 @@ namespace WpfApplication2
             var dataTable = new System.Data.DataTable("Priorities");
             dataTable.Columns.Add(new System.Data.DataColumn("ID", typeof(int)));
             dataTable.Columns.Add(new System.Data.DataColumn("action", typeof(int)));
-            dataTable.Columns.Add(new System.Data.DataColumn("delta", typeof(string)));
+            dataTable.Columns.Add(new System.Data.DataColumn("delta", typeof(int)));
 
             AlertsDataGrid.ItemsSource = dataTable.DefaultView;
         }
@@ -226,43 +274,55 @@ namespace WpfApplication2
             Save();
         }
 
-        private void DeleteSubTaskMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void table_RowChanged(object sender, System.Data.DataRowChangeEventArgs e)
         {
+            if (!IsLoading)
+                IsDirty = true;
         }
 
-        private void Window_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void table_RowDeleted(object sender, System.Data.DataRowChangeEventArgs e)
         {
-            eventDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM events WHERE ID=" + id, connection);
-            alertsDataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT * FROM events_alerts WHERE event_id=" + id, connection);
-
-            dataSet = new System.Data.DataSet();
-
-            var eventCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(eventDataAdapter);
-            var alertsCommandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(alertsDataAdapter);
-
-            eventDataAdapter.Fill(dataSet, "event");
-            alertsDataAdapter.Fill(dataSet, "alerts");
-
-            var parentColumn = dataSet.Tables["event"].Columns["ID"];
-
-            {
-                var childColumn = dataSet.Tables["alerts"].Columns["event_id"];
-                var relation = new System.Data.DataRelation("event_alerts", parentColumn, childColumn);
-                dataSet.Relations.Add(relation);
-            }
-
-            var table = dataSet.Tables["event"];
-            row = table.Rows[0];
-
-            FillDeadline(row);
-            FillTags(id);
-
-            TaskGrid.DataContext = table.DefaultView;
+            if (!IsLoading)
+                IsDirty = true;
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void table_TableNewRow(object sender, System.Data.DataTableNewRowEventArgs e)
+        {
+            if (!IsLoading)
+                IsDirty = true;
+        }
+
+        private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (IsDirty)
+            {
+                switch (Util.AskToSaveModification(this))
+                {
+                    case System.Windows.MessageBoxResult.Yes:
+                        Save();
+                        break;
+                    case System.Windows.MessageBoxResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
+        }
+
+        private void DeadlineDatePicker_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (!IsLoading)
+                IsDirty = true;
+        }
+
+        private void TagsTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (!IsLoading)
+                IsDirty = true;
         }
     }
 }

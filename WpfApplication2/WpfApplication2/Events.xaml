@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="ToDo.Any - Evenement" Height="370" Width="650" Icon="Images/notebook.ico"
-        Loaded="Window_Loaded">
+        Closing="Window_Closing">
 
     <Grid Name="TaskGrid" Margin="3" Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
@@ -33,7 +33,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Content="Nom:" />
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=name}" />
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=name, UpdateSourceTrigger=PropertyChanged}" />
 
                 <Label Grid.Row="1" Grid.Column="0" Content="Échéance:" />
                 <Grid Grid.Row="1" Grid.Column="1" Grid.IsSharedSizeScope="True">
@@ -44,14 +44,14 @@
                     <Grid.RowDefinitions>
                         <RowDefinition SharedSizeGroup="RadioButtons" />
                     </Grid.RowDefinitions>
-                    <DatePicker Name="DeadlineDatePicker" Grid.Row="2" Grid.Column="1" />
+                    <DatePicker Name="DeadlineDatePicker" Grid.Row="2" Grid.Column="1" SelectedDateChanged="DeadlineDatePicker_SelectedDateChanged" />
                 </Grid>
 
                 <Label Grid.Row="4" Grid.Column="0" Content="Tags:" />
-                <TextBox Name="TagsTextBox" Grid.Row="4" Grid.Column="1" />
+                <TextBox Name="TagsTextBox" Grid.Row="4" Grid.Column="1" TextChanged="TagsTextBox_TextChanged" />
 
                 <Label Grid.Row="5" Grid.Column="0" Content="Description:" />
-                <TextBox Grid.Row="5" Grid.Column="1" AcceptsReturn="True" MinLines="5" TextWrapping="Wrap" Text="{Binding Path=description}" />
+                <TextBox Grid.Row="5" Grid.Column="1" AcceptsReturn="True" MinLines="5" TextWrapping="Wrap" Text="{Binding Path=description, UpdateSourceTrigger=PropertyChanged}" />
 
                 <Expander Grid.Row="6" Grid.ColumnSpan="2" Header="Alertes" IsExpanded="True">
                     <Grid>
@@ -69,8 +69,8 @@
                 </Expander>
             </Grid>
         </ScrollViewer>
-        
-        <Button Grid.Row="1" Grid.Column="1" Padding="2" Margin="3" IsDefault="True" Click="SaveButton_Click" Content="Enregistrer" />
-        <Button Grid.Row="2" Grid.Column="2" Padding="2" Margin="3" IsCancel="True" Click="Button_Click" Content="Fermer" />
+
+        <Button Grid.Row="1" Grid.Column="1" Padding="2" Margin="3" IsDefault="True" Click="SaveButton_Click" Content="Enregistrer" IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=IsDirty}" />
+        <Button Grid.Row="2" Grid.Column="2" Padding="2" Margin="3" IsCancel="True" Click="CloseButton_Click" Content="Fermer" />
     </Grid>
 </Window>
