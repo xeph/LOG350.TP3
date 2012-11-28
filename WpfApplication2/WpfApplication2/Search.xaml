@@ -1,0 +1,44 @@
+<my:ChromeTabItem Header="SEARCH">
+	<Grid>
+		<Grid.Resources>
+			<x:Array Type="{x:Type MenuItem}" x:Key="genericContextMenuItems">
+				<MenuItem Header="Ajouter" Click="ContextualMenuAdd_Click" >
+					<MenuItem.Icon>
+						<Image Source="Images/add.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Header="Modifier" Click="ContextualMenuModify_Click" >
+					<MenuItem.Icon>
+						<Image Source="Images/edit.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Header="Supprimer" Click="ContextualMenuDelete_Click" >
+					<MenuItem.Icon>
+						<Image Source="Images/delete.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+			</x:Array>
+			<ContextMenu x:Key="genericContextMenu">
+				<ContextMenu.ItemsSource>
+					<CompositeCollection>
+						<CollectionContainer Collection="{StaticResource genericContextMenuItems}" />
+					</CompositeCollection>
+				</ContextMenu.ItemsSource>
+			</ContextMenu>
+		</Grid.Resources>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Row="0" Orientation="Horizontal">
+			<TextBox Height="30" Width="500" Margin="10,5,10,5" />
+			<Button Height="30" Width="50" Margin="0,5,10,5" Content="Ajouter" Click="AddButton_Click"/>
+			<Button Height="30" Width="50" Margin="0,5,10,5" Content="Settings" Click="SettingsButton_Click" />
+		</StackPanel>
+		<ListView Grid.Row="1">
+			<DataGrid Name="dgList" Margin="10,5,10,5" Width="605" IsReadOnly="True" CanUserReorderColumns="False" 
+					  CanUserSortColumns="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
+					  SelectionMode="Single" ContextMenu="{StaticResource genericContextMenu}"/>
+		</ListView>
+	</Grid>
+</my:ChromeTabItem>
