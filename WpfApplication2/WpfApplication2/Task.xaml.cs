@@ -243,6 +243,8 @@
                     }
 
                     subTasksDataAdapter.Update(dataSet, "sub_tasks");
+                    dataSet.Tables["sub_tasks"].Clear();
+                    subTasksDataAdapter.Fill(dataSet, "sub_tasks");
 
                     // --------------------------------------------------
                     // Clean state
