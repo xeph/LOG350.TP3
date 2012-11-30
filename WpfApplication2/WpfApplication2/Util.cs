@@ -106,14 +106,40 @@
             return 0;
         }
 
-        public static System.Windows.MessageBoxResult AskToSaveModification(System.Windows.Window window)
+        public static System.Windows.MessageBoxResult AskToSaveModification(System.Windows.Window owner)
         {
-            return System.Windows.MessageBox.Show(window,
+            return System.Windows.MessageBox.Show(owner,
                     "Voulez-vous enregistrer vos modifications?",
                     "Modifications non-enregistrées",
                     System.Windows.MessageBoxButton.YesNoCancel,
                     System.Windows.MessageBoxImage.None,
                     System.Windows.MessageBoxResult.Yes);
+        }
+
+        public static System.Windows.MessageBoxResult ShowFieldMustBeUniqueMessage(System.Windows.Window owner, string fieldName)
+        {
+            return System.Windows.MessageBox.Show(owner,
+                    "La valeur du champ '" + fieldName + "' doit être unique.",
+                    "Données non valides",
+                    System.Windows.MessageBoxButton.OK,
+                    System.Windows.MessageBoxImage.None,
+                    System.Windows.MessageBoxResult.OK);
+        }
+
+        public static string ExtractColumnName(string errorMessage)
+        {
+            //Abort due to constraint violation
+            //column name is not unique
+
+            string[] sentences = errorMessage.Split('\n');
+            if (sentences.Length >= 2)
+            {
+                string[] words = sentences[1].Split(' ');
+                if (words.Length >= 2)
+                    return words[1];
+            }
+
+            return "";
         }
     }
 }
