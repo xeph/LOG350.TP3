@@ -41,10 +41,8 @@
             <Button Height="30" Width="50" Margin="0,5,10,5" Content="Ajouter" Click="AddButton_Click"/>
             <Button Height="30" Width="50" Margin="0,5,10,5" Content="Settings" Click="SettingsButton_Click" />
         </StackPanel>
-        <ListView Grid.Row="1">
-            <DataGrid Name="dgList" Margin="10,5,10,5" Width="605" IsReadOnly="True" CanUserReorderColumns="False" 
-                                  CanUserSortColumns="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
-                                  SelectionMode="Single" ContextMenu="{StaticResource genericContextMenu}"/>
-        </ListView>
+        <DataGrid Name="dgList" Grid.Row="1" Margin="10,5,10,5" Width="605" IsReadOnly="True" CanUserReorderColumns="False" 
+                                CanUserSortColumns="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
+                                SelectionMode="Single" ContextMenu="{StaticResource genericContextMenu}"/>
     </Grid>
 </UserControl>

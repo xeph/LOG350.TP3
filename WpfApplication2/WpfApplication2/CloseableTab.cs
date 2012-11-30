@@ -61,7 +61,13 @@ namespace WpfApplication2
         void button_close_Click(object sender, RoutedEventArgs e)
         {
             if (this.Title != "Main"){
-                ((TabControl)this.Parent).Items.Remove(this);
+                TabControl parent = ((TabControl)this.Parent);
+                parent.Items.Remove(this);
+                if (parent.SelectedIndex == parent.Items.Count - 1)
+                {
+                    parent.SelectedIndex = parent.Items.Count - 2;
+                }
+                
             }
         }
         // Label SizeChanged - When the Size of the Label changes
