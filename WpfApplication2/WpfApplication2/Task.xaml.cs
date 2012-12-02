@@ -26,7 +26,6 @@
         private System.Data.DataRow row;
         private long id;
 
-
         public static readonly System.Windows.DependencyProperty IsDirtyProperty = System.Windows.DependencyProperty.Register("IsDirty", typeof(bool), typeof(Task));
         private bool IsDirty
         {
@@ -91,9 +90,11 @@
                 dataSet.Relations.Add(relation);
             }
 
-            var table = dataSet.Tables["task"];
             row = dataSet.Tables["task"].Rows[0];
             dataSet.Tables["task"].RowChanged += table_RowChanged;
+            dataSet.Tables["alerts"].RowChanged += table_RowChanged;
+            dataSet.Tables["alerts"].RowDeleted += table_RowDeleted;
+            dataSet.Tables["alerts"].TableNewRow += table_TableNewRow;
             dataSet.Tables["sub_tasks"].RowChanged += table_RowChanged;
             dataSet.Tables["sub_tasks"].RowDeleted += table_RowDeleted;
             dataSet.Tables["sub_tasks"].TableNewRow += table_TableNewRow;
@@ -103,6 +104,7 @@
             FillTags(id);
 
             TaskGrid.DataContext = dataSet.Tables["task"].DefaultView;
+            AlertsDataGrid.ItemsSource = dataSet.Tables["alerts"].DefaultView;
             SubTasksDataGrid.ItemsSource = dataSet.Tables["sub_tasks"].DefaultView;
         }
 
@@ -235,6 +237,18 @@
                     }
 
                     // --------------------------------------------------
+                    // Alerts
+                    foreach (System.Data.DataRow row in dataSet.Tables["alerts"].Rows)
+                    {
+                        if (row.RowState == System.Data.DataRowState.Added)
+                            row["task_id"] = id;
+                    }
+
+                    alertsDataAdapter.Update(dataSet, "alerts");
+                    dataSet.Tables["alerts"].Clear();
+                    alertsDataAdapter.Fill(dataSet, "alerts");
+
+                    // --------------------------------------------------
                     // Sub-Tasks
                     foreach (System.Data.DataRow row in dataSet.Tables["sub_tasks"].Rows)
                     {
@@ -341,18 +355,6 @@
             EventsComboBox.SelectedValue = previousValue;
         }
 
-        private void AlertsDataGrid_Initialized(object sender, System.EventArgs e)
-        {
-            // TODO: Delete all this code and replace it with a simple query when database is available.
-
-            var dataTable = new System.Data.DataTable("Priorities");
-            dataTable.Columns.Add(new System.Data.DataColumn("ID", typeof(int)));
-            dataTable.Columns.Add(new System.Data.DataColumn("action", typeof(int)));
-            dataTable.Columns.Add(new System.Data.DataColumn("delta", typeof(int)));
-
-            AlertsDataGrid.ItemsSource = dataTable.DefaultView;
-        }
-
         private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Save();
@@ -361,6 +363,11 @@
         private void DeleteSubTaskMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             ((System.Data.DataRowView)SubTasksDataGrid.SelectedItem).Delete();
+        }
+
+        private void DeleteAlertMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ((System.Data.DataRowView)AlertsDataGrid.SelectedItem).Delete();
         }
 
         private void table_RowChanged(object sender, System.Data.DataRowChangeEventArgs e)
@@ -407,7 +414,7 @@
                 DeadlineDatePicker.SelectedDate = null;
         }
 
-        private void SubTasksDataGrid_MouseDoubleClick_1(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void SubTasksDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var dataRowView = ((System.Windows.Controls.DataGridRow)sender).Item as System.Data.DataRowView;
             if (dataRowView != null)

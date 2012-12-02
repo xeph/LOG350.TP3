@@ -2,8 +2,10 @@ DELETE FROM tags;
 DELETE FROM deadlines;
 DELETE FROM events;
 DELETE FROM events_tags;
+DELETE FROM events_alerts;
 DELETE FROM tasks;
 DELETE FROM tasks_tags;
+DELETE FROM tasks_alerts;
 
 INSERT INTO tags(ID, name) VALUES(1, 'ÉTS');
 INSERT INTO tags(ID, name) VALUES(2, 'LOG240');
@@ -19,11 +21,14 @@ INSERT INTO deadlines(ID, deadline) VALUES(4, '2012-12-14');
 INSERT INTO deadlines(ID, deadline) VALUES(5, '2012-12-11');
 INSERT INTO deadlines(ID, deadline) VALUES(6, '2012-12-06');
 
+INSERT INTO events(ID, deadline_id, name, description) VALUES(1, 1, 'Noël', 'Plein de cadeaux!!!');
 INSERT INTO events(ID, deadline_id, name, description) VALUES(2, 3, 'Examen final de LOG240', 'Lorem ipsum');
 INSERT INTO events(ID, deadline_id, name, description) VALUES(3, 2, 'Examen final de LOG350', 'Lorem ipsum');
 INSERT INTO events(ID, deadline_id, name, description) VALUES(4, 4, 'Examen final de MAT265', 'Lorem ipsum');
 INSERT INTO events(ID, deadline_id, name, description) VALUES(5, 5, 'Examen final de PHY332', 'Lorem ipsum');
 INSERT INTO events(ID, deadline_id, name, description) VALUES(6, 6, 'Présentation oral du TP3 de LOG350', 'Dernière semaine de la session');
+
+INSERT INTO events_alerts(ID, event_id, action, when_value, when_specifier) VALUES(1, 2, 1, 2, 4);
 
 INSERT INTO events_tags(ID, event_id, tag_id) VALUES(3,  2, 1);
 INSERT INTO events_tags(ID, event_id, tag_id) VALUES(4,  2, 2);
@@ -50,3 +55,5 @@ INSERT INTO tasks_tags(ID, task_id, tag_id) VALUES(6, 2, 6);
 INSERT INTO tasks_tags(ID, task_id, tag_id) VALUES(7, 3, 1);
 INSERT INTO tasks_tags(ID, task_id, tag_id) VALUES(8, 3, 3);
 INSERT INTO tasks_tags(ID, task_id, tag_id) VALUES(9, 3, 6);
+
+INSERT INTO tasks_alerts(ID, task_id, action, when_value, when_specifier) VALUES(1, 1, 1, 2, 2);

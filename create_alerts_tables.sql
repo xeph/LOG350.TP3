@@ -1,0 +1,18 @@
+﻿DROP TABLE IF EXISTS tasks_alerts;
+DROP TABLE IF EXISTS events_alerts;
+
+CREATE TABLE tasks_alerts (
+	ID INTEGER PRIMARY KEY AUTOINCREMENT,
+	task_id INTEGER REFERENCES tasks(ID) ON DELETE CASCADE,
+	action INTEGER,
+	when_value INTEGER,
+	when_specifier INTEGER
+);
+
+CREATE TABLE events_alerts (
+	ID INTEGER PRIMARY KEY AUTOINCREMENT,
+	event_id INTEGER REFERENCES tasks(ID) ON DELETE CASCADE,
+	action INTEGER,
+	when_value INTEGER,
+	when_specifier INTEGER
+);
