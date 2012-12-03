@@ -2,6 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         Title="ToDo.Any - Evenement" Height="370" Width="650" Icon="Images/notebook.ico"
         Closing="Window_Closing">
 
@@ -58,12 +59,37 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <DataGrid Name="AlertsDataGrid" MinHeight="100" AutoGenerateColumns="False" SelectionMode="Single" Initialized="AlertsDataGrid_Initialized">
+                        <!--<DataGrid Name="AlertsDataGrid" MinHeight="100" AutoGenerateColumns="False" SelectionMode="Single" Initialized="AlertsDataGrid_Initialized">-->
+                        <DataGrid Name="AlertsDataGrid" MinHeight="100" AutoGenerateColumns="False" SelectionMode="Single">
+                            <DataGrid.Resources>
+                                <ContextMenu x:Key="DataRowContextMenu">
+                                    <MenuItem Header="Supprimer" Click="DeleteAlertMenuItem_Click"></MenuItem>
+                                </ContextMenu>
+                                <col:ArrayList x:Key="ActionList">
+                                    <col:DictionaryEntry Key="1" Value="Afficher un rappel"></col:DictionaryEntry>
+                                    <col:DictionaryEntry Key="2" Value="Envoyer un courriel"></col:DictionaryEntry>
+                                </col:ArrayList>
+                                <col:ArrayList x:Key="WhenSpecifierList">
+                                    <col:DictionaryEntry Key="1" Value="Minutes"></col:DictionaryEntry>
+                                    <col:DictionaryEntry Key="2" Value="Heures"></col:DictionaryEntry>
+                                    <col:DictionaryEntry Key="3" Value="Jours"></col:DictionaryEntry>
+                                    <col:DictionaryEntry Key="4" Value="Semaines"></col:DictionaryEntry>
+                                </col:ArrayList>
+                            </DataGrid.Resources>
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID" Width="Auto" Binding="{Binding Path=ID}" Visibility="Visible" IsReadOnly="True" />
-                                <DataGridComboBoxColumn Header="Action" Width="Auto" SelectedItemBinding="{Binding Path=action}" />
-                                <DataGridTextColumn Header="Quand" Width="Auto" Binding="{Binding Path=delta}" />
+                                <!--<DataGridComboBoxColumn Header="Action" Width="Auto" SelectedItemBinding="{Binding Path=action}" />
+                                <DataGridTextColumn Header="Quand" Width="Auto" Binding="{Binding Path=delta}" />-->
+                                <DataGridTextColumn Header="Tâche parent" Width="Auto" Binding="{Binding Path=event_id}" Visibility="Visible" IsReadOnly="True"></DataGridTextColumn>
+                                <DataGridComboBoxColumn Header="Action" Width="Auto" SelectedValueBinding="{Binding Path=action}" ItemsSource="{StaticResource ActionList}" DisplayMemberPath="Value" SelectedValuePath="Key"></DataGridComboBoxColumn>
+                                <DataGridTextColumn Header="Quand" Width="Auto" Binding="{Binding Path=when_value}"></DataGridTextColumn>
+                                <DataGridComboBoxColumn Header="Attribut du quand" Width="Auto" SelectedValueBinding="{Binding Path=when_specifier}" ItemsSource="{StaticResource WhenSpecifierList}" DisplayMemberPath="Value" SelectedValuePath="Key"></DataGridComboBoxColumn>
                             </DataGrid.Columns>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="ContextMenu" Value="{StaticResource DataRowContextMenu}"></Setter>
+                                </Style>
+                            </DataGrid.RowStyle>
                         </DataGrid>
                     </Grid>
                 </Expander>

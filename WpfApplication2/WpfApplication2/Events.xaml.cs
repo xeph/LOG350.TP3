@@ -80,14 +80,18 @@
                 dataSet.Relations.Add(relation);
             }
 
-            var table = dataSet.Tables["event"];
+            //var table = dataSet.Tables["event"];
             row = dataSet.Tables["event"].Rows[0];
             dataSet.Tables["event"].RowChanged += table_RowChanged;
+            dataSet.Tables["alerts"].RowChanged += table_RowChanged;
+            dataSet.Tables["alerts"].RowDeleted += table_RowDeleted;
+            dataSet.Tables["alerts"].TableNewRow += table_TableNewRow;
 
             FillDeadline(row);
             FillTags(id);
 
             TaskGrid.DataContext = dataSet.Tables["event"].DefaultView;
+            AlertsDataGrid.ItemsSource = dataSet.Tables["alerts"].DefaultView;
         }
 
         private void Save()
@@ -210,6 +214,17 @@
                         }
                     }
                 }
+
+                // Alerts
+                foreach (System.Data.DataRow row in dataSet.Tables["alerts"].Rows)
+                {
+                    if (row.RowState == System.Data.DataRowState.Added)
+                        row["event_id"] = id;
+                }
+
+                alertsDataAdapter.Update(dataSet, "alerts");
+                dataSet.Tables["alerts"].Clear();
+                alertsDataAdapter.Fill(dataSet, "alerts");
             }
 
             // --------------------------------------------------
@@ -257,7 +272,7 @@
             }
         }
 
-        private void AlertsDataGrid_Initialized(object sender, System.EventArgs e)
+        /*private void AlertsDataGrid_Initialized(object sender, System.EventArgs e)
         {
             // TODO: Delete all this code and replace it with a simple query when database is available.
 
@@ -267,7 +282,13 @@
             dataTable.Columns.Add(new System.Data.DataColumn("delta", typeof(int)));
 
             AlertsDataGrid.ItemsSource = dataTable.DefaultView;
+        }*/
+
+        private void DeleteAlertMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ((System.Data.DataRowView)AlertsDataGrid.SelectedItem).Delete();
         }
+
 
         private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
