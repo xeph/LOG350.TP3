@@ -94,7 +94,7 @@
                                 <DataGridTextColumn Header="Tâche parent" Width="Auto" Binding="{Binding Path=task_id}" Visibility="Hidden" IsReadOnly="True"></DataGridTextColumn>
                                 <DataGridComboBoxColumn Header="Action" Width="Auto" SelectedValueBinding="{Binding Path=action}" ItemsSource="{StaticResource ActionList}" DisplayMemberPath="Value" SelectedValuePath="Key"></DataGridComboBoxColumn>
                                 <DataGridTextColumn Header="Quand" Width="Auto" Binding="{Binding Path=when_value}"></DataGridTextColumn>
-                                <DataGridComboBoxColumn Header="Attribut du quand" Width="Auto" SelectedValueBinding="{Binding Path=when_specifier}" ItemsSource="{StaticResource WhenSpecifierList}" DisplayMemberPath="Value" SelectedValuePath="Key"></DataGridComboBoxColumn>
+                                <DataGridComboBoxColumn Header="Unité" Width="Auto" SelectedValueBinding="{Binding Path=when_specifier}" ItemsSource="{StaticResource WhenSpecifierList}" DisplayMemberPath="Value" SelectedValuePath="Key"></DataGridComboBoxColumn>
                             </DataGrid.Columns>
                             <DataGrid.RowStyle>
                                 <Style TargetType="DataGridRow">
