@@ -39,7 +39,9 @@ namespace WpfApplication2
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            dataSet.Tables["events"].Rows.Add(null, NewEventName.Text, "0", "");
+
+            //Insert and save
+            dataSet.Tables["events"].Rows.Add(System.DBNull.Value, NewEventName.Text, "0", "");
             NewEventName.Text = "";
             Save();
             Load();

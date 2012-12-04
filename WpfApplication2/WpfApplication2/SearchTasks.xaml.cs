@@ -24,7 +24,7 @@ namespace WpfApplication2
         {
             dataAdapter.Dispose();
             dataSet.Dispose();
-            dataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT *, CASE WHEN child_of IS NULL THEN ID ELSE CHILD_OF END AS SORT1, CASE WHEN child_of IS NULL THEN 1 ELSE 2 END AS SORT2 FROM tasks ORDER BY SORT1 ASC, SORT2 ASC LIMIT 0, 20", connection);
+            dataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT *, CASE WHEN child_of IS NULL THEN ID ELSE CHILD_OF END AS SORT1, CASE WHEN child_of IS NULL THEN 1 ELSE 2 END AS SORT2 FROM tasks ORDER BY SORT1 ASC, SORT2 ASC", connection);
             dataSet = new System.Data.DataSet();
 
             var commandBuilder = new System.Data.SQLite.SQLiteCommandBuilder(dataAdapter);
@@ -55,7 +55,7 @@ namespace WpfApplication2
             catch { priorityID = 1; }
 
             //Add row and save
-            dataSet.Tables["task"].Rows.Add(null, null, NewTaskName.Text, "0", priorityID, "0");
+            dataSet.Tables["task"].Rows.Add(System.DBNull.Value, System.DBNull.Value, NewTaskName.Text, System.DBNull.Value, priorityID, "0");
             NewTaskName.Text = "";
             Save();
             Load();

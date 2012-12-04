@@ -11,8 +11,8 @@ Title="ToDo.Any" Height="550" Width="700" Icon="Images/notebook.ico">
                     ScaleX="{Binding ElementName=uiScaleSlider,Path=Value}"
                     ScaleY="{Binding ElementName=uiScaleSlider,Path=Value}"/>
             </TabControl.LayoutTransform>-->
-            <my:CloseableTab Title="Tâches" x:Name="tabtasks"></my:CloseableTab>
             <my:CloseableTab Title="Événements" x:Name="tabevents"></my:CloseableTab>
+            <my:CloseableTab Title="Tâches" x:Name="tabtasks"></my:CloseableTab>
             <TabItem Header="+" MouseUp="newtab_MouseDown_1" x:Name="tabadd"></TabItem>
         </TabControl>
     </Grid>
