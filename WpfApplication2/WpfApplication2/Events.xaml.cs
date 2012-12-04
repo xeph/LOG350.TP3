@@ -286,7 +286,11 @@
 
         private void DeleteAlertMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ((System.Data.DataRowView)AlertsDataGrid.SelectedItem).Delete();
+            try
+            {
+                ((System.Data.DataRowView)AlertsDataGrid.SelectedItem).Delete();
+            }
+            catch { }
         }
 
 

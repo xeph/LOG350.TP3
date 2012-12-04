@@ -14,6 +14,7 @@ namespace WpfApplication2
 
         Database.SQLite DB = new Database.SQLite(StaticPath.DBPath);
 
+
         public MainWindow()
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -29,6 +30,11 @@ namespace WpfApplication2
             this.DB.openConnection();
             this.DB.compactDatabase();
             this.DB.closeConnection();
+        }
+
+        public void MassReload()
+        {
+
         }
 
         private void newtab_MouseDown_1(object sender, System.Windows.Input.MouseButtonEventArgs e)

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
-        Title="ToDo.Any - Evenement" Height="370" Width="650" Icon="Images/notebook.ico"
+        Title="Événement" Height="370" Width="650" Icon="Images/notebook.ico"
         Closing="Window_Closing">
 
     <Grid Name="TaskGrid" Margin="3" Grid.IsSharedSizeScope="True">
@@ -77,10 +77,10 @@
                                 </col:ArrayList>
                             </DataGrid.Resources>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" Width="Auto" Binding="{Binding Path=ID}" Visibility="Visible" IsReadOnly="True" />
+                                <DataGridTextColumn Header="ID" Width="Auto" Binding="{Binding Path=ID}" Visibility="Hidden" IsReadOnly="True" />
                                 <!--<DataGridComboBoxColumn Header="Action" Width="Auto" SelectedItemBinding="{Binding Path=action}" />
                                 <DataGridTextColumn Header="Quand" Width="Auto" Binding="{Binding Path=delta}" />-->
-                                <DataGridTextColumn Header="Tâche parent" Width="Auto" Binding="{Binding Path=event_id}" Visibility="Visible" IsReadOnly="True"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Tâche parent" Width="Auto" Binding="{Binding Path=event_id}" Visibility="Hidden" IsReadOnly="True"></DataGridTextColumn>
                                 <DataGridComboBoxColumn Header="Action" Width="Auto" SelectedValueBinding="{Binding Path=action}" ItemsSource="{StaticResource ActionList}" DisplayMemberPath="Value" SelectedValuePath="Key"></DataGridComboBoxColumn>
                                 <DataGridTextColumn Header="Quand" Width="Auto" Binding="{Binding Path=when_value}"></DataGridTextColumn>
                                 <DataGridComboBoxColumn Header="Attribut du quand" Width="Auto" SelectedValueBinding="{Binding Path=when_specifier}" ItemsSource="{StaticResource WhenSpecifierList}" DisplayMemberPath="Value" SelectedValuePath="Key"></DataGridComboBoxColumn>

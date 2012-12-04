@@ -99,13 +99,14 @@
             dataSet.Tables["sub_tasks"].RowDeleted += table_RowDeleted;
             dataSet.Tables["sub_tasks"].TableNewRow += table_TableNewRow;
 
-            FillPrioritiesComboBox();
             FillDeadline(row);
             FillTags(id);
 
             TaskGrid.DataContext = dataSet.Tables["task"].DefaultView;
             AlertsDataGrid.ItemsSource = dataSet.Tables["alerts"].DefaultView;
             SubTasksDataGrid.ItemsSource = dataSet.Tables["sub_tasks"].DefaultView;
+
+            FillPrioritiesComboBox();
         }
 
         private bool Save()
@@ -131,7 +132,7 @@
                     }
                     else if (DeadlineIsEventRadioButton.IsChecked.Value)
                     {
-                        row["deadline_id"] = EventsComboBox.SelectedValue;
+                        row["deadline_id"] = (EventsComboBox.SelectedValue != null) ? EventsComboBox.SelectedValue : System.DBNull.Value;
                     }
                     else
                     {
@@ -335,7 +336,10 @@
 
         private void FillPrioritiesComboBox()
         {
-            var dataAdapter = new System.Data.SQLite.SQLiteDataAdapter("SELECT ID, name FROM priorities WHERE active=1", connection);
+            string query = "SELECT ID, name FROM priorities WHERE active=1";
+            if (!row.IsNull("priority_id"))
+                query += " OR ID=" + row["priority_id"];
+            var dataAdapter = new System.Data.SQLite.SQLiteDataAdapter(query, connection);
             var dataSet = new System.Data.DataSet();
             dataAdapter.Fill(dataSet, "priorities");
 
@@ -362,12 +366,19 @@
 
         private void DeleteSubTaskMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ((System.Data.DataRowView)SubTasksDataGrid.SelectedItem).Delete();
+            try
+            {
+                ((System.Data.DataRowView)SubTasksDataGrid.SelectedItem).Delete();
+            }
+            catch { }
         }
 
         private void DeleteAlertMenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ((System.Data.DataRowView)AlertsDataGrid.SelectedItem).Delete();
+            try{
+                ((System.Data.DataRowView)AlertsDataGrid.SelectedItem).Delete();
+            }
+            catch { }
         }
 
         private void table_RowChanged(object sender, System.Data.DataRowChangeEventArgs e)
@@ -398,7 +409,7 @@
 
         private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Close();
+            //Close();
         }
 
         private void EventsComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

@@ -12,10 +12,10 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBox Name="NewTaskName" Height="30" Width="500" Margin="10,5,10,5" />
-            <Button Height="30" Width="50" Margin="0,5,10,5" Content="Ajouter" Click="AddButton_Click"/>
-            <Button Height="30" Width="50" Margin="0,5,10,5" Content="Settings" Click="SettingsButton_Click" />
+            <Button Margin="0,5,10,5" Content="Ajouter" Click="AddButton_Click"/>
+            <Button Margin="0,5,10,5" Content="Configuration" Click="SettingsButton_Click" />
         </StackPanel>
-        <DataGrid Name="MainDataGrid" Grid.Row="1" Margin="10,5,10,5" Width="605" IsReadOnly="True" CanUserReorderColumns="False" 
+        <DataGrid Name="MainDataGrid" Grid.Row="1" Margin="10,5,10,5" IsReadOnly="True" CanUserReorderColumns="False" 
 								 CanUserSortColumns="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
 								SelectionMode="Single" Initialized="DataGrid_Initialized" AutoGenerateColumns="False">
             <DataGrid.Resources>
@@ -32,10 +32,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="SizeToHeader" Binding="{Binding Path=ID}" IsReadOnly="True"></DataGridTextColumn>
                 <DataGridTextColumn Header="ChildOf" Width="SizeToHeader" Binding="{Binding Path=child_of}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Path=name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="deadline_id" Width="SizeToHeader" Binding="{Binding Path=deadline_id}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="priority_id" Width="SizeToHeader" Binding="{Binding Path=priority_id}"></DataGridTextColumn>
-                <DataGridTextColumn Header="completion" Width="SizeToHeader" Binding="{Binding Path=completion}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Width="Auto" Binding="{Binding Path=name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="completion" Width="*" Binding="{Binding Path=completion}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
