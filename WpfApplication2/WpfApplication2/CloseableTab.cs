@@ -36,7 +36,7 @@ namespace WpfApplication2
             set
             {
                 ((CloseableHeader)this.Header).label_TabTitle.Content = value;
-                if (value == "Main")
+                if (value == "Tâches" || value == "Événements")
                 {
                     ((CloseableHeader)this.Header).button_close.Visibility = Visibility.Hidden;
                 }
@@ -60,7 +60,7 @@ namespace WpfApplication2
         // an event indicating a "CloseTab" event has occurred)
         void button_close_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Title != "Main"){
+            if (this.Title != "Tâches" && this.Title != "Événements"){
                 TabControl parent = ((TabControl)this.Parent);
                 parent.Items.Remove(this);
                 if (parent.SelectedIndex == parent.Items.Count - 1)
