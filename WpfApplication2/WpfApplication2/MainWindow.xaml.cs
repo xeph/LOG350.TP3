@@ -20,8 +20,7 @@ namespace WpfApplication2
             InitializeComponent();
             Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
             
-            tabtasks.Content = new SearchTasks();
-            tabevents.Content = new SearchEvents();
+            tabmain.Content = new Search();
         }
 
         void MainWindow_Closing(object sender, CancelEventArgs e)
@@ -39,8 +38,8 @@ namespace WpfApplication2
         public void AddNewTab()
         {
             CloseableTab newTab = new CloseableTab();
-            newTab.Content = new SearchTasks();
-            newTab.Title = "nouvelle recherche";
+            newTab.Content = new Search();
+            newTab.Title = "new search";
 
             tabcontrol.Items.Insert(tabcontrol.Items.Count - 1, newTab);
             tabcontrol.SelectedIndex = tabcontrol.Items.Count-2;
