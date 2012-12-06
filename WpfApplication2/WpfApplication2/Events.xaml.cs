@@ -24,6 +24,7 @@
         private System.Data.DataSet dataSet;
         private System.Data.DataRow row;
         private long id;
+        private MainWindow parent;
 
 
         public static readonly System.Windows.DependencyProperty IsDirtyProperty = System.Windows.DependencyProperty.Register("IsDirty", typeof(bool), typeof(Events));
@@ -41,12 +42,14 @@
         private bool IsLoading = false;
 
         public Events()
-            : this(1)
+            : this(1, null)
         {
         }
 
-        public Events(long id)
+        public Events(long id, MainWindow parent)
         {
+            this.parent = parent;
+
             IsDirty = false;
             this.id = id;
             connection = new System.Data.SQLite.SQLiteConnection("Data source=" + System.Environment.CurrentDirectory.ToString() + "\\ToDoAny.sqlite;Version=3;");
@@ -230,6 +233,14 @@
             // --------------------------------------------------
             // Clean state
             IsDirty = false;
+
+            try
+            {
+                this.parent.MassReloadEvents();
+            }
+            catch
+            {
+            }
         }
 
         private void FillDeadline(System.Data.DataRow row)

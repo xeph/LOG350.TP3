@@ -11,7 +11,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBox Name="NewEventName" Height="30" Width="500" Margin="10,5,10,5" />
+            <TextBox Name="NewEventName" Height="30" Width="500" Margin="10,5,10,5" KeyUp="NewEventName_KeyUp_1" />
             <Button Margin="0,5,10,5" Content="Ajouter" Click="AddButton_Click"/>
             <Button Margin="0,5,10,5" Content="Configuration" Click="SettingsButton_Click" />
         </StackPanel>
@@ -30,8 +30,8 @@
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="SizeToHeader" Binding="{Binding Path=ID}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" Width="Auto" Binding="{Binding Path=name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ID" Width="SizeToHeader" Binding="{Binding Path=ID}" IsReadOnly="True" Visibility="Hidden"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nom" Width="Auto" Binding="{Binding Path=name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Path=description}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>

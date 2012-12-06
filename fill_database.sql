@@ -42,9 +42,9 @@ INSERT INTO events_tags(ID, event_id, tag_id) VALUES(11, 6, 1);
 INSERT INTO events_tags(ID, event_id, tag_id) VALUES(12, 6, 3);
 INSERT INTO events_tags(ID, event_id, tag_id) VALUES(13, 6, 6);
 
-INSERT INTO tasks(ID, child_of, deadline_id, priority_id, completion, name, description) VALUES(1, NULL, 6,    1, 0, 'Prototypage dynamique et évaluation(s)/test(s)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
-INSERT INTO tasks(ID, child_of, deadline_id, priority_id, completion, name, description) VALUES(2, 1,    NULL, 1, 0, 'Prototypage dynamique', 'Lorem ipsum.');
-INSERT INTO tasks(ID, child_of, deadline_id, priority_id, completion, name, description) VALUES(3, 1,    NULL, 2, 0, 'Rapport', 'Dolor sit amet.');
+INSERT INTO tasks(ID, child_of, deadline_id, priority_id, completion, name, description) VALUES(1, NULL, 6,    1, 50, 'Prototypage dynamique et évaluation(s)/test(s)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+INSERT INTO tasks(ID, child_of, deadline_id, priority_id, completion, name, description) VALUES(2, 1,    NULL, 1, 75, 'Prototypage dynamique', 'Lorem ipsum.');
+INSERT INTO tasks(ID, child_of, deadline_id, priority_id, completion, name, description) VALUES(3, 1,    NULL, 2, 15, 'Rapport', 'Dolor sit amet.');
 
 INSERT INTO tasks_tags(ID, task_id, tag_id) VALUES(1, 1, 1);
 INSERT INTO tasks_tags(ID, task_id, tag_id) VALUES(2, 1, 3);

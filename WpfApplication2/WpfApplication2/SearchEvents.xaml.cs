@@ -8,16 +8,19 @@ namespace WpfApplication2
         private System.Data.SQLite.SQLiteConnection connection;
         private System.Data.SQLite.SQLiteDataAdapter dataAdapter = new System.Data.SQLite.SQLiteDataAdapter();
         private System.Data.DataSet dataSet = new System.Data.DataSet();
+        private MainWindow parent;
 
-        public SearchEvents()
+        public SearchEvents(MainWindow parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
         private void Save()
         {
                 dataAdapter.Update(dataSet, "events");
+                this.parent.MassReloadEvents();
         }
-        private void Load()
+        public void Load()
         {
             dataAdapter.Dispose();
             dataSet.Dispose();
@@ -39,7 +42,6 @@ namespace WpfApplication2
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-
             //Insert and save
             dataSet.Tables["events"].Rows.Add(System.DBNull.Value, NewEventName.Text, "0", "");
             NewEventName.Text = "";
@@ -49,7 +51,7 @@ namespace WpfApplication2
 
         private void MainDataGrid_Row_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Events eventWindow = new Events((long)((System.Data.DataRowView)((DataGridRow)sender).Item)["ID"]);
+            Events eventWindow = new Events((long)((System.Data.DataRowView)((DataGridRow)sender).Item)["ID"], this.parent);
             eventWindow.ShowDialog();
             eventWindow.Close();
         }
@@ -65,6 +67,12 @@ namespace WpfApplication2
         {
             ((System.Data.DataRowView)MainDataGrid.SelectedItem).Delete();
             Save();
+        }
+
+        private void NewEventName_KeyUp_1(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+                AddButton_Click(null, null);
         }
     }
 }
