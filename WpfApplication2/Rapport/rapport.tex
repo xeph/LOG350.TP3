@@ -95,11 +95,19 @@ Pour la production de la documentation, nous utilisons le processeur de texte \L
 
 \subsection{Fenêtre principale}
 
+C'est à partir de cette écran que l'utilisateur peut modifier ou créer un événement ou une tâche. À partir de cet écran, l'utilisateur peut aussi faire la gestion des priorités et se créer des listes personnalisées ou bien des recherches. À la page 16 et 18 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{fenetre_main.png}
+	\caption{Fenêtre concernant la page principale.}
+\end{figure}
+
 \newpage
 
 \subsection{Événement}
 
-C'est à partir de cette écran que l'utilisateur peut modifier ou créer un événement. À partir de cet écran, l'utilisateur peut aussi faire la gestion des alertes appartenant à l'événement. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenetre.
+C'est à partir de cette écran que l'utilisateur peut modifier ou créer un événement. À partir de cet écran, l'utilisateur peut aussi faire la gestion des alertes appartenant à l'événement. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -123,7 +131,7 @@ C'est à partir de cet écran que l'utilisateur peut modifier ou créer une tâc
 
 \subsection{Priorités}
 
-C'est à partir de cet écran que l'utilisateur peut faire la gestion des diverses priorités disponibles dans l'application. À la page 22 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenetre.
+C'est à partir de cet écran que l'utilisateur peut faire la gestion des diverses priorités disponibles dans l'application. À la page 22 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -224,8 +232,36 @@ Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en
 		18		& Créer une sous-tâche		&							\\
 				&  « tâche 1.2 » à « tâche 1 »	&							\\ \hline
 		19		& Enregistrer la tâche.		& 							\\ \hline
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		no Tache	& Titre et description		& Éléments que vous voulez vérifier et hypothèses 	\\ \hline 
 		20		& Fermer la fenêtre.		&							\\ \hline
 		21		& Supprimer la « tâche 1.2 »	&							\\ \hline
+		22		& Modifier l’échéance de « tâche 1 »&							\\
+				&  pour le « 3 février 2013 ».	&							\\ \hline
+		23		& Fermer la fenêtre.		&							\\ \hline
+		24		& Appuyer sur « Cancel ».		&							\\ \hline
+		25		& Définir la complétion de la 	&							\\
+				& « tâche 1 » à « 50 ».		&							\\ \hline
+		26		& Fermer la fenêtre.		&							\\ \hline
+		27		& Appuyer sur « Oui ».		&							\\ \hline
+		28		& Appuyer sur le bouton 		&							\\
+				& « Configuration ».		&							\\ \hline
+		29		& Définir la priorité « très faible » &							\\
+				& à « non-actif »			&							\\ \hline
+		30		& Fermer la fenêtre.		&							\\ \hline
+		31		& Appuyer sur « Oui ».		&							\\ \hline
+		32		& Modifier la priorité de la 		&							\\
+				& « tâche 1 » à « faible ».		&							\\ \hline
+		33		& Enregistrer la tâche.		&							\\ \hline
+		34		& Fermer la fenêtre.		&							\\ \hline
 	\end{tabular}
 	\caption{Liste des tâches}
 \end{table}
@@ -243,23 +279,42 @@ Les caractéristiques principales des utilisateurs choisis sont la gestion de le
 	\begin{tabular}{|l|l|l|}
 	\hline
 	no Tâche	& Points importants de l'observation	\\ \hline
-	1		& 0						\\ \hline
-	2		& 0						\\ \hline
-	3		& 0						\\ \hline
-	4		& 0						\\ \hline
-	5		& 0						\\ \hline
-	6		& 0						\\ \hline
-	7		& 0						\\ \hline
-	8		& 0						\\ \hline
-	9		& 0						\\ \hline
-	10		& 0						\\ \hline
-	11		& 0						\\ \hline
-	12		& 0						\\ \hline
-	13		& 0						\\ \hline
-	14		& 0						\\ \hline
-	15		& 0						\\ \hline
-	16		& 0						\\ \hline
-	17		& 0						\\ \hline
+	1		& a ajouté une ligne vide et double	\\ 
+			& cliquer sur l'entrée ensuite		\\ \hline
+	2		& 						\\ \hline
+	3		& 						\\ \hline
+	4		& a pesé sur	$\bigtriangleup$ en $1^{er}$ \\
+			& n'entre pas le 2 (date à la place)	\\ \hline
+	5		& 						\\ \hline
+	6		& 						\\ \hline
+	7		& ne trouve pas coment supprimer	\\ \hline
+	8		& n'utilise pas la barre d'ajout rapide	\\ \hline
+	9		& 						\\ \hline
+	10		& 						\\ \hline
+	11		& 						\\ \hline
+	12		& 						\\ \hline
+	13		& 						\\ \hline
+	14		& ; au lieu de les coller			\\ \hline
+	15		& 						\\ \hline
+	16		& 						\\ \hline
+	17		& 						\\ \hline
+	18		& 						\\ \hline
+	19		& 						\\ \hline
+	20		& 						\\ \hline
+	21		& 						\\ \hline
+	22		& 						\\ \hline
+	23		& 						\\ \hline
+	24		& 						\\ \hline
+	25		& 						\\ \hline
+	26		& 						\\ \hline
+	27		& 						\\ \hline
+	28		& 						\\ \hline
+	29		& 						\\ \hline
+	30		& 						\\ \hline
+	31		& 						\\ \hline
+	32		& 						\\ \hline
+	33		& 						\\ \hline
+	34		& 						\\ \hline
 	\end{tabular}
 	\caption{Résultats de l'utilisateur 1}
 \end{table}
@@ -271,53 +326,42 @@ Les caractéristiques principales des utilisateurs choisis sont la gestion de le
 	\begin{tabular}{|l|l|l|}
 	\hline
 	no Tâche	& Points importants de l'observation	\\ \hline
-	1		& 0						\\ \hline
-	2		& 0						\\ \hline
-	3		& 0						\\ \hline
-	4		& 0						\\ \hline
-	5		& 0						\\ \hline
-	6		& 0						\\ \hline
-	7		& 0						\\ \hline
-	8		& 0						\\ \hline
-	9		& 0						\\ \hline
-	10		& 0						\\ \hline
-	11		& 0						\\ \hline
-	12		& 0						\\ \hline
-	13		& 0						\\ \hline
-	14		& 0						\\ \hline
-	15		& 0						\\ \hline
-	16		& 0						\\ \hline
-	17		& 0						\\ \hline
+	1		& n'utilise pas la barre d'ajout rapide	\\ \hline
+	2		& 						\\ \hline
+	3		& 						\\ \hline
+	4		& a pesé sur	$\bigtriangleup$ en $1^{er}$ \\ \hline
+	5		& 						\\ \hline
+	6		& 						\\ \hline
+	7		& ne trouve pas coment supprimer	\\ \hline
+	8		& ne trouve pas tâche			\\ \hline
+	9		& 						\\ \hline
+	10		& 						\\ \hline
+	11		& 						\\ \hline
+	12		& 						\\ \hline
+	13		& 						\\ \hline
+	14		& 						\\ \hline
+	15		& 						\\ \hline
+	16		& 						\\ \hline
+	17		& 						\\ \hline
+	18		& 						\\ \hline
+	19		& 						\\ \hline
+	20		& 						\\ \hline
+	21		& 						\\ \hline
+	22		& 						\\ \hline
+	23		& 						\\ \hline
+	24		& 						\\ \hline
+	25		& 						\\ \hline
+	26		& 						\\ \hline
+	27		& 						\\ \hline
+	28		& 						\\ \hline
+	29		& changer le nom au lieu du check box	\\ \hline
+	30		& 						\\ \hline
+	31		& 						\\ \hline
+	32		& 						\\ \hline
+	33		& 						\\ \hline
+	34		& 						\\ \hline
 	\end{tabular}
 	\caption{Résultats de l'utilisateur 2}
-\end{table}
-
-\newpage
-
-\begin{table}
-	\centering
-	\begin{tabular}{|l|l|l|}
-	\hline
-	no Tâche	& Points importants de l'observation	\\ \hline
-	1		& 0						\\ \hline
-	2		& 0						\\ \hline
-	3		& 0						\\ \hline
-	4		& 0						\\ \hline
-	5		& 0						\\ \hline
-	6		& 0						\\ \hline
-	7		& 0						\\ \hline
-	8		& 0						\\ \hline
-	9		& 0						\\ \hline
-	10		& 0						\\ \hline
-	11		& 0						\\ \hline
-	12		& 0						\\ \hline
-	13		& 0						\\ \hline
-	14		& 0						\\ \hline
-	15		& 0						\\ \hline
-	16		& 0						\\ \hline
-	17		& 0						\\ \hline
-	\end{tabular}
-	\caption{Résultats de l'utilisateur 3}
 \end{table}
 
 \newpage
@@ -329,64 +373,100 @@ Les caractéristiques principales des utilisateurs choisis sont la gestion de le
 	\begin{tabular}{|l|l|l|}
 	\hline
 	no Tâche	& Résumé	& Recommandation 	\\ \hline
-	1		& 0		& 0 			\\ \hline
-	2		& 0		& 0 			\\ \hline
-	3		& 0		& 0 			\\ \hline
-	4		& 0		& 0 			\\ \hline
-	5		& 0		& 0 			\\ \hline
-	6		& 0		& 0 			\\ \hline
-	7		& 0		& 0 			\\ \hline
-	8		& 0		& 0 			\\ \hline
-	9		& 0		& 0 			\\ \hline
-	10		& 0		& 0 			\\ \hline
-	11		& 0		& 0 			\\ \hline
-	12		& 0		& 0 			\\ \hline
-	13		& 0		& 0 			\\ \hline
-	14		& 0		& 0 			\\ \hline
-	15		& 0		& 0 			\\ \hline
-	16		& 0		& 0 			\\ \hline
+	1		&  n'utilise pas la barre d'ajout rapide		&  mettre la barre plus visible			\\ \hline
+	2		& 							&  							\\ \hline
+	3		& 							&  							\\ \hline
+	4		&  a pesé sur	$\bigtriangleup$ en $1^{er}$	&  remplacer les expander par des groupbox	\\ \hline
+	5		& 							&  							\\ \hline
+	6		& 							&				  			\\ \hline
+	7		& ne trouve pas coment supprimer		&  fournir un bouton supprimer			\\ \hline
+	8		& 							&  							\\ \hline
+	9		& 							&  							\\ \hline
+	10		& 							&  							\\ \hline
+	11		& 							&  							\\ \hline
+	12		& 							&  							\\ \hline
+	13		& 							&  							\\ \hline
+	14		& 							&  							\\ \hline
+	15		& 							&  							\\ \hline
+	16		&							&  							\\ \hline
+	17		& 							&  							\\ \hline
+	18		& 							&  							\\ \hline
+	19		& 							&  							\\ \hline
+	20		& 							&  							\\ \hline
+	21		& 							&  							\\ \hline
+	22		& 							&  							\\ \hline
+	23		& 							&  							\\ \hline
+	24		& 							&  							\\ \hline
+	25		& 							&  							\\ \hline
+	26		& 							&  							\\ \hline
+	27		& 							&  							\\ \hline
+	28		& 							&  							\\ \hline
+	29		& 							&  							\\ \hline
+	30		& 							&  							\\ \hline
+	31		& 							&  							\\ \hline
+	32		& 							&  							\\ \hline
+	33		& 							&  							\\ \hline
+	34		& 							&  							\\ \hline
 	\end{tabular}
 	\caption{Recommandations par les observateurs}
 \end{table}
+
+\newpage
 
 \begin{table}
 	\centering
 	\begin{tabular}{|l|l|l|}
 	\hline
 	no Tâche	& Résumé	& Recommandation 	\\ \hline
-	1		& 0		& 0 			\\ \hline
-	2		& 0		& 0 			\\ \hline
-	3		& 0		& 0 			\\ \hline
-	4		& 0		& 0 			\\ \hline
-	5		& 0		& 0 			\\ \hline
-	6		& 0		& 0 			\\ \hline
-	7		& 0		& 0 			\\ \hline
-	8		& 0		& 0 			\\ \hline
-	9		& 0		& 0 			\\ \hline
-	10		& 0		& 0 			\\ \hline
-	11		& 0		& 0 			\\ \hline
-	12		& 0		& 0 			\\ \hline
-	13		& 0		& 0 			\\ \hline
-	14		& 0		& 0 			\\ \hline
-	15		& 0		& 0 			\\ \hline
-	16		& 0		& 0 			\\ \hline
+	1		&  n'utilise pas la barre d'ajout rapide		&  modifier la barre d'ajout						\\ \hline
+	2		& 							&  									\\ \hline
+	3		& 							&  									\\ \hline
+	4		&  a pesé sur	$\bigtriangleup$ en $1^{er}$	&  ne comprends pas le fonctionnement				\\ \hline
+	5		& 							&  									\\ \hline
+	6		& 							&  									\\ \hline
+	7		& ne trouve pas coment supprimer		&  changer l'endroit ou se trouve supprimer			\\ \hline
+	8		& 							&  									\\ \hline
+	9		& 							&  									\\ \hline
+	10		& 							&  									\\ \hline
+	11		& 							&  									\\ \hline
+	12		& 							&  									\\ \hline
+	13		& 							&  									\\ \hline
+	14		& 							&  									\\ \hline
+	15		& 							&  									\\ \hline
+	16		&							&  									\\ \hline
+	17		& 							&  									\\ \hline
+	18		& 							&  									\\ \hline
+	19		& 							&  									\\ \hline
+	20		& 							&  									\\ \hline
+	21		& 							&  									\\ \hline
+	22		& 							&  									\\ \hline
+	23		& 							&  									\\ \hline
+	24		& 							&  									\\ \hline
+	25		& 							&  									\\ \hline
+	26		& 							&  									\\ \hline
+	27		& 							&  									\\ \hline
+	28		& 							&  									\\ \hline
+	29		& 							&  									\\ \hline
+	30		& 							&  									\\ \hline
+	31		& 							&  									\\ \hline
+	32		& 							&  									\\ \hline
+	33		& 							&  									\\ \hline
+	34		& 							&  									\\ \hline
 	\end{tabular}
 	\caption{Recommandations par les utilisateurs}
 \end{table}
 
+La barre d'ajout rapide plante dans un nouvel onglet (SearchTasks.xaml.cs), les bugs n'ont pu être reproduit.
+
 \chapter{Changements recommandés}
 
-DUMMY DATA
+Fournir un menu d'aide (tooltip par exemple) explicant diverses fonctionnalités qui ne sont pas toujours évidente pour l'utilisateur, comme le système de tag ou bien les menus contextuel. Ainsi, l'utilisateur ne se sentira pas abandonné pour utiliser l'application et ceci facilitera aussi son apprentissage des diverses fonctionnalitées de l'application.
 
-\begin{enumerate}
-	\item Fournir un menu affichant les actions possibles sur un endroit precis de l'application.
-	\item Fournir un menu d'aide (tooltip par exemple) explicant diverses fonctionnalites qui ne sont pas toujours evidente pour l'utilisateur, comme le systeme de tag.
-	\item Changer le champ completion dans la fenetre tache pour un slider, comme sa l'utilisateur ne pourra pas entrer ce qu'il veut.
-	\item Remplacer le systeme de criteres de la recherche pour le rendre moins lourd a utiliser. Comme par exemple un systeme de recherche
-	\item Fournir un interface offrant des parametres de base comme un champ adresse email par defaut pour les alertes par exemple.
-	\item Fournir un moyen de bien identifier les onglets ne pouvant etre ferme sur la fenetre principale.
-	\item Lors de l'ouverture d'un element de l'arbre les autres elements ouverts du meme niveau d'imbrication se ferment automatiquement pour sauver de l'espace.
-\end{enumerate}
+Ajouter un bouton supprimer en bas à gauche de chaque datagridview permettant la suppression des éléments dans celui-ci en plus du menu contextuel. En faisant cela, on offre la possibilité, tant aux utilisateurs débutants qu'aux utilisateurs avancés, de supprimer un élément de diverses facon selon les préférences de chacun. Cela permet aussi à l'utilisateur de moins chercher comment effectuer cette opération.
+
+Fournir un moyen de bien identifier les onglets ne pouvant être fermé sur la fenêtre principale pour éviter la confusion avec ceux qui ne peuvent être fermé. De plus, cela permettra d'identifier les onglets de recherche, car seulement ceux-ci peuvent être fermé tandis que les onglets « tâche » et « événement » ne peuvent être fermé.
+
+Changer le champ complétion dans la fenêtre tâche pour un slider, comme sa l'utilisateur ne pourra pas entrer ce qu'il veut. En faisant cela, on évite qu'une complétion ait au dessus de 100\% et au-dessous de 0\%, ce qui serais complètement illogique. L'utilisateur trouvera aussi plus intuitif d'utiliser ce composant, car il n'aura qu'a glisser jusqu'à la complétion qu'il désire au lieu de l'écrire manuellement et de ce tromper.
 
 \chapter{Conclusion}
 
@@ -399,7 +479,7 @@ Les différentes étapes ont eu comme impact, sur la qualité du produit final, 
 	\item Définis tous les interfaces et les buts accomplis par chacun avant de penser à écrire une seule ligne de code.
 \end{itemize}
 
-Il reste a faire \dots
+Il reste a faire le système de recherche à l'aide des nouveaux onglets, comme, par exemple, la recherche par tag, événement, tâche, la création de listes personnalisées et le système d'alerte qui n'est pas encore fonctionnel.
 
 Nous avons tiré comme lecons qu'il vaut mieux voir si l'implémentation de la fenêtre est possible dans le temps alloué avec les ressources humaines disponibles avant de figer dans le béton un interface de l'application. De plus, pour tout ce qui attrait à l'apparence de l'application, il vaut mieux faire appel à un designer spécialisé dans le domaine plutôt que d'essayer de faire quelque chose par nous même qui ne donnera pas un beau rendu visuel.
 
