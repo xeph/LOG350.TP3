@@ -11,16 +11,29 @@ namespace WpfApplication2
         private System.Data.SQLite.SQLiteConnection connection;
         private System.Data.SQLite.SQLiteDataAdapter dataAdapter = new System.Data.SQLite.SQLiteDataAdapter();
         private System.Data.DataSet dataSet = new System.Data.DataSet();
+        private MainWindow parent;
 
-        public SearchTasks()
+        public SearchTasks(MainWindow parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
         private void Save()
         {
-            dataAdapter.Update(dataSet, "task");
+            foreach (System.Data.DataRowView x in MainDataGrid.Items)
+            {
+                x.Row[2] = x.Row[2].ToString().Replace(">", "");
+            }
+            try
+            {
+                dataAdapter.Update(dataSet, "task");
+            }
+            catch
+            {
+            }
+            this.parent.MassReloadTasks();
         }
-        private void Load()
+        public void Load()
         {
             dataAdapter.Dispose();
             dataSet.Dispose();
@@ -33,6 +46,12 @@ namespace WpfApplication2
             dataAdapter.AcceptChangesDuringUpdate = true;
 
             MainDataGrid.ItemsSource = dataSet.Tables["task"].DefaultView;
+
+            foreach (System.Data.DataRowView x in MainDataGrid.Items)
+            {
+                if (x.Row[1].ToString().Length > 0)
+                    x.Row[2] = ">"+x.Row[2];
+            }
         }
         private void DataGrid_Initialized(object sender, System.EventArgs e)
         {
@@ -55,7 +74,7 @@ namespace WpfApplication2
             catch { priorityID = 1; }
 
             //Add row and save
-            dataSet.Tables["task"].Rows.Add(System.DBNull.Value, System.DBNull.Value, NewTaskName.Text, System.DBNull.Value, priorityID, "0");
+            dataSet.Tables["task"].Rows.Add(System.DBNull.Value, System.DBNull.Value, NewTaskName.Text, System.DBNull.Value, priorityID, System.DBNull.Value);
             NewTaskName.Text = "";
             Save();
             Load();
@@ -63,7 +82,7 @@ namespace WpfApplication2
 
         private void MainDataGrid_Row_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Task taskWindow = new Task((long)((System.Data.DataRowView)((DataGridRow)sender).Item)["ID"]);
+            Task taskWindow = new Task((long)((System.Data.DataRowView)((DataGridRow)sender).Item)["ID"], this.parent);
             taskWindow.ShowDialog();
             taskWindow.Close();
         }
@@ -79,6 +98,12 @@ namespace WpfApplication2
         {
             ((System.Data.DataRowView)MainDataGrid.SelectedItem).Delete();
             Save();
+        }
+
+        private void NewTaskName_KeyUp_1(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+                AddButton_Click(null, null);
         }
     }
 }

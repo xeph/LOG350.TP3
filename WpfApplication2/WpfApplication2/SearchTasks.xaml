@@ -11,8 +11,8 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBox Name="NewTaskName" Height="30" Width="500" Margin="10,5,10,5" />
-            <Button Margin="0,5,10,5" Content="Ajouter" Click="AddButton_Click"/>
+            <TextBox Name="NewTaskName" Height="30" Width="500" Margin="10,5,10,5" KeyUp="NewTaskName_KeyUp_1" />
+            <Button Name="AddButton" Margin="0,5,10,5" Content="Ajouter" Click="AddButton_Click"/>
             <Button Margin="0,5,10,5" Content="Configuration" Click="SettingsButton_Click" />
         </StackPanel>
         <DataGrid Name="MainDataGrid" Grid.Row="1" Margin="10,5,10,5" IsReadOnly="True" CanUserReorderColumns="False" 
@@ -30,10 +30,11 @@
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="SizeToHeader" Binding="{Binding Path=ID}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="ChildOf" Width="SizeToHeader" Binding="{Binding Path=child_of}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" Width="Auto" Binding="{Binding Path=name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="completion" Width="*" Binding="{Binding Path=completion}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ID" Width="SizeToHeader" Binding="{Binding Path=ID}" Visibility="Hidden" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="ChildOf" Width="SizeToHeader" Binding="{Binding Path=child_of}" Visibility="Hidden"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nom" Width="Auto" Binding="{Binding Path=name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Complétion" Width="Auto" Binding="{Binding Path=completion}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Path=description}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

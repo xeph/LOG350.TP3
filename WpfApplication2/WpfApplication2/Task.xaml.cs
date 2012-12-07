@@ -25,6 +25,7 @@
         private System.Data.DataSet dataSet;
         private System.Data.DataRow row;
         private long id;
+        private MainWindow parent;
 
         public static readonly System.Windows.DependencyProperty IsDirtyProperty = System.Windows.DependencyProperty.Register("IsDirty", typeof(bool), typeof(Task));
         private bool IsDirty
@@ -40,12 +41,14 @@
         }
         private bool IsLoading = false;
 
-        public Task() : this(1)
+        public Task() : this(1, null)
         {
         }
 
-        public Task(long id)
+        public Task(long id, MainWindow parent)
         {
+            this.parent = parent;
+
             IsDirty = false;
             this.id = id;
             connection = new System.Data.SQLite.SQLiteConnection("Data source=" + System.Environment.CurrentDirectory.ToString() + "\\ToDoAny.sqlite;Version=3;");
@@ -280,6 +283,14 @@
                 }
             }
 
+            try
+            {
+                this.parent.MassReloadTasks();
+            }
+            catch
+            {
+            }
+
             return !IsDirty;
         }
 
@@ -433,7 +444,7 @@
                 var dataRow = dataRowView.Row;
                 if (!dataRow.IsNull("ID"))
                 {
-                    System.Nullable<bool> taskChanged = new Task((long)dataRow["ID"]).ShowDialog();
+                    System.Nullable<bool> taskChanged = new Task((long)dataRow["ID"], this.parent).ShowDialog();
 
                     if (taskChanged.HasValue && taskChanged.Value)
                     {
