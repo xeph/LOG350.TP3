@@ -40,9 +40,9 @@ L'application permet la gestion simple de tâches et d'événements tout en offr
 
 Durant notre analyse de tâche, nous avons déterminer que le publique cible est des personnes de 15 ans et plus désirant organiser son temps et sa vie professionnelle. De plus, nous avons conclu que notre interface devrais ressembler à des interfaces connu pour la garder familière et garder une courbe d'apprentissage faible. Pour ce faire, nous avons dressé une liste des cas d'utilisation que l'application doit traiter pour se donner un point de départ. Par la suite, nous avons construit nos prototypes statiques.
 
-Pour construire notre prototype statique, nosu avons utilisé des fenêtres virtuelles où chaque point de chaque fenêtre à été détaillé pour s'assurer que le travail devant être effectué par chaque interface a bel et bien été compris. De plus, chaque fonctionnalité a aussi été détaillé dans le but qu'elles soient bien comprise.
+Pour construire notre prototype statique, nous avons utilisé des fenêtres virtuelles où chaque point de chaque fenêtre à été détaillé pour s'assurer que le travail devant être effectué par chaque interface a bel et bien été compris. De plus, chaque fonctionnalité a aussi été détaillé dans le but qu'elles soient bien comprise.
 
-Jusqu'à présent, presqu'aucune modification n'a été apporté entre les prototypes statiques et dynamiques. Tout va rester comme indiqué dans le document se trouvant à l'annexe III.
+Jusqu'à présent, presqu'aucune modification n'a été apporté entre les prototypes statiques et dynamiques sauf à quelques endroits pour des raisons de manque de temps et de personnel. Par exemple, dans la fenêtre Tâche, la section échéance a été changé. Pour le reste, tout va rester comme indiqué dans le document se trouvant à l'annexe III.
 
 Dans le présent document, les tests qui seront effectués avec des utilisateurs seront listés et détaillés. Par la suite, un concensus sera fais pour chaque tâche et une amélioration qui pourrait être faite sera proposé pour améliorer le comportement du logiciel.
 
@@ -63,12 +63,12 @@ Dans le présent document, les tests qui seront effectués avec des utilisateurs
 		25 novembre	& Marc-André : Rédaction du rapport.		 			\\
 				& Martin : Programmation du prototype dynamique. 			\\ 
 				& Simon : Programmation du prototype dynamique.		 	\\ \hline
-		2 decembre	& Marc-André : Rencontre avec les utilisateurs. 			\\
-				& Martin : Rédaction du rapport.						\\
-				& Simon : Rédaction du rapport.						\\ \hline
-		9 decembre	& Marc-André : Préparation de la présentation.	 		\\ 
-				& Martin : Préparation de la présentation.	 			\\ 
-				& Simon : Préparation de la présentation.	 			\\ \hline
+		2 décembre	& Marc-André : Rencontre avec les utilisateurs. 			\\
+				& Martin : Préparation de la présentation.				\\
+				& Simon : Préparation de la présentation.				\\ \hline
+		9 décembre	& Marc-André : Rédaction du rapport.	 				\\ 
+				& Martin : Rédaction du rapport.	 					\\ 
+				& Simon : Rédaction du rapport.			 			\\ \hline
 	\end{tabular}
 	\caption{Échéancier}
 \end{table}
@@ -95,7 +95,7 @@ Pour la production de la documentation, nous utilisons le processeur de texte \L
 
 \subsection{Fenêtre principale}
 
-C'est à partir de cette écran que l'utilisateur peut modifier ou créer un événement ou une tâche. À partir de cet écran, l'utilisateur peut aussi faire la gestion des priorités et se créer des listes personnalisées ou bien des recherches. À la page 16 et 18 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+L'utilisateur à la possibilité d'avoir plusieurs onglets pour organiser ces listes de tâches et d'événements et, dans de futures versions, effectuer des recherces pour afficher de l'information personnalisé dans ces onglets. Ensuite, pour faciliter l'ajout, un champ texte ainsi qu'un bouton Ajouter est mis à disposition pour effectuer un ajout rapide. Lorsque l'utilisateur à terminé d'ajouter, il peut faire la gestion de sa liste en modifiant les entrées en double cliquant ou bien en faisant apparaitre le menu contextuel pour supprimer. De plus, il faut spécifier que la gestion des priorités se fait via le bouton Configuration. À la page 16 et 18 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -107,7 +107,7 @@ C'est à partir de cette écran que l'utilisateur peut modifier ou créer un év
 
 \subsection{Événement}
 
-C'est à partir de cette écran que l'utilisateur peut modifier ou créer un événement. À partir de cet écran, l'utilisateur peut aussi faire la gestion des alertes appartenant à l'événement. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant un événement. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -119,7 +119,7 @@ C'est à partir de cette écran que l'utilisateur peut modifier ou créer un év
 
 \subsection{Tâche}
 
-C'est à partir de cet écran que l'utilisateur peut modifier ou créer une tâche. À partir de cet écran, l'utilisateur peut aussi faire la gestion des alertes et des sous-tâches appartenant à la tâche parent. À la page 19 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant une tâche. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte ou des sous-tâches, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel. À la page 19 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -131,7 +131,7 @@ C'est à partir de cet écran que l'utilisateur peut modifier ou créer une tâc
 
 \subsection{Priorités}
 
-C'est à partir de cet écran que l'utilisateur peut faire la gestion des diverses priorités disponibles dans l'application. À la page 22 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur de faire la gestion des diverses priorités.  Si l'utilisateur décide d'ajouter une priorité, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel. Pour ajouter À la page 22 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -151,7 +151,7 @@ Pour la navigation entre les fenêtres de l'application nous utilisons le patron
 
 Ensuite, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} sur, par exemple, la fenêtre principale. Avec ce patron, nous listons donc les tâches et chaque sous-tâche sous la tâche correspondante sous forme d'arborescence. Nous pouvons donc afficher un maximum d'information utile à l'utilisateur lorsque celui-ci le demande. Nous utilisons aussi le patron \emph{New-Item Row} dans la fenêtre Priorités pour permettre l'ajout rapide et infini de lignes dans le tableau sans que l'utilisateur n'ait besoin d'appuyer sur quoi que se soit. Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'applique et permet de trier l'information affiché en tout temps pour permettre à l'utilisateur de trouver ce qu'il veut plus rapidement. 
 
-De plus, nous avons respecté le plus possible le contenu de la norme \emph{ISO 9241-120} à \emph{ISO 9241-129} qui traite sur les interactions sur les entrées et sorties.
+De plus, nous avons respecté le plus possible le contenu de la norme \emph{ISO 9241-120} à \emph{ISO 9241-129} qui traite sur les interactions sur les entrées, les sorties et les interactions.
 
 Quelques changements on été effectué entre le prototype statique et dynamique. Parmi ces changements, on compte les options possibles pour une échéance dans la fenêtre sur les tâches. Ce changement a été fait à cause de limitations logiciels et par faute de temps. Il est à noter que ces changements n'influence en aucun cas l'efficacité de l'application.
 
@@ -172,7 +172,7 @@ Remise du code final : le 11 décembre 2012 à 23h59 maximum par courriel à log
 
 Remise du rapport :  le 11 décembre 2012 à 23h59 maximum en version papier dans la chute du département.
 
-Remise de la présentation de l’éxposé oral : le 6 décembre 2012 à 23h59 maximum par courriel à log350a2012@gmail.com .
+Remise de la présentation de l’exposé oral : le 6 décembre 2012 à 23h59 maximum par courriel à log350a2012@gmail.com.
 
 \chapter{Tests avec utilisateurs}
 
@@ -180,7 +180,9 @@ Remise de la présentation de l’éxposé oral : le 6 décembre 2012 à 23h59 m
 
 Avant d'effectuer les tests, un document expliquant la nature du projet et le déroulement des tests a été fourni aux utilisateurs. Les membres de l'équipe assument que le document a été lu lors de la rencontre. De plus, un formulaire de consentement sera obligatoirement signé par l'utilisateur et un membre de l'équipe pour que les deux parties s'entendent sur ce qui sera fait lors de la rencontre.
 
-Pour faire les tests avec les utilisateurs, le ou les membres de l'équipe s'asseoiront avec l'utilisateur qui testera l'application. Par la suite, un membre de l'équipe se chargera de dire chaque tâche que l'utilisateur devra effectuer, et si l'utilisateur à des questions, il sera chargé de lui fournir les informations. Lorsque l'utilisateur aura terminé de faire une tâche, il y aura une brève pause pour que tout le monde ait le temps de prendre des notes. L'exécution de la tâche suivante se fera lorsque tout le monde aura terminer de prendre les notes pour la tâche courante. Quand toutes les tâches auront été exécuté, l'utilisateur pourra donner son opinion et ses impressions sur l'application sur des choses à améliorer, les points positifs et des fonctionnalitées qui pourraient être intéressante à ajouter.
+Pour faire les tests avec les utilisateurs, le ou les membres de l'équipe s'asseoiront avec l'utilisateur qui testera l'application. Par la suite, un membre de l'équipe se chargera de dire chaque tâche que l'utilisateur devra effectuer, et si l'utilisateur à des questions, il sera chargé de lui fournir les informations. Lorsque l'utilisateur aura terminé de faire une tâche, il y aura une brève pause pour que tout le monde ait le temps de prendre des notes. L'exécution de la tâche suivante se fera lorsque tout le monde aura terminer de prendre les notes pour la tâche courante. Quand toutes les tâches auront été exécuté, l'utilisateur pourra donner son opinion et ses impressions sur l'application sur des choses à améliorer, les points positifs et des fonctionnalitées qui pourraient être intéressante à ajouter ou bien améliorer.
+
+Ce seront principalement des notes concernant la performance et l'usabilité de l'application qui seront prise parce que les principaux objectifs que nous voulons atteindre avec notre application sont une facilité d'utilisation et que celle-ci soit performante. Les notes seront tirées de l'interaction de l'utilisateur avec l'application et de la rapidité avec laquelle l'utilisateur effectue les tâches.
 
 Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en tout temps, décider d'arrêter les tests sans devoir fournir une raison. Les données recueillis seront cependant conservé à moins que l'utilisateur ne demande à ce qu'elles soient détruites.
 
@@ -192,46 +194,46 @@ Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en
 	\centering
 	\begin{tabular}{|l|l|l|}
 		\hline
-		no Tache	& Titre et description		& Éléments que vous voulez vérifier et hypothèses 	\\ \hline 
-		1		& Ajouter l'événement 		&  							\\ 
-				& « événement 1 ».			&							\\ \hline
-		2		& Définir l’échéance de 		&							\\
-				& « événement 1 » à 1 		&							\\
-				& janvier 2013.			&							\\ \hline
-		3		& Ajouter le tag « [TAG1] » 	&							\\
-				& à « événement 1 ».		&							\\ \hline
-		4		& Ajouter une alerte « Envoyer 	&							\\
-				& un courriel », « 2 », « jours ».	&							\\ \hline
-		5		& Enregistrer l’événement.	& 							\\ \hline
-		6		& Fermer la fenêtre.		&							\\ \hline
-		7		& Supprimer l’événement		&							\\
-				&  « Examen final de PHY332 ».	& 							\\ \hline
-		8		& Ajouter la tâche « tâche 1 ». 	&							\\ \hline
-		9		& Définir l’échéance de  		&							\\
-				& « tâche 1 » comme étant	&							\\
-				&  l’événement « événement 1 ».	&							\\ \hline
-		10		& Définir la priorité de  « tâche 1 »&							\\
-				&  à « Très faible ». 		&							\\
-				& <NE PEUT PAS ETRE FAIT>	&							\\ \hline
-		11		& Ajouter la priorité « très faible »&							\\
-				& avec une valeur de « 4 » et 	&							\\
-				& Actif à « Vrai » et enregistrer.	&							\\ \hline
-		12		& Définir la priorité de  « tâche 1 »&							\\
-				&  à « Très faible »..		&							\\ \hline
-		13		& Définir la complétion de 		&							\\
-				& « tâche 1 » à « 42 ».		&							\\ \hline
-		14		& Ajouter les tags « [TAG1] » et 	&							\\
-				& « [TAG2] » à « tâche 1 ».	&							\\ \hline
-		15		& Ajouter la description 		&							\\
-				& « lorem ipsum » à « tâche 1 ».	&							\\ \hline
-		16		& Ajouter une alerte 	 	&							\\
-				& « afficher un rappel », « 5 »,	& 							\\
-				&  « minutes » à « tâche 1 ».	&							\\ \hline
-		17		& Créer une sous-tâche		&							\\
-				&  « tâche 1.1 » à « tâche 1 »	&							\\ \hline
-		18		& Créer une sous-tâche		&							\\
-				&  « tâche 1.2 » à « tâche 1 »	&							\\ \hline
-		19		& Enregistrer la tâche.		& 							\\ \hline
+		no Tâche	& Titre et description		& Éléments que vous voulez vérifier et hypothèses 	\\ \hline 
+		1		& Ajouter l'événement 		&  Détection de raccourcis.				\\ 
+				& « événement 1 ».			&								\\ \hline
+		2		& Définir l’échéance de 		&								\\
+				& « événement 1 » à 1 		&								\\
+				& janvier 2013.			&								\\ \hline
+		3		& Ajouter le tag « [TAG1] » 	&								\\
+				& à « événement 1 ».		&								\\ \hline
+		4		& Ajouter une alerte « Envoyer 	&								\\
+				& un courriel », « 2 », « jours ».	&								\\ \hline
+		5		& Enregistrer l’événement.	& 								\\ \hline
+		6		& Fermer la fenêtre.		&								\\ \hline
+		7		& Supprimer l’événement		& Détection de menu contextuel.				\\
+				&  « Examen final de PHY332 ».	& 								\\ \hline
+		8		& Ajouter la tâche « tâche 1 ». 	& Détection de raccourcis.					\\ \hline
+		9		& Définir l’échéance de  		&								\\
+				& « tâche 1 » comme étant	&								\\
+				&  l’événement « événement 1 ».	&								\\ \hline
+		10		& Définir la priorité de  « tâche 1 »& Détection de raccourcis.				\\
+				&  à « Très faible ». 		&								\\
+				& <NE PEUT PAS ÊTRE FAIT>	&								\\ \hline
+		11		& Ajouter la priorité « très faible »&								\\
+				& avec une valeur de « 4 » et 	&								\\
+				& Actif à « Vrai » et enregistrer.	&								\\ \hline
+		12		& Définir la priorité de  « tâche 1 »&								\\
+				&  à « Très faible »..		&								\\ \hline
+		13		& Définir la complétion de 		&								\\
+				& « tâche 1 » à « 42 ».		&								\\ \hline
+		14		& Ajouter les tags « [TAG1] » et 	&								\\
+				& « [TAG2] » à « tâche 1 ».	&								\\ \hline
+		15		& Ajouter la description 		&								\\
+				& « lorem ipsum » à « tâche 1 ».	&								\\ \hline
+		16		& Ajouter une alerte 	 	&								\\
+				& « afficher un rappel », « 5 »,	& 								\\
+				&  « minutes » à « tâche 1 ».	&								\\ \hline
+		17		& Créer une sous-tâche		&								\\
+				&  « tâche 1.1 » à « tâche 1 »	&								\\ \hline
+		18		& Créer une sous-tâche		&								\\
+				&  « tâche 1.2 » à « tâche 1 »	&								\\ \hline
+		19		& Enregistrer la tâche.		& 								\\ \hline
 	\end{tabular}
 \end{table}
 
@@ -241,27 +243,27 @@ Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en
 	\centering
 	\begin{tabular}{|l|l|l|}
 		\hline
-		no Tache	& Titre et description		& Éléments que vous voulez vérifier et hypothèses 	\\ \hline 
-		20		& Fermer la fenêtre.		&							\\ \hline
-		21		& Supprimer la « tâche 1.2 »	&							\\ \hline
-		22		& Modifier l’échéance de « tâche 1 »&							\\
-				&  pour le « 3 février 2013 ».	&							\\ \hline
-		23		& Fermer la fenêtre.		&							\\ \hline
-		24		& Appuyer sur « Cancel ».		&							\\ \hline
-		25		& Définir la complétion de la 	&							\\
-				& « tâche 1 » à « 50 ».		&							\\ \hline
-		26		& Fermer la fenêtre.		&							\\ \hline
-		27		& Appuyer sur « Oui ».		&							\\ \hline
-		28		& Appuyer sur le bouton 		&							\\
-				& « Configuration ».		&							\\ \hline
-		29		& Définir la priorité « très faible » &							\\
-				& à « non-actif »			&							\\ \hline
-		30		& Fermer la fenêtre.		&							\\ \hline
-		31		& Appuyer sur « Oui ».		&							\\ \hline
-		32		& Modifier la priorité de la 		&							\\
-				& « tâche 1 » à « faible ».		&							\\ \hline
-		33		& Enregistrer la tâche.		&							\\ \hline
-		34		& Fermer la fenêtre.		&							\\ \hline
+		no Tâche	& Titre et description		& Éléments que vous voulez vérifier et hypothèses 	\\ \hline 
+		20		& Fermer la fenêtre.		&								\\ \hline
+		21		& Supprimer la « tâche 1.2 »	&								\\ \hline
+		22		& Modifier l’échéance de « tâche 1 »&								\\
+				&  pour le « 3 février 2013 ».	&								\\ \hline
+		23		& Fermer la fenêtre.		&								\\ \hline
+		24		& Appuyer sur « Cancel ».		&								\\ \hline
+		25		& Définir la complétion de la 	&								\\
+				& « tâche 1 » à « 50 ».		&								\\ \hline
+		26		& Fermer la fenêtre.		&								\\ \hline
+		27		& Appuyer sur « Oui ».		&								\\ \hline
+		28		& Appuyer sur le bouton 		&								\\
+				& « Configuration ».		&								\\ \hline
+		29		& Définir la priorité « très faible » &								\\
+				& à « non-actif »			&								\\ \hline
+		30		& Fermer la fenêtre.		&								\\ \hline
+		31		& Appuyer sur « Oui ».		&								\\ \hline
+		32		& Modifier la priorité de la 		&								\\
+				& « tâche 1 » à « faible ».		&								\\ \hline
+		33		& Enregistrer la tâche.		&								\\ \hline
+		34		& Fermer la fenêtre.		&								\\ \hline
 	\end{tabular}
 	\caption{Liste des tâches}
 \end{table}
@@ -462,11 +464,45 @@ La barre d'ajout rapide plante dans un nouvel onglet (SearchTasks.xaml.cs), les 
 
 Fournir un menu d'aide (tooltip par exemple) explicant diverses fonctionnalités qui ne sont pas toujours évidente pour l'utilisateur, comme le système de tag ou bien les menus contextuel. Ainsi, l'utilisateur ne se sentira pas abandonné pour utiliser l'application et ceci facilitera aussi son apprentissage des diverses fonctionnalitées de l'application.
 
-Ajouter un bouton supprimer en bas à gauche de chaque datagridview permettant la suppression des éléments dans celui-ci en plus du menu contextuel. En faisant cela, on offre la possibilité, tant aux utilisateurs débutants qu'aux utilisateurs avancés, de supprimer un élément de diverses facon selon les préférences de chacun. Cela permet aussi à l'utilisateur de moins chercher comment effectuer cette opération.
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{tags.png}
+	\caption{Exemple de tooltip sur le champ tag}
+\end{figure}
 
-Fournir un moyen de bien identifier les onglets ne pouvant être fermé sur la fenêtre principale pour éviter la confusion avec ceux qui ne peuvent être fermé. De plus, cela permettra d'identifier les onglets de recherche, car seulement ceux-ci peuvent être fermé tandis que les onglets « tâche » et « événement » ne peuvent être fermé.
+Ajouter un bouton ajouter et supprimer en bas à gauche de chaque datagridview permettant l'ajout et la suppression des éléments dans celui-ci en plus du menu contextuel. En faisant cela, on offre la possibilité, tant aux utilisateurs débutants qu'aux utilisateurs avancés, d'ajouter et de supprimer un élément de diverses facon selon les préférences de chacun. Cela permet aussi à l'utilisateur de moins chercher comment effectuer cette opération.
 
-Changer le champ complétion dans la fenêtre tâche pour un slider, comme sa l'utilisateur ne pourra pas entrer ce qu'il veut. En faisant cela, on évite qu'une complétion ait au dessus de 100\% et au-dessous de 0\%, ce qui serais complètement illogique. L'utilisateur trouvera aussi plus intuitif d'utiliser ce composant, car il n'aura qu'a glisser jusqu'à la complétion qu'il désire au lieu de l'écrire manuellement et de ce tromper.
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{add_delete_button.png}
+	\caption{Boutons ajouter et supprimer sur un datagridview}
+\end{figure}
+
+\newpage
+
+Changer le champ complétion dans la fenêtre tâche pour un slider, comme sa l'utilisateur ne pourra pas entrer ce qu'il veut. En faisant cela, on évite qu'une complétion ait au dessus de 100\% et au-dessous de 0\%, ce qui serais complètement illogique. L'utilisateur trouvera aussi plus intuitif d'utiliser ce composant, car il n'aura qu'a glisser jusqu'au niveau de complétion qu'il désire au lieu de l'écrire manuellement et de ce tromper.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{completion.png}
+	\caption{Slider de complétion}
+\end{figure}
+
+Changer les expander pour des groupbox, car avec les tests utilisateurs, nous nous sommes rendu compte que ceux-ci n'étaient pas familié avec ce type de composant et qu'aucun d'eux ne savait quoi faire avec ceci. Donc, pour simplifier le fonctionnement de la fenêtre et diminuer son temps d'apprentissage, il vaut mieux faire ce changement.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{groupbox.png}
+	\caption{Groupbox au lieu d'expander}
+\end{figure}
+
+Selon les conclusions tirées des tests utilisateurs, la barre d'ajout rapide n'a pas été utilisé pour faire l'ajout rapide. Pour que les utilisateurs débutants puissent connaître cette fonctionnalité, il sera nécessaire d'inclure une fenêtre d'aide pour spécifier chaque action possible dans une fenêtre comme dans cet image.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=0.48\textwidth]{help.png}
+	\caption{Exemple de fenêtre d'aide}
+\end{figure}
 
 \chapter{Conclusion}
 
@@ -481,7 +517,7 @@ Les différentes étapes ont eu comme impact, sur la qualité du produit final, 
 
 Il reste a faire le système de recherche à l'aide des nouveaux onglets, comme, par exemple, la recherche par tag, événement, tâche, la création de listes personnalisées et le système d'alerte qui n'est pas encore fonctionnel.
 
-Nous avons tiré comme lecons qu'il vaut mieux voir si l'implémentation de la fenêtre est possible dans le temps alloué avec les ressources humaines disponibles avant de figer dans le béton un interface de l'application. De plus, pour tout ce qui attrait à l'apparence de l'application, il vaut mieux faire appel à un designer spécialisé dans le domaine plutôt que d'essayer de faire quelque chose par nous même qui ne donnera pas un beau rendu visuel.
+Nous avons tiré comme leçons qu'il vaut mieux voir si l'implémentation de la fenêtre est possible dans le temps alloué avec les ressources humaines disponibles avant de figer dans le béton un interface de l'application. De plus, pour tout ce qui attrait à l'apparence de l'application, il vaut mieux faire appel à un designer spécialisé dans le domaine plutôt que d'essayer de faire quelque chose par nous même qui ne donnera pas un beau rendu visuel.
 
 Nous recommandons que le contenu du cours s'applique plus au projet, car, souvent, il est difficile d'établir des liens entre la matière présentée en classe et les laboratoires que nous effectuons. Par exemple, les liens entre le SDK pour iPhone et notre projet en C\#/WPF sont inexistants ou bien les techniques et styles d'interactions peuvent etre difficile à appliquer selon les contextes des divers projets des étudiants.
 
@@ -499,5 +535,13 @@ Nous recommandons que le contenu du cours s'applique plus au projet, car, souven
 \chapter{Travail Pratique 2}
 
 \includepdf[pages=-]{T2.pdf}
+
+\chapter{Contrats signés}
+
+%includedpdf[pages=-]{contrats_signes.pdf}
+
+\chapter{Notes prises}
+
+%includedpdf[pages=-]{notes_prises.pdf}
 
 \end{document}
