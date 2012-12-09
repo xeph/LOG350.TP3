@@ -27,11 +27,13 @@
 
 \begin{description}
 \item[C\#] est un langage de programmation orienté objet à typage fort, créé par la société Microsoft. \footnote{\url{https://fr.wikipedia.org/wiki/C_sharp}}
-\item[Windows Presentation Foundation] est la spécification graphique de Microsoft .NET 3.0. Il intègre le langage descriptif XAML qui permet de l'utiliser d'une manière proche d'une page HTML pour les développeurs. \footnote{\url{https://fr.wikipedia.org/wiki/Windows_Presentation_Foundation}}
+\item[Windows Presentation Foundation (WPF)] est la spécification graphique de Microsoft .NET 3.0. Il intègre le langage descriptif XAML qui permet de l'utiliser d'une manière proche d'une page HTML pour les développeurs. \footnote{\url{https://fr.wikipedia.org/wiki/Windows_Presentation_Foundation}}
 \item[WinForms] est le nom de l'interface graphique qui est incluse dans .NET Framework, fournissant l'accès via du Managed code à l'API Windows. \footnote{\url{https://fr.wikipedia.org/wiki/Windows_Forms}}
 \item[framework] est un kit de composants logiciels structurels, qui sert à créer les fondations ainsi que les grandes lignes de tout ou d’une partie d'un logiciel (architecture). \footnote{\url{https://fr.wikipedia.org/wiki/Framework}}
 \item[.NET 4.5] est un framework pouvant être utilisé par un système d'exploitation Microsoft Windows et Microsoft Windows Mobile depuis la version 5 (.NET Compact Framework). \footnote{\url{https://fr.wikipedia.org/wiki/Framework_.NET}}
 \item[SQLite] est une bibliothèque écrite en C qui propose un moteur de base de données relationnelle accessible par le langage SQL.\footnote{\url{https://fr.wikipedia.org/wiki/SQLite}}
+\item[Git] est un logiciel de gestion de versions décentralisé. C'est un logiciel libre créé par Linus Torvalds, le créateur du noyau Linux, et distribué selon les termes de la licence publique générale GNU version 2.\footnote{\url{https://fr.wikipedia.org/wiki/Git}}
+\item[\LaTeX] est un langage et un système de composition de documents créé par Leslie Lamport en 1983. Plus exactement, il s'agit d'une collection de macro-commandes destinées à faciliter l'utilisation du « processeur de texte » TeX de Donald Knuth.\footnote{\url{https://fr.wikipedia.org/wiki/LaTeX}}
 \end{description}
 
 \chapter{Introduction et sommaire du travail effectué en TP2}
@@ -75,17 +77,17 @@ Dans le présent document, les tests qui seront effectués avec des utilisateurs
 
 \chapter{Réalisation du prototype dynamique}
 
-Dans la section suivante, nous vous présenterons notre prototype dynamique et donc, avant d'entreprendre la lecture de cette section, nous vous conseillons de lire le document se trouvant à l'annexe III. Ce document contient les informations concernant le prototype statique et toute la logique derriere le prototype dynamique.
+Dans la section suivante, nous vous présenterons notre prototype dynamique et donc, avant d'entreprendre la lecture de cette section, nous vous conseillons de lire le document se trouvant à l'annexe III. Ce document contient les informations concernant le prototype statique et toute la logique derrière le prototype dynamique.
 
 \section{Choix des outils}
 
-Pour réaliser le prototype dynamique, nous avons décidé d'utiliser le C\# et le Windows Presentation Foundation (WPF) comme langages de programmation. Nous avons choisi ces langages tout simplement parce que ceci nous permet de séparer le code des interfaces et que le WPF va ultimement remplacer WinForms. 
+Pour réaliser le prototype dynamique, nous avons décidé d'utiliser le C\# et le Windows Presentation Foundation (WPF) comme langages de programmation. Nous avons choisi ces langages tout simplement parce que ceci nous permet de séparer le code des interfaces et que le WPF va nous permettre de créer des composantes et de les implémenter dans notre interface personnalisé plus facilement. 
 
 Comme environnement de développement, nous utilisons Visual Studio 2012 avec le framework .NET 4.5 pour faciliter et accélérer notre développement. Ce framework nous donne des composantes graphiques de base qui nous simplifie la vie en nous permettant d'économiser du temps pour ne pas à avoir à developper des composants de base comme un TextBox ou un Label, par exemple.
 
-De plus, comme base de données, nous utilisons SQLite parce que cela nous permet d'avoir un endroit pour stocker nos données de façon structuré et le tout dans un seul et unique fichier.
+De plus, comme base de données, nous utilisons SQLite parce que cela nous permet d'avoir un endroit pour stocker nos données de façon structuré et le tout dans un seul et unique fichier. Ce qui nous permet d'avoir une base de données portable.
 
-Pour assurer la gestion des versions, nous utilisons un logiciel connu sous le nom de Git. Ce logiciel s'occupe de faire la gestion des versions de chaque fichier du projet.
+Pour assurer la gestion des versions, nous utilisons un logiciel connu sous le nom de Git.
 
 Pour la production de la documentation, nous utilisons le processeur de texte \LaTeX.
 
@@ -93,50 +95,52 @@ Pour la production de la documentation, nous utilisons le processeur de texte \L
 
 \section{Captures d'écran}
 
+Dans la section suivante, nous ferons une brève description de chaque fenêtre de notre application. Cette description impliquera la description de chaques actions qui peuvent être effectuées ainsi qu'une capture d'écran pour permettre de visualiser les interactions.
+
 \subsection{Fenêtre principale}
 
-L'utilisateur à la possibilité d'avoir plusieurs onglets pour organiser ces listes de tâches et d'événements et, dans de futures versions, effectuer des recherces pour afficher de l'information personnalisé dans ces onglets. Ensuite, pour faciliter l'ajout, un champ texte ainsi qu'un bouton Ajouter est mis à disposition pour effectuer un ajout rapide. Lorsque l'utilisateur à terminé d'ajouter, il peut faire la gestion de sa liste en modifiant les entrées en double cliquant ou bien en faisant apparaitre le menu contextuel pour supprimer. De plus, il faut spécifier que la gestion des priorités se fait via le bouton Configuration. À la page 16 et 18 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur d'avoir la possibilité d'avoir plusieurs onglets pour organiser ces listes de tâches et d'événements et, dans de futures versions, effectuer des recherces pour afficher de l'information personnalisé dans ces onglets. Ensuite, pour faciliter l'ajout, un champ texte ainsi qu'un bouton Ajouter est mis à disposition pour effectuer un ajout rapide. Lorsque l'utilisateur à terminé d'ajouter, il peut faire la gestion de sa liste en modifiant les entrées en double cliquant ou bien en faisant apparaitre le menu contextuel pour supprimer. De plus, il faut spécifier que la gestion des priorités se fait via le bouton Configuration. À la page 16 et 18 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
 	\includegraphics[width=1\textwidth]{fenetre_main.png}
-	\caption{Fenêtre concernant la page principale.}
+	\caption{Fenêtre concernant la page principale}
 \end{figure}
 
 \newpage
 
 \subsection{Événement}
 
-Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant un événement. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant un événement. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque datagridview. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
 	\includegraphics[width=1\textwidth]{fenetre_evenement.png}
-	\caption{Fenêtre concernant un événement.}
+	\caption{Fenêtre concernant un événement}
 \end{figure}
 
 \newpage
 
 \subsection{Tâche}
 
-Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant une tâche. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte ou des sous-tâches, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel. À la page 19 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant une tâche. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte ou une sous-tâche, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes et sous-tâches présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque datagridview. À la page 19 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
 	\includegraphics[width=1\textwidth]{fenetre_tache.png}
-	\caption{Fenêtre concernant une tâche.}
+	\caption{Fenêtre concernant une tâche}
 \end{figure}
 
 \newpage
 
 \subsection{Priorités}
 
-Cette fenêtre permet à l'utilisateur de faire la gestion des diverses priorités.  Si l'utilisateur décide d'ajouter une priorité, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel. Pour ajouter À la page 22 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur de faire la gestion des diverses priorités.  Si l'utilisateur décide d'ajouter une priorité, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque datagridview. Pour ajouter À la page 22 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
 	\includegraphics[width=1\textwidth]{fenetre_priorite.png}
-	\caption{Fenêtre concernant les priorités.}
+	\caption{Fenêtre concernant les priorités}
 \end{figure}
 
 \newpage
@@ -147,9 +151,45 @@ Divers patrons de conception ont été utilisé pour parvenir à la conception d
 
 Parmi les divers patrons disponibles, on compte le patron \emph{Many Workspaces} qui se retrouve à la fenêtre principale de l'application ou l'utilisateur à la possibilite d'avoir plusieurs listes d'ouvertes et de les organiser comme il veut via des onglets. L'utilisateur peut donc gérer plusieurs listes à la fois. 
 
-Pour la navigation entre les fenêtres de l'application nous utilisons le patron \emph{Escape Hatch}. Ainsi, la navigation entre les fenêtres est limité et l'utilisateur peut toujours revenir a la fenêtre principale sans chercher pendant de longues minutes comment y revenir. Cela simplifie grandement l'interaction entre l'application et l'utilisateur en simplifiant le processus de navigation au maximum. 
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{many_workspaces.png}
+	\caption{Onglets représentant différent espace de travail}
+\end{figure}
 
-Ensuite, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} sur, par exemple, la fenêtre principale. Avec ce patron, nous listons donc les tâches et chaque sous-tâche sous la tâche correspondante sous forme d'arborescence. Nous pouvons donc afficher un maximum d'information utile à l'utilisateur lorsque celui-ci le demande. Nous utilisons aussi le patron \emph{New-Item Row} dans la fenêtre Priorités pour permettre l'ajout rapide et infini de lignes dans le tableau sans que l'utilisateur n'ait besoin d'appuyer sur quoi que se soit. Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'applique et permet de trier l'information affiché en tout temps pour permettre à l'utilisateur de trouver ce qu'il veut plus rapidement. 
+Pour la navigation entre les fenêtres de l'application nous utilisons le patron \emph{Escape Hatch}. Ainsi, la navigation entre les fenêtres est limité et l'utilisateur peut toujours revenir a la fenêtre principale sans chercher pendant de longues minutes comment y revenir. Cela simplifie grandement l'interaction entre l'application et l'utilisateur en simplifiant le processus de navigation au maximum.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{navigation.png}
+	\caption{Navigation entre les fenêtres}
+\end{figure}
+
+\newpage
+
+Ensuite, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} sur, par exemple, la fenêtre principale. Avec ce patron, nous listons donc les tâches et chaque sous-tâche sous la tâche correspondante sous forme d'arborescence. Nous pouvons donc afficher un maximum d'information utile à l'utilisateur lorsque celui-ci le demande. Par manque de temps et de ressources humaines, ce patron a été implanté partiellement.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{tree_table.png}
+	\caption{Datagridview avec le patron \emph{Tree Table}}
+\end{figure}
+
+Nous utilisons aussi le patron \emph{New-Item Row} dans la fenêtre Priorités, par exemple, pour permettre l'ajout rapide et infini de lignes dans le tableau sans que l'utilisateur n'ait besoin d'appuyer sur quoi que se soit. 
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{new_item_row.png}
+	\caption{Datagridview avec le patron \emph{New-Item Row}}
+\end{figure}
+
+Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'applique et permet de trier l'information affiché en tout temps pour permettre à l'utilisateur de trouver ce qu'il veut plus rapidement.
+
+\begin{figure}[H!]
+	\centering
+	\includegraphics[width=1\textwidth]{sortable_table.png}
+	\caption{Exemple d'une colonne trié}
+\end{figure}
 
 De plus, nous avons respecté le plus possible le contenu de la norme \emph{ISO 9241-120} à \emph{ISO 9241-129} qui traite sur les interactions sur les entrées, les sorties et les interactions.
 

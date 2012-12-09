@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.11.6)  9 DEC 2012 12:55
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.11.6)  9 DEC 2012 15:34
 entering extended mode
 **rapport.tex
 
@@ -881,6 +881,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 36.
 [7
 
 ]
@@ -895,11 +897,11 @@ Chapitre 3
 Chapitre 4
 [10
 
-] <fenetre_main.png, id=75, 526.96875pt x 414.04688pt>
+] <fenetre_main.png, id=76, 526.96875pt x 414.04688pt>
 File: fenetre_main.png Graphic file (type png)
 
 <use fenetre_main.png>
-Package pdftex.def Info: fenetre_main.png used on input line 102.
+Package pdftex.def Info: fenetre_main.png used on input line 106.
 (pdftex.def)             Requested size: 451.6875pt x 354.91719pt.
 
 
@@ -909,11 +911,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/fe
-netre_main.png>] <fenetre_evenement.png, id=79, 489.32813pt x 278.54062pt>
+netre_main.png>] <fenetre_evenement.png, id=80, 489.32813pt x 278.54062pt>
 File: fenetre_evenement.png Graphic file (type png)
 
 <use fenetre_evenement.png>
-Package pdftex.def Info: fenetre_evenement.png used on input line 114.
+Package pdftex.def Info: fenetre_evenement.png used on input line 118.
 (pdftex.def)             Requested size: 451.6875pt x 257.119pt.
 
 
@@ -923,11 +925,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [12 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/fe
-netre_evenement.png>] <fenetre_tache.png, id=83, 489.32813pt x 451.6875pt>
+netre_evenement.png>] <fenetre_tache.png, id=84, 489.32813pt x 451.6875pt>
 File: fenetre_tache.png Graphic file (type png)
 
 <use fenetre_tache.png>
-Package pdftex.def Info: fenetre_tache.png used on input line 126.
+Package pdftex.def Info: fenetre_tache.png used on input line 130.
 (pdftex.def)             Requested size: 451.6875pt x 416.94975pt.
 
 
@@ -937,11 +939,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/fe
-netre_tache.png>] <fenetre_priorite.png, id=88, 376.40625pt x 301.125pt>
+netre_tache.png>] <fenetre_priorite.png, id=89, 376.40625pt x 301.125pt>
 File: fenetre_priorite.png Graphic file (type png)
 
 <use fenetre_priorite.png>
-Package pdftex.def Info: fenetre_priorite.png used on input line 138.
+Package pdftex.def Info: fenetre_priorite.png used on input line 142.
 (pdftex.def)             Requested size: 451.6875pt x 361.37575pt.
 
 
@@ -951,50 +953,82 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/fe
-netre_priorite.png>]
+netre_priorite.png>] <many_workspaces.png, id=93, 292.09125pt x 35.38219pt>
+File: many_workspaces.png Graphic file (type png)
+
+<use many_workspaces.png>
+Package pdftex.def Info: many_workspaces.png used on input line 156.
+(pdftex.def)             Requested size: 451.6875pt x 54.71979pt.
+ <navigation.png, id=94, 302.63063pt x 106.89937pt>
+File: navigation.png Graphic file (type png)
+
+<use navigation.png>
+Package pdftex.def Info: navigation.png used on input line 164.
+(pdftex.def)             Requested size: 451.6875pt x 159.55263pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15]
+[15 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/ma
+ny_workspaces.png> <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplicat
+ion2/Rapport/navigation.png>]
+<tree_table.png, id=98, 465.99094pt x 61.73062pt>
+File: tree_table.png Graphic file (type png)
+ <use tree_table.png>
+Package pdftex.def Info: tree_table.png used on input line 174.
+(pdftex.def)             Requested size: 451.6875pt x 59.8381pt.
+
+<new_item_row.png, id=99, 350.05782pt x 76.78688pt>
+File: new_item_row.png Graphic file (type png)
+ <use new_item_row.png>
+Package pdftex.def Info: new_item_row.png used on input line 182.
+(pdftex.def)             Requested size: 451.6875pt x 99.08594pt.
+
+<sortable_table.png, id=100, 465.23813pt x 104.64093pt>
+File: sortable_table.png Graphic file (type png)
+
+<use sortable_table.png>
+Package pdftex.def Info: sortable_table.png used on input line 190.
+(pdftex.def)             Requested size: 451.6875pt x 101.59576pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/tr
+ee_table.png> <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/
+Rapport/new_item_row.png> <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfA
+pplication2/Rapport/sortable_table.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17]
 Chapitre 5
 
-Overfull \hbox (38.83508pt too wide) in paragraph at lines 171--172
+Overfull \hbox (38.83508pt too wide) in paragraph at lines 211--212
 []\T1/ptm/m/n/12 Remise du code fi-nal : le 11 dé-cembre 2012 à 23h59 maxi-mum 
 par cour-riel à log350a2012@gmail.com. 
  []
 
-[16
+[18
 
 ]
 Chapitre 6
-[17
+[19
 
 ]
-Overfull \hbox (14.56831pt too wide) in paragraph at lines 195--238
+Overfull \hbox (14.56831pt too wide) in paragraph at lines 235--278
  [][] 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[18]
-Overfull \hbox (25.33276pt too wide) in paragraph at lines 244--268
- [][] 
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1002,6 +1036,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20]
+Overfull \hbox (25.33276pt too wide) in paragraph at lines 284--308
+ [][] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1023,40 +1061,54 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [23]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[25]
 Chapitre 7
-<tags.png, id=122, 189.70876pt x 40.65187pt>
+<tags.png, id=134, 189.70876pt x 40.65187pt>
 File: tags.png Graphic file (type png)
  <use tags.png>
-Package pdftex.def Info: tags.png used on input line 469.
+Package pdftex.def Info: tags.png used on input line 509.
 (pdftex.def)             Requested size: 451.6875pt x 96.8004pt.
 
-<add_delete_button.png, id=123, 376.40625pt x 301.125pt>
+<add_delete_button.png, id=135, 376.40625pt x 301.125pt>
 File: add_delete_button.png Graphic file (type png)
 
 <use add_delete_button.png>
-Package pdftex.def Info: add_delete_button.png used on input line 477.
+Package pdftex.def Info: add_delete_button.png used on input line 517.
 (pdftex.def)             Requested size: 271.01524pt x 216.8282pt.
- [24
+ [26
 
  <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/tags.
 png> <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/a
 dd_delete_button.png>]
-<completion.png, id=127, 475.02469pt x 38.39343pt>
+<completion.png, id=139, 475.02469pt x 38.39343pt>
 File: completion.png Graphic file (type png)
  <use completion.png>
-Package pdftex.def Info: completion.png used on input line 487.
+Package pdftex.def Info: completion.png used on input line 527.
 (pdftex.def)             Requested size: 451.6875pt x 36.50868pt.
 
-<groupbox.png, id=128, 471.26062pt x 92.59593pt>
+<groupbox.png, id=140, 471.26062pt x 92.59593pt>
 File: groupbox.png Graphic file (type png)
  <use groupbox.png>
-Package pdftex.def Info: groupbox.png used on input line 495.
+Package pdftex.def Info: groupbox.png used on input line 535.
 (pdftex.def)             Requested size: 451.6875pt x 88.75119pt.
 
-<help.png, id=129, 526.96875pt x 414.04688pt>
+<help.png, id=141, 526.96875pt x 414.04688pt>
 File: help.png Graphic file (type png)
  <use help.png>
-Package pdftex.def Info: help.png used on input line 503.
+Package pdftex.def Info: help.png used on input line 543.
 (pdftex.def)             Requested size: 216.80806pt x 170.34787pt.
 
 
@@ -1065,635 +1117,635 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/co
+[27 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/co
 mpletion.png> <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/
 Rapport/groupbox.png> <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfAppli
 cation2/Rapport/help.png>]
 Chapitre 8
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 514.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 554.
 
 ("D:\Program Files (x86)\New folder\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 514.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 554.
 
-Underfull \hbox (badness 10000) detected at line 514
+Underfull \hbox (badness 10000) detected at line 554
 []  \OMS/cmsy/m/n/12 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 515
+Underfull \hbox (badness 10000) detected at line 555
 []  \OMS/cmsy/m/n/12 []
  []
 
-[26
+[28
 
 ]
 Annexe I
-[27
+[29
 
-] <form.pdf, id=142, page=1, 597.50829pt x 845.0471pt>
+] <form.pdf, id=153, page=1, 597.50829pt x 845.0471pt>
 File: form.pdf Graphic file (type pdf)
 
 <use form.pdf, page 1>
-Package pdftex.def Info: form.pdf, page1 used on input line 529.
+Package pdftex.def Info: form.pdf, page1 used on input line 569.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: form.pdf Graphic file (type pdf)
  <use form.pdf, page 1>
-Package pdftex.def Info: form.pdf, page1 used on input line 529.
+Package pdftex.def Info: form.pdf, page1 used on input line 569.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
 File: form.pdf Graphic file (type pdf)
  <use form.pdf, page 1>
-Package pdftex.def Info: form.pdf, page1 used on input line 529.
+Package pdftex.def Info: form.pdf, page1 used on input line 569.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
 File: form.pdf Graphic file (type pdf)
 
 <use form.pdf, page 1>
-Package pdftex.def Info: form.pdf, page1 used on input line 529.
+Package pdftex.def Info: form.pdf, page1 used on input line 569.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
 File: form.pdf Graphic file (type pdf)
  <use form.pdf, page 1>
-Package pdftex.def Info: form.pdf, page1 used on input line 529.
+Package pdftex.def Info: form.pdf, page1 used on input line 569.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
- [28 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/f
+ [30 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/f
 orm.pdf>]
-<form.pdf, id=153, page=2, 597.50829pt x 845.0471pt>
+<form.pdf, id=164, page=2, 597.50829pt x 845.0471pt>
 File: form.pdf Graphic file (type pdf)
  <use form.pdf, page 2>
-Package pdftex.def Info: form.pdf, page2 used on input line 529.
+Package pdftex.def Info: form.pdf, page2 used on input line 569.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
 File: form.pdf Graphic file (type pdf)
 
 <use form.pdf, page 2>
-Package pdftex.def Info: form.pdf, page2 used on input line 529.
+Package pdftex.def Info: form.pdf, page2 used on input line 569.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
 File: form.pdf Graphic file (type pdf)
  <use form.pdf, page 2>
-Package pdftex.def Info: form.pdf, page2 used on input line 529.
+Package pdftex.def Info: form.pdf, page2 used on input line 569.
 (pdftex.def)             Requested size: 562.12285pt x 795.00201pt.
- [29 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/f
+ [31 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/f
 orm.pdf>]
 Annexe II
-[30
+[32
 
-] <document.pdf, id=168, page=1, 614.295pt x 794.97pt>
+] <document.pdf, id=180, page=1, 614.295pt x 794.97pt>
 File: document.pdf Graphic file (type pdf)
 
 <use document.pdf, page 1>
-Package pdftex.def Info: document.pdf, page1 used on input line 533.
+Package pdftex.def Info: document.pdf, page1 used on input line 573.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: document.pdf Graphic file (type pdf)
  <use document.pdf, page 1>
-Package pdftex.def Info: document.pdf, page1 used on input line 533.
+Package pdftex.def Info: document.pdf, page1 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
 
 <use document.pdf, page 1>
-Package pdftex.def Info: document.pdf, page1 used on input line 533.
+Package pdftex.def Info: document.pdf, page1 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
  <use document.pdf, page 1>
-Package pdftex.def Info: document.pdf, page1 used on input line 533.
+Package pdftex.def Info: document.pdf, page1 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
 
 <use document.pdf, page 1>
-Package pdftex.def Info: document.pdf, page1 used on input line 533.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [31 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
-ocument.pdf>]
-<document.pdf, id=205, page=2, 614.295pt x 794.97pt>
-File: document.pdf Graphic file (type pdf)
-
-<use document.pdf, page 2>
-Package pdftex.def Info: document.pdf, page2 used on input line 533.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: document.pdf Graphic file (type pdf)
- <use document.pdf, page 2>
-Package pdftex.def Info: document.pdf, page2 used on input line 533.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: document.pdf Graphic file (type pdf)
-
-<use document.pdf, page 2>
-Package pdftex.def Info: document.pdf, page2 used on input line 533.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [32 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
-ocument.pdf>]
-<document.pdf, id=218, page=3, 614.295pt x 794.97pt>
-File: document.pdf Graphic file (type pdf)
-
-<use document.pdf, page 3>
-Package pdftex.def Info: document.pdf, page3 used on input line 533.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: document.pdf Graphic file (type pdf)
- <use document.pdf, page 3>
-Package pdftex.def Info: document.pdf, page3 used on input line 533.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: document.pdf Graphic file (type pdf)
-
-<use document.pdf, page 3>
-Package pdftex.def Info: document.pdf, page3 used on input line 533.
+Package pdftex.def Info: document.pdf, page1 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [33 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
 ocument.pdf>]
-<document.pdf, id=223, page=4, 614.295pt x 794.97pt>
+<document.pdf, id=216, page=2, 614.295pt x 794.97pt>
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 4>
-Package pdftex.def Info: document.pdf, page4 used on input line 533.
+<use document.pdf, page 2>
+Package pdftex.def Info: document.pdf, page2 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
- <use document.pdf, page 4>
-Package pdftex.def Info: document.pdf, page4 used on input line 533.
+ <use document.pdf, page 2>
+Package pdftex.def Info: document.pdf, page2 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 4>
-Package pdftex.def Info: document.pdf, page4 used on input line 533.
+<use document.pdf, page 2>
+Package pdftex.def Info: document.pdf, page2 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [34 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
 ocument.pdf>]
-<document.pdf, id=228, page=5, 614.295pt x 794.97pt>
+<document.pdf, id=229, page=3, 614.295pt x 794.97pt>
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 5>
-Package pdftex.def Info: document.pdf, page5 used on input line 533.
+<use document.pdf, page 3>
+Package pdftex.def Info: document.pdf, page3 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
- <use document.pdf, page 5>
-Package pdftex.def Info: document.pdf, page5 used on input line 533.
+ <use document.pdf, page 3>
+Package pdftex.def Info: document.pdf, page3 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 5>
-Package pdftex.def Info: document.pdf, page5 used on input line 533.
+<use document.pdf, page 3>
+Package pdftex.def Info: document.pdf, page3 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [35 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
 ocument.pdf>]
-<document.pdf, id=233, page=6, 614.295pt x 794.97pt>
+<document.pdf, id=234, page=4, 614.295pt x 794.97pt>
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 6>
-Package pdftex.def Info: document.pdf, page6 used on input line 533.
+<use document.pdf, page 4>
+Package pdftex.def Info: document.pdf, page4 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
- <use document.pdf, page 6>
-Package pdftex.def Info: document.pdf, page6 used on input line 533.
+ <use document.pdf, page 4>
+Package pdftex.def Info: document.pdf, page4 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 6>
-Package pdftex.def Info: document.pdf, page6 used on input line 533.
+<use document.pdf, page 4>
+Package pdftex.def Info: document.pdf, page4 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [36 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
 ocument.pdf>]
-<document.pdf, id=238, page=7, 614.295pt x 794.97pt>
+<document.pdf, id=239, page=5, 614.295pt x 794.97pt>
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 7>
-Package pdftex.def Info: document.pdf, page7 used on input line 533.
+<use document.pdf, page 5>
+Package pdftex.def Info: document.pdf, page5 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
- <use document.pdf, page 7>
-Package pdftex.def Info: document.pdf, page7 used on input line 533.
+ <use document.pdf, page 5>
+Package pdftex.def Info: document.pdf, page5 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 7>
-Package pdftex.def Info: document.pdf, page7 used on input line 533.
+<use document.pdf, page 5>
+Package pdftex.def Info: document.pdf, page5 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [37 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
 ocument.pdf>]
-<document.pdf, id=244, page=8, 614.295pt x 794.97pt>
+<document.pdf, id=245, page=6, 614.295pt x 794.97pt>
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 8>
-Package pdftex.def Info: document.pdf, page8 used on input line 533.
+<use document.pdf, page 6>
+Package pdftex.def Info: document.pdf, page6 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
- <use document.pdf, page 8>
-Package pdftex.def Info: document.pdf, page8 used on input line 533.
+ <use document.pdf, page 6>
+Package pdftex.def Info: document.pdf, page6 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 8>
-Package pdftex.def Info: document.pdf, page8 used on input line 533.
+<use document.pdf, page 6>
+Package pdftex.def Info: document.pdf, page6 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [38 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
 ocument.pdf>]
-<document.pdf, id=249, page=9, 614.295pt x 794.97pt>
+<document.pdf, id=250, page=7, 614.295pt x 794.97pt>
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 9>
-Package pdftex.def Info: document.pdf, page9 used on input line 533.
+<use document.pdf, page 7>
+Package pdftex.def Info: document.pdf, page7 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
- <use document.pdf, page 9>
-Package pdftex.def Info: document.pdf, page9 used on input line 533.
+ <use document.pdf, page 7>
+Package pdftex.def Info: document.pdf, page7 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: document.pdf Graphic file (type pdf)
 
-<use document.pdf, page 9>
-Package pdftex.def Info: document.pdf, page9 used on input line 533.
+<use document.pdf, page 7>
+Package pdftex.def Info: document.pdf, page7 used on input line 573.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [39 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
 ocument.pdf>]
-Annexe III
-[40
+<document.pdf, id=255, page=8, 614.295pt x 794.97pt>
+File: document.pdf Graphic file (type pdf)
 
-] <T2.pdf, id=259, page=1, 614.295pt x 794.97pt>
+<use document.pdf, page 8>
+Package pdftex.def Info: document.pdf, page8 used on input line 573.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: document.pdf Graphic file (type pdf)
+ <use document.pdf, page 8>
+Package pdftex.def Info: document.pdf, page8 used on input line 573.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: document.pdf Graphic file (type pdf)
+
+<use document.pdf, page 8>
+Package pdftex.def Info: document.pdf, page8 used on input line 573.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [40 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
+ocument.pdf>]
+<document.pdf, id=260, page=9, 614.295pt x 794.97pt>
+File: document.pdf Graphic file (type pdf)
+
+<use document.pdf, page 9>
+Package pdftex.def Info: document.pdf, page9 used on input line 573.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: document.pdf Graphic file (type pdf)
+ <use document.pdf, page 9>
+Package pdftex.def Info: document.pdf, page9 used on input line 573.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: document.pdf Graphic file (type pdf)
+
+<use document.pdf, page 9>
+Package pdftex.def Info: document.pdf, page9 used on input line 573.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [41 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/d
+ocument.pdf>]
+Annexe III
+[42
+
+] <T2.pdf, id=270, page=1, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 1>
-Package pdftex.def Info: T2.pdf, page1 used on input line 537.
+Package pdftex.def Info: T2.pdf, page1 used on input line 577.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 1>
-Package pdftex.def Info: T2.pdf, page1 used on input line 537.
+Package pdftex.def Info: T2.pdf, page1 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 1>
-Package pdftex.def Info: T2.pdf, page1 used on input line 537.
+Package pdftex.def Info: T2.pdf, page1 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 1>
-Package pdftex.def Info: T2.pdf, page1 used on input line 537.
+Package pdftex.def Info: T2.pdf, page1 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 1>
-Package pdftex.def Info: T2.pdf, page1 used on input line 537.
+Package pdftex.def Info: T2.pdf, page1 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [41 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
-2.pdf>] <T2.pdf, id=276, page=2, 614.295pt x 794.97pt>
+ [43 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+2.pdf>] <T2.pdf, id=288, page=2, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 2>
-Package pdftex.def Info: T2.pdf, page2 used on input line 537.
+Package pdftex.def Info: T2.pdf, page2 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 2>
-Package pdftex.def Info: T2.pdf, page2 used on input line 537.
+Package pdftex.def Info: T2.pdf, page2 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 2>
-Package pdftex.def Info: T2.pdf, page2 used on input line 537.
+Package pdftex.def Info: T2.pdf, page2 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [42 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [44 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=292, page=3, 614.295pt x 794.97pt>
+<T2.pdf, id=304, page=3, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 3>
-Package pdftex.def Info: T2.pdf, page3 used on input line 537.
+Package pdftex.def Info: T2.pdf, page3 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 3>
-Package pdftex.def Info: T2.pdf, page3 used on input line 537.
+Package pdftex.def Info: T2.pdf, page3 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 3>
-Package pdftex.def Info: T2.pdf, page3 used on input line 537.
+Package pdftex.def Info: T2.pdf, page3 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [43 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [45 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=298, page=4, 614.295pt x 794.97pt>
+<T2.pdf, id=309, page=4, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 4>
-Package pdftex.def Info: T2.pdf, page4 used on input line 537.
+Package pdftex.def Info: T2.pdf, page4 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 4>
-Package pdftex.def Info: T2.pdf, page4 used on input line 537.
+Package pdftex.def Info: T2.pdf, page4 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 4>
-Package pdftex.def Info: T2.pdf, page4 used on input line 537.
+Package pdftex.def Info: T2.pdf, page4 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [44 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [46 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=311, page=5, 614.295pt x 794.97pt>
+<T2.pdf, id=322, page=5, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 5>
-Package pdftex.def Info: T2.pdf, page5 used on input line 537.
+Package pdftex.def Info: T2.pdf, page5 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 5>
-Package pdftex.def Info: T2.pdf, page5 used on input line 537.
+Package pdftex.def Info: T2.pdf, page5 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 5>
-Package pdftex.def Info: T2.pdf, page5 used on input line 537.
+Package pdftex.def Info: T2.pdf, page5 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [45 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [47 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=324, page=6, 614.295pt x 794.97pt>
+<T2.pdf, id=335, page=6, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 6>
-Package pdftex.def Info: T2.pdf, page6 used on input line 537.
+Package pdftex.def Info: T2.pdf, page6 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 6>
-Package pdftex.def Info: T2.pdf, page6 used on input line 537.
+Package pdftex.def Info: T2.pdf, page6 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 6>
-Package pdftex.def Info: T2.pdf, page6 used on input line 537.
+Package pdftex.def Info: T2.pdf, page6 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [46 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [48 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=334, page=7, 614.295pt x 794.97pt>
+<T2.pdf, id=345, page=7, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 7>
-Package pdftex.def Info: T2.pdf, page7 used on input line 537.
+Package pdftex.def Info: T2.pdf, page7 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 7>
-Package pdftex.def Info: T2.pdf, page7 used on input line 537.
+Package pdftex.def Info: T2.pdf, page7 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 7>
-Package pdftex.def Info: T2.pdf, page7 used on input line 537.
+Package pdftex.def Info: T2.pdf, page7 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [47 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [49 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=340, page=8, 614.295pt x 794.97pt>
+<T2.pdf, id=352, page=8, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 8>
-Package pdftex.def Info: T2.pdf, page8 used on input line 537.
+Package pdftex.def Info: T2.pdf, page8 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 8>
-Package pdftex.def Info: T2.pdf, page8 used on input line 537.
+Package pdftex.def Info: T2.pdf, page8 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 8>
-Package pdftex.def Info: T2.pdf, page8 used on input line 537.
+Package pdftex.def Info: T2.pdf, page8 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [48 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [50 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=345, page=9, 614.295pt x 794.97pt>
+<T2.pdf, id=357, page=9, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 9>
-Package pdftex.def Info: T2.pdf, page9 used on input line 537.
+Package pdftex.def Info: T2.pdf, page9 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 9>
-Package pdftex.def Info: T2.pdf, page9 used on input line 537.
+Package pdftex.def Info: T2.pdf, page9 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 9>
-Package pdftex.def Info: T2.pdf, page9 used on input line 537.
+Package pdftex.def Info: T2.pdf, page9 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [49 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [51 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=351, page=10, 614.295pt x 794.97pt>
+<T2.pdf, id=362, page=10, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 10>
-Package pdftex.def Info: T2.pdf, page10 used on input line 537.
+Package pdftex.def Info: T2.pdf, page10 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 10>
-Package pdftex.def Info: T2.pdf, page10 used on input line 537.
+Package pdftex.def Info: T2.pdf, page10 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 10>
-Package pdftex.def Info: T2.pdf, page10 used on input line 537.
+Package pdftex.def Info: T2.pdf, page10 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [50 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [52 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=356, page=11, 614.295pt x 794.97pt>
+<T2.pdf, id=367, page=11, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 11>
-Package pdftex.def Info: T2.pdf, page11 used on input line 537.
+Package pdftex.def Info: T2.pdf, page11 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 11>
-Package pdftex.def Info: T2.pdf, page11 used on input line 537.
+Package pdftex.def Info: T2.pdf, page11 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 11>
-Package pdftex.def Info: T2.pdf, page11 used on input line 537.
+Package pdftex.def Info: T2.pdf, page11 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [51 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [53 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=363, page=12, 614.295pt x 794.97pt>
+<T2.pdf, id=374, page=12, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 12>
-Package pdftex.def Info: T2.pdf, page12 used on input line 537.
+Package pdftex.def Info: T2.pdf, page12 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 12>
-Package pdftex.def Info: T2.pdf, page12 used on input line 537.
+Package pdftex.def Info: T2.pdf, page12 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 12>
-Package pdftex.def Info: T2.pdf, page12 used on input line 537.
+Package pdftex.def Info: T2.pdf, page12 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [52 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [54 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=370, page=13, 614.295pt x 794.97pt>
+<T2.pdf, id=381, page=13, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 13>
-Package pdftex.def Info: T2.pdf, page13 used on input line 537.
+Package pdftex.def Info: T2.pdf, page13 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 13>
-Package pdftex.def Info: T2.pdf, page13 used on input line 537.
+Package pdftex.def Info: T2.pdf, page13 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 13>
-Package pdftex.def Info: T2.pdf, page13 used on input line 537.
+Package pdftex.def Info: T2.pdf, page13 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [53 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [55 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=376, page=14, 614.295pt x 794.97pt>
+<T2.pdf, id=388, page=14, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 14>
-Package pdftex.def Info: T2.pdf, page14 used on input line 537.
+Package pdftex.def Info: T2.pdf, page14 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 14>
-Package pdftex.def Info: T2.pdf, page14 used on input line 537.
+Package pdftex.def Info: T2.pdf, page14 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 14>
-Package pdftex.def Info: T2.pdf, page14 used on input line 537.
+Package pdftex.def Info: T2.pdf, page14 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [54 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [56 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=385, page=15, 614.295pt x 794.97pt>
+<T2.pdf, id=397, page=15, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 15>
-Package pdftex.def Info: T2.pdf, page15 used on input line 537.
+Package pdftex.def Info: T2.pdf, page15 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 15>
-Package pdftex.def Info: T2.pdf, page15 used on input line 537.
+Package pdftex.def Info: T2.pdf, page15 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 15>
-Package pdftex.def Info: T2.pdf, page15 used on input line 537.
+Package pdftex.def Info: T2.pdf, page15 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [55 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [57 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=391, page=16, 614.295pt x 794.97pt>
+<T2.pdf, id=402, page=16, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 16>
-Package pdftex.def Info: T2.pdf, page16 used on input line 537.
+Package pdftex.def Info: T2.pdf, page16 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 16>
-Package pdftex.def Info: T2.pdf, page16 used on input line 537.
+Package pdftex.def Info: T2.pdf, page16 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 16>
-Package pdftex.def Info: T2.pdf, page16 used on input line 537.
+Package pdftex.def Info: T2.pdf, page16 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [56 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [58 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=397, page=17, 614.295pt x 794.97pt>
+<T2.pdf, id=408, page=17, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 17>
-Package pdftex.def Info: T2.pdf, page17 used on input line 537.
+Package pdftex.def Info: T2.pdf, page17 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 17>
-Package pdftex.def Info: T2.pdf, page17 used on input line 537.
+Package pdftex.def Info: T2.pdf, page17 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 17>
-Package pdftex.def Info: T2.pdf, page17 used on input line 537.
+Package pdftex.def Info: T2.pdf, page17 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [57 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [59 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=403, page=18, 614.295pt x 794.97pt>
+<T2.pdf, id=414, page=18, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 18>
-Package pdftex.def Info: T2.pdf, page18 used on input line 537.
+Package pdftex.def Info: T2.pdf, page18 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 18>
-Package pdftex.def Info: T2.pdf, page18 used on input line 537.
+Package pdftex.def Info: T2.pdf, page18 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 18>
-Package pdftex.def Info: T2.pdf, page18 used on input line 537.
+Package pdftex.def Info: T2.pdf, page18 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [58 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [60 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=409, page=19, 614.295pt x 794.97pt>
+<T2.pdf, id=420, page=19, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 19>
-Package pdftex.def Info: T2.pdf, page19 used on input line 537.
+Package pdftex.def Info: T2.pdf, page19 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 19>
-Package pdftex.def Info: T2.pdf, page19 used on input line 537.
+Package pdftex.def Info: T2.pdf, page19 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 19>
-Package pdftex.def Info: T2.pdf, page19 used on input line 537.
+Package pdftex.def Info: T2.pdf, page19 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [59 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [61 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=415, page=20, 614.295pt x 794.97pt>
+<T2.pdf, id=427, page=20, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 20>
-Package pdftex.def Info: T2.pdf, page20 used on input line 537.
+Package pdftex.def Info: T2.pdf, page20 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 20>
-Package pdftex.def Info: T2.pdf, page20 used on input line 537.
+Package pdftex.def Info: T2.pdf, page20 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 20>
-Package pdftex.def Info: T2.pdf, page20 used on input line 537.
+Package pdftex.def Info: T2.pdf, page20 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [60 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [62 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=420, page=21, 614.295pt x 794.97pt>
+<T2.pdf, id=432, page=21, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 21>
-Package pdftex.def Info: T2.pdf, page21 used on input line 537.
+Package pdftex.def Info: T2.pdf, page21 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 21>
-Package pdftex.def Info: T2.pdf, page21 used on input line 537.
+Package pdftex.def Info: T2.pdf, page21 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 21>
-Package pdftex.def Info: T2.pdf, page21 used on input line 537.
+Package pdftex.def Info: T2.pdf, page21 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [61 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [63 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=427, page=22, 614.295pt x 794.97pt>
+<T2.pdf, id=438, page=22, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 22>
-Package pdftex.def Info: T2.pdf, page22 used on input line 537.
+Package pdftex.def Info: T2.pdf, page22 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 22>
-Package pdftex.def Info: T2.pdf, page22 used on input line 537.
+Package pdftex.def Info: T2.pdf, page22 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 22>
-Package pdftex.def Info: T2.pdf, page22 used on input line 537.
+Package pdftex.def Info: T2.pdf, page22 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [62 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [64 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
-<T2.pdf, id=433, page=23, 614.295pt x 794.97pt>
+<T2.pdf, id=444, page=23, 614.295pt x 794.97pt>
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 23>
-Package pdftex.def Info: T2.pdf, page23 used on input line 537.
+Package pdftex.def Info: T2.pdf, page23 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
 
 <use T2.pdf, page 23>
-Package pdftex.def Info: T2.pdf, page23 used on input line 537.
+Package pdftex.def Info: T2.pdf, page23 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: T2.pdf Graphic file (type pdf)
  <use T2.pdf, page 23>
-Package pdftex.def Info: T2.pdf, page23 used on input line 537.
+Package pdftex.def Info: T2.pdf, page23 used on input line 577.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [63 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
+ [65 <C:/Users/Marc-Andre/Documents/GitHub/LOG350.TP3/WpfApplication2/Rapport/T
 2.pdf>]
 Annexe IV
-[64
+[66
 
 ]
 Annexe V
-[65
+[67
 
 ]
 (C:\Users\Marc-Andre\Documents\GitHub\LOG350.TP3\WpfApplication2\Rapport\rappor
 t.aux) ) 
 Here is how much of TeX's memory you used:
- 8280 strings out of 494045
- 117017 string characters out of 3143151
+ 8308 strings out of 494045
+ 117548 string characters out of 3143151
  206539 words of memory out of 3000000
- 11383 multiletter control sequences out of 15000+200000
- 41787 words of font info for 82 fonts, out of 3000000 for 9000
+ 11405 multiletter control sequences out of 15000+200000
+ 44590 words of font info for 84 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  43i,18n,45p,882b,417s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/Program Files (x86)/New folder/fonts/enc/dvips/fontname/8r.enc}<D:/
@@ -1702,9 +1754,9 @@ ogram Files (x86)/New folder/fonts/type1/public/amsfonts/cm/cmsy6.pfb><D:/Progr
 am Files (x86)/New folder/fonts/type1/urw/times/utmb8a.pfb><D:/Program Files (x
 86)/New folder/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files (x86)/New fol
 der/fonts/type1/urw/times/utmri8a.pfb>
-Output written on rapport.pdf (65 pages, 1400788 bytes).
+Output written on rapport.pdf (67 pages, 1422283 bytes).
 PDF statistics:
- 460 PDF objects out of 1000 (max. 8388607)
+ 472 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 271 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 296 words of extra memory for PDF output out of 10000 (max. 10000000)
 
