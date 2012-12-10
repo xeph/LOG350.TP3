@@ -1,5 +1,5 @@
 all:
-	pdflatex mainETS.tex
-	bibtex mainETS.aux
-	pdflatex mainETS.tex
-	pdflatex mainETS.tex
+	pdflatex rapport.tex
+	bibtex rapport.aux
+	pdflatex rapport.tex
+	pdflatex rapport.tex

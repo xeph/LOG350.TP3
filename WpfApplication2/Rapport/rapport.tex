@@ -13,7 +13,10 @@
 \usepackage{caption}
 \usepackage{multibib}
 \usepackage{url}
+\usepackage{newunicodechar}
 \urlstyle{rm}
+
+\newunicodechar{ }{~}
 
 \begin{document}
 
@@ -546,20 +549,21 @@ Selon les conclusions tirées des tests utilisateurs, la barre d'ajout rapide n'
 
 \chapter{Conclusion}
 
-En conclusion, ce qui ressort du projet est qu'il peut être très difficile et complexe de concevoir un interface facile d'utilisation tout en étant efficace. Il existe divers patrons et diverses normes nous aidant à parvenir à cette fin et il faut savoir faire les bonnes combinaisons pour arriver à un résultat satisfaisant. 
+En conclusion, ce projet a été l'occasion de faire une incartade dans le monde du développement d'interfaces utilisateurs. Nous avons eu l'occasion de participer et d'en apprendre plus sur les différentes étapes de conception : analyse de tâches, prototype statique et prototype dynamique.
 
-Les différentes étapes ont eu comme impact, sur la qualité du produit final, les points suivants :
+D'abord, l'analyse de tâches et le prototype statique nous ont amenés à comprendre l'importance de bien connaître son public afin de produire des interfaces utilisateurs qui correspondent réellement à ses besoins. Pour ce faire, nous avons utilisé le vieux principe d'être notre propre public cible. Nous nous sommes demandé quels sont les besoins que nous avions pour gérer notre emploi du temps efficacement et avons tenté de concevoir un système qui réponde à ces exigences. Nous sommes partis du principe que, si nous arrivions à produire un logiciel qui réponde à nos propres besoins, le projet pourrait être considéré comme une réussite.
 
-\begin{itemize}
-	\item Impossible d'évaluer la complexité de l'implémantation de l'interface sans ecrire le code pour la faire fonctionner.
-	\item Définis tous les interfaces et les buts accomplis par chacun avant de penser à écrire une seule ligne de code.
-\end{itemize}
+Par la suite, nous nous sommes demandé si une telle application pouvait être utile à un auditoire plus élargi. Nous avons présenté notre concept et nos idées à des personnes tierces et avons recueilli leurs commentaires et réactions afin de peaufiner quelques détails. Cette expérience nous a confortés dans notre idée que, si des concepteurs connaissent bien leurs utilisateurs et arrivent à penser comme eux, le système produit est plus adapté et plus cohérent.
 
-Il reste a faire le système de recherche à l'aide des nouveaux onglets, comme, par exemple, la recherche par tag, événement, tâche, la création de listes personnalisées et le système d'alerte qui n'est pas encore fonctionnel.
+Ensuite, la réalisation du prototype dynamique nous a appris l'importance, pour un développeur, de bien connaître ses outils avant de s'engager dans la conception d'un système. Au début du projet, nous avons décidé d'utiliser la bibliothèque graphique WPF, une technologie nouvelle pour nous, et nous sommes dit que nous l'apprendrions au fils de l'avancement du projet. Ceci s'est avéré plus difficile que prévu.
 
-Nous avons tiré comme leçons qu'il vaut mieux voir si l'implémentation de la fenêtre est possible dans le temps alloué avec les ressources humaines disponibles avant de figer dans le béton un interface de l'application. De plus, pour tout ce qui attrait à l'apparence de l'application, il vaut mieux faire appel à un designer spécialisé dans le domaine plutôt que d'essayer de faire quelque chose par nous même qui ne donnera pas un beau rendu visuel.
+Il s'est d'abord avéré assez rapide et facile de faire fonctionner une interface simple utilisant les composants fournis de base. Malheureusement, la situation s'est complexifiée lorsque nous avons voulu implémenter des interfaces nécessitant des composants qui n'existent pas dans la bibliothèque. Toutes les briques nécessaires pour construire de tels composants sont disponibles, mais acquérir les compétences pour développer de nouveaux contrôles WPF prend beaucoup plus de temps que ce que nous avions à notre disposition.
 
-Nous recommandons que le contenu du cours s'applique plus au projet, car, souvent, il est difficile d'établir des liens entre la matière présentée en classe et les laboratoires que nous effectuons. Par exemple, les liens entre le SDK pour iPhone et notre projet en C\#/WPF sont inexistants ou bien les techniques et styles d'interactions peuvent etre difficile à appliquer selon les contextes des divers projets des étudiants.
+Le meilleur exemple de ces difficultés rencontrées est le système multionglets. Dans la phase d'analyse et de réalisation du prototype statique, nous avions l'intention d'offrir la possibilité de définir des vues plus spécialisées de la liste de tâches dans des onglets supplémentaires. Il aurait alors été possible de créer une vue qui n'affiche que les tâches concernant l'université ou bien uniquement les tâches qui doivent être complétées dans les 48 prochaines heures. Malheureusement, il a fallu tellement de temps pour réussir à implémenter un contrôle permettant à l'utilisateur de créer et supprimer des onglets que nous n'avons pas eu le temps et les ressources nécessaires pour implémenter la fonctionnalité de requête pour configurer une vue.
+
+Enfin, il est ressorti de nos différentes conversations avec des utilisateurs que plusieurs trouvaient l'application visuellement « ordinaire », mais qu'aucun n'avait la même opinion de ce qui permettrait de la rendre plus « belle ». Parmi les membres de notre équipe, aucun ne se considère comme un artiste et ne sait comment créer un arrangement de formes et de couleurs qui plairait à une majorité. Cette constatation met de l'avant le fait qu'il y a une différence importante entre développer une interface efficace et une interface visuellement attirante. Le cours que nous avons suivi tente de nous apprendre à développer la première, mais ne prétend nullement nous apprendre à développer la seconde.
+
+Concernant le cours, nous suggérons que celui-ci donne une plus grande place aux applications dites de bureau. Celles-ci étant encore très présentes comme applications « grand public » et largement dominantes dans le monde professionnel, il serait intéressant qu'elles occupent une plus grande place. Certaines sont très simples d'utilisation alors que d'autres sont incroyablement complexes. Qu'est-ce qui les distingue? Quelles sont les bonnes habitudes à imiter? Quelles sont les erreurs à ne pas commettre?
 
 \appendix
 \multiannexe
