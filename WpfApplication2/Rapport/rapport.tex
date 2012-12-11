@@ -40,6 +40,7 @@
 \item[.NET 4.5] est un framework pouvant être utilisé par un système d'exploitation Microsoft Windows et Microsoft Windows Mobile depuis la version 5 (.NET Compact Framework). \footnote{\url{https://fr.wikipedia.org/wiki/Framework_.NET}}
 \item[SQLite] est une bibliothèque écrite en C qui propose un moteur de base de données relationnelle accessible par le langage SQL.\footnote{\url{https://fr.wikipedia.org/wiki/SQLite}}
 \item[Git] est un logiciel de gestion de versions décentralisé. C'est un logiciel libre créé par Linus Torvalds, le créateur du noyau Linux, et distribué selon les termes de la licence publique générale GNU version 2.\footnote{\url{https://fr.wikipedia.org/wiki/Git}}
+\item[DataGridView] est un élément graphique de type grille (table) qui est connecté directement sur la base de données.
 \item[\LaTeX] est un langage et un système de composition de documents créé par Leslie Lamport en 1983. Plus exactement, il s'agit d'une collection de macro-commandes destinées à faciliter l'utilisation du « processeur de texte » TeX de Donald Knuth.\footnote{\url{https://fr.wikipedia.org/wiki/LaTeX}}
 \end{description}
 
@@ -47,13 +48,13 @@
 
 L'application permet la gestion simple de tâches et d'événements tout en offrant des fonctionnalités de gestion et de classification avancées. Parmi celles-ci, notons la possibilite de définir des rappels, de catégoriser les éléments, de définir un événement comme échéance d'une tâche ou encore de définir des sous-tâches à une tâche imposante.
 
-Durant notre analyse de tâche, nous avons déterminer que le publique cible est des personnes de 15 ans et plus désirant organiser son temps et sa vie professionnelle. De plus, nous avons conclu que notre interface devrais ressembler à des interfaces connu pour la garder familière et garder une courbe d'apprentissage faible. Pour ce faire, nous avons dressé une liste des cas d'utilisation que l'application doit traiter pour se donner un point de départ. Par la suite, nous avons construit nos prototypes statiques.
+Durant notre analyse de tâches, nous avons déterminé que le public cible se compose de personnes de 15 ans et plus désirant organiser leur temps et leur vie professionnelle. De plus, nous avons conclu que notre interface devrait paraître familière et garder une courbe d'apprentissage faible. Pour se donner un point de départ, nous avons ainsi dressé une liste des cas d'utilisation que l'application doit traiter. Par la suite, nous avons construit nos prototypes statiques.
 
-Pour construire notre prototype statique, nous avons utilisé des fenêtres virtuelles où chaque point de chaque fenêtre à été détaillé pour s'assurer que le travail devant être effectué par chaque interface a bel et bien été compris. De plus, chaque fonctionnalité a aussi été détaillé dans le but qu'elles soient bien comprise.
+Nous avons utilisé des fenêtres virtuelles où chaque point de chaque fenêtre a été détaillé pour s'assurer que le travail devant être effectué par chaque interface a bel et bien été compris. De plus, chaque fonctionnalité a aussi été détaillée dans le but qu'elles soient bien comprisent.
 
-Jusqu'à présent, presqu'aucune modification n'a été apporté entre les prototypes statiques et dynamiques sauf à quelques endroits pour des raisons de manque de temps et de personnel. Par exemple, dans la fenêtre Tâche, la section échéance a été changé. Pour le reste, tout va rester comme indiqué dans le document se trouvant à l'annexe III.
+Jusqu'à présent, presque aucune modification n'a été apportée entre les prototypes statiques et dynamiques sauf à quelques endroits pour des raisons de manque de temps et de personnel. Par exemple, dans la fenêtre Tâche, la section échéance a été changée. Pour le reste, tout va rester comme indiqué dans le document se trouvant à l'annexe III.
 
-Dans le présent document, les tests qui seront effectués avec des utilisateurs seront listés et détaillés. Par la suite, un concensus sera fais pour chaque tâche et une amélioration qui pourrait être faite sera proposé pour améliorer le comportement du logiciel.
+Dans le présent document, les tests qui seront effectués avec des utilisateurs sont listés et détaillés dans ce document. Par la suite, un concensus est fait pour chaque tâche et une amélioration possible est proposée pour améliorer le comportement du logiciel.
 
 \chapter{Planification du travail}
 
@@ -102,11 +103,11 @@ Pour la production de la documentation, nous utilisons le processeur de texte \L
 
 \section{Captures d'écran}
 
-Dans la section suivante, nous ferons une brève description de chaque fenêtre de notre application. Cette description impliquera la description de chaques actions qui peuvent être effectuées ainsi qu'une capture d'écran pour permettre de visualiser les interactions.
+La section suivante décrit brièvement chaque fenêtre de l'application.
 
 \subsection{Fenêtre principale}
 
-Cette fenêtre permet à l'utilisateur d'avoir la possibilité d'avoir plusieurs onglets pour organiser ces listes de tâches et d'événements et, dans de futures versions, effectuer des recherces pour afficher de l'information personnalisé dans ces onglets. Ensuite, pour faciliter l'ajout, un champ texte ainsi qu'un bouton Ajouter est mis à disposition pour effectuer un ajout rapide. Lorsque l'utilisateur à terminé d'ajouter, il peut faire la gestion de sa liste en modifiant les entrées en double cliquant ou bien en faisant apparaitre le menu contextuel pour supprimer. De plus, il faut spécifier que la gestion des priorités se fait via le bouton Configuration. À la page 16 et 18 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur d'avoir plusieurs onglets pour organiser ses listes de tâches et d'événements et, dans de futures versions, effectuer des recherces personnalisées dans ces onglets. Pour faciliter l'ajout, un champ texte ainsi qu'un bouton Ajouter est mis à disposition pour effectuer un ajout rapide. Lorsque l'utilisateur a terminé d'ajouter, il peut faire la gestion de sa liste en modifiant les entrées en double cliquant sur celles-ci. Le menu contextuel est utilisé pour la suppression. De plus, la gestion des priorités se fait via le bouton Configuration. Aux pages 16 et 18 du document, dans l'annexe III, il y a de plus amples informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -118,7 +119,7 @@ Cette fenêtre permet à l'utilisateur d'avoir la possibilité d'avoir plusieurs
 
 \subsection{Événement}
 
-Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant un événement. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque datagridview. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant un événement. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque DataGridView. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -130,7 +131,7 @@ Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concer
 
 \subsection{Tâche}
 
-Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant une tâche. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte ou une sous-tâche, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes et sous-tâches présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque datagridview. À la page 19 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant une tâche. Lorsque qu'il modifie des données, le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte ou une sous-tâche, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes et sous-tâches présentes. Pour supprimer il n'a qu'à faire apparaitre le menu contextuel de chaque DataGridView. À la page 19 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
 \begin{figure}[H!]
 	\centering
@@ -142,7 +143,7 @@ Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concer
 
 \subsection{Priorités}
 
-Cette fenêtre permet à l'utilisateur de faire la gestion des diverses priorités.  Si l'utilisateur décide d'ajouter une priorité, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque datagridview. Pour ajouter À la page 22 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre permet à l'utilisateur de faire la gestion des priorités.  Si l'utilisateur décide d'ajouter une priorité, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque DataGridView. Pour plus d'informations concernant l'ajout et cette fenêtre, se référer à la page 22, (annexe III).
 
 \begin{figure}[H!]
 	\centering
@@ -154,9 +155,9 @@ Cette fenêtre permet à l'utilisateur de faire la gestion des diverses priorit�
 
 \section{Justification des choix de conception}
 
-Divers patrons de conception ont été utilisé pour parvenir à la conception de l'application que nous avons présentement. 
+Divers patrons de conception ont été utilisés pour parvenir à la conception de l'application que nous avons présentement. 
 
-Parmi les divers patrons disponibles, on compte le patron \emph{Many Workspaces} qui se retrouve à la fenêtre principale de l'application ou l'utilisateur à la possibilite d'avoir plusieurs listes d'ouvertes et de les organiser comme il veut via des onglets. L'utilisateur peut donc gérer plusieurs listes à la fois. 
+On compte entre autres le patron \emph{Many Workspaces} qui se retrouve à la fenêtre principale de l'application où l'utilisateur a la possibilité d'avoir plusieurs listes ouvertes et de les organiser comme il veut via les onglets.
 
 \begin{figure}[H!]
 	\centering
@@ -164,7 +165,7 @@ Parmi les divers patrons disponibles, on compte le patron \emph{Many Workspaces}
 	\caption{Onglets représentant différent espace de travail}
 \end{figure}
 
-Pour la navigation entre les fenêtres de l'application nous utilisons le patron \emph{Escape Hatch}. Ainsi, la navigation entre les fenêtres est limité et l'utilisateur peut toujours revenir a la fenêtre principale sans chercher pendant de longues minutes comment y revenir. Cela simplifie grandement l'interaction entre l'application et l'utilisateur en simplifiant le processus de navigation au maximum.
+Pour la navigation entre les fenêtres de l'application nous utilisons le patron \emph{Escape Hatch}. Ainsi, la navigation entre les fenêtres est limité et l'utilisateur peut toujours revenir a la fenêtre principale sans chercher pendant de longues minutes comment y revenir. Cela simplifie grandement l'interaction entre l'application et l'utilisateur en réduisant le processus de navigation au maximum.
 
 \begin{figure}[H!]
 	\centering
@@ -174,12 +175,12 @@ Pour la navigation entre les fenêtres de l'application nous utilisons le patron
 
 \newpage
 
-Ensuite, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} sur, par exemple, la fenêtre principale. Avec ce patron, nous listons donc les tâches et chaque sous-tâche sous la tâche correspondante sous forme d'arborescence. Nous pouvons donc afficher un maximum d'information utile à l'utilisateur lorsque celui-ci le demande. Par manque de temps et de ressources humaines, ce patron a été implanté partiellement.
+Ensuite, pour ce qui est des listes, nous utilisons le patron \emph{Tree Table} sur, par exemple, la fenêtre principale. Avec ce patron, nous listons donc les tâches et ses sous-tâches sous la tâche correspondante sous forme d'arborescence. Nous pouvons donc afficher un maximum d'information utile à l'utilisateur lorsque celui-ci le demande. Par manque de temps et de ressources humaines, ce patron a été implanté partiellement.
 
 \begin{figure}[H!]
 	\centering
 	\includegraphics[width=1\textwidth]{tree_table.png}
-	\caption{Datagridview avec le patron \emph{Tree Table}}
+	\caption{DataGridView avec le patron \emph{Tree Table}}
 \end{figure}
 
 Nous utilisons aussi le patron \emph{New-Item Row} dans la fenêtre Priorités, par exemple, pour permettre l'ajout rapide et infini de lignes dans le tableau sans que l'utilisateur n'ait besoin d'appuyer sur quoi que se soit. 
@@ -187,10 +188,10 @@ Nous utilisons aussi le patron \emph{New-Item Row} dans la fenêtre Priorités, 
 \begin{figure}[H!]
 	\centering
 	\includegraphics[width=1\textwidth]{new_item_row.png}
-	\caption{Datagridview avec le patron \emph{New-Item Row}}
+	\caption{DataGridView avec le patron \emph{New-Item Row}}
 \end{figure}
 
-Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'applique et permet de trier l'information affiché en tout temps pour permettre à l'utilisateur de trouver ce qu'il veut plus rapidement.
+Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'applique et permet de trier l'information affichée en tout temps pour permettre à l'utilisateur de trouver ce qu'il veut plus rapidement.
 
 \begin{figure}[H!]
 	\centering
@@ -200,11 +201,11 @@ Pour ce qui est de toutes les grilles, le patron \emph{Sortable Table} s'appliqu
 
 De plus, nous avons respecté le plus possible le contenu de la norme \emph{ISO 9241-120} à \emph{ISO 9241-129} qui traite sur les interactions sur les entrées, les sorties et les interactions.
 
-Quelques changements on été effectué entre le prototype statique et dynamique. Parmi ces changements, on compte les options possibles pour une échéance dans la fenêtre sur les tâches. Ce changement a été fait à cause de limitations logiciels et par faute de temps. Il est à noter que ces changements n'influence en aucun cas l'efficacité de l'application.
+Quelques changements on été effectués entre les prototypes statique et dynamique. Parmi ces changements, on compte les options possibles pour une échéance dans la fenêtre sur les tâches. Ce changement a été fait dû aux limitations logicielles et par faute de temps. Il est à noter que ces changements n'influencent en aucun cas l'efficacité de l'application.
 
 \section{Améliorations possibles}
 
-Quelques améliorations possibles seraient d'utiliser les lois psychomotrices de Fitts et Miller pour optimiser l'interface. Nous pourrions ainsi optimiser les déplacements que l'utilisateur doit faire avec sa souris pour cliquer sur les boutons et les champs de saisies dans les fenêtres. Mais, par faute de temps et de ressources humaines, il nous est donc impossible d'effectuer ces tests.
+Quelques améliorations possibles seraient d'utiliser les lois psychomotrices de Fitts et Miller pour optimiser l'interface. Nous pourrions ainsi optimiser les déplacements que l'utilisateur doit faire avec sa souris pour cliquer sur les boutons et les champs de saisies dans les fenêtres. Par faute de temps et de ressources humaines, il nous est donc impossible d'effectuer ces tests.
 
 \chapter{Démonstration du prototype dynamique en laboratoire}
 
@@ -227,11 +228,11 @@ Remise de la présentation de l’exposé oral : le 6 décembre 2012 à 23h59 ma
 
 Avant d'effectuer les tests, un document expliquant la nature du projet et le déroulement des tests a été fourni aux utilisateurs. Les membres de l'équipe assument que le document a été lu lors de la rencontre. De plus, un formulaire de consentement sera obligatoirement signé par l'utilisateur et un membre de l'équipe pour que les deux parties s'entendent sur ce qui sera fait lors de la rencontre.
 
-Pour faire les tests avec les utilisateurs, le ou les membres de l'équipe s'asseoiront avec l'utilisateur qui testera l'application. Par la suite, un membre de l'équipe se chargera de dire chaque tâche que l'utilisateur devra effectuer, et si l'utilisateur à des questions, il sera chargé de lui fournir les informations. Lorsque l'utilisateur aura terminé de faire une tâche, il y aura une brève pause pour que tout le monde ait le temps de prendre des notes. L'exécution de la tâche suivante se fera lorsque tout le monde aura terminer de prendre les notes pour la tâche courante. Quand toutes les tâches auront été exécuté, l'utilisateur pourra donner son opinion et ses impressions sur l'application sur des choses à améliorer, les points positifs et des fonctionnalitées qui pourraient être intéressante à ajouter ou bien améliorer.
+Pour faire les tests avec les utilisateurs, le ou les membres de l'équipe s'asseoiront avec l'utilisateur qui testera l'application. Par la suite, un membre de l'équipe se chargera de dire chaque tâche que l'utilisateur devra effectuer et si l'utilisateur a des questions, il sera chargé de lui fournir les informations. Lorsque l'utilisateur aura terminé de faire une tâche, il y aura une brève pause pour que tout le monde ait le temps de prendre des notes. L'exécution de la tâche suivante se fera lorsque tout le monde aura terminé de prendre les notes pour la tâche courante. Quand toutes les tâches auront été exécutées, l'utilisateur pourra donner son opinion et ses impressions sur l'application, suggérer améliorations, les points positifs et des fonctionnalitées qui pourraient être intéressantes à ajouter ou bien améliorer.
 
-Ce seront principalement des notes concernant la performance et l'usabilité de l'application qui seront prise parce que les principaux objectifs que nous voulons atteindre avec notre application sont une facilité d'utilisation et que celle-ci soit performante. Les notes seront tirées de l'interaction de l'utilisateur avec l'application et de la rapidité avec laquelle l'utilisateur effectue les tâches.
+Ce seront principalement des notes concernant la performance et l'usabilité de l'application qui seront prises, car les principaux objectifs que nous voulons atteindre avec notre application 1- facilité d'utilisation et 2- efficacité. Les notes seront tirées de l'interaction de l'utilisateur avec l'application et de la rapidité avec laquelle l'utilisateur effectue les tâches (l'efficacité).
 
-Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en tout temps, décider d'arrêter les tests sans devoir fournir une raison. Les données recueillis seront cependant conservé à moins que l'utilisateur ne demande à ce qu'elles soient détruites.
+Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en tout temps, décider d'arrêter les tests sans devoir fournir une explication. Les données recueillies seront cependant conservées à moins que l'utilisateur ne demande à ce qu'elles soient détruites.
 
 \newpage
 
@@ -317,7 +318,7 @@ Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en
 
 \section{Liste des utilisateurs}
 
-Les caractéristiques principales des utilisateurs choisis sont la gestion de leurs tâches pour les travaux et devoirs au CEGEP ou bien à l'université et la gestion des rendez-vous pour les professionnels. Nous avons choisis ce nombre d'utilisateur, car il nous fallait un petit échantillon oeuvrant dans le même type de vie que le publique visée mais dans des sphères professionnelles différentes. Il est pertinant d'avoir testé avec ces utilisateurs parce que se sera principalement ce type d'utilisateur qui se servira d'une application comme celle-ci.
+Les caractéristiques principales des utilisateurs choisis sont la gestion de leurs tâches pour les travaux et devoirs au CÉGEP ou bien à l'université et la gestion des rendez-vous pour les professionnels. Nous avons choisis ce nombre d'utilisateurs, car il nous fallait un petit échantillon oeuvrant dans le même type de vie que le public visé, mais dans des sphères professionnelles différentes.
 
 \newpage
 
@@ -505,7 +506,7 @@ Les caractéristiques principales des utilisateurs choisis sont la gestion de le
 	\caption{Recommandations par les utilisateurs}
 \end{table}
 
-La barre d'ajout rapide plante dans un nouvel onglet (SearchTasks.xaml.cs), les bugs n'ont pu être reproduit.
+La barre d'ajout rapide plante dans un nouvel onglet (SearchTasks.xaml.cs), les bugs n'ont pu être reproduits.
 
 \chapter{Changements recommandés}
 
@@ -530,9 +531,9 @@ Ce comportement n'est pas sans rappeler la barre de navigation du logiciel Googl
 
 Nous avons aussi remarqué que les utilisateurs n'étaient pas certains de ce qu'ils devaient entrer dans le champ « Complétion » de la fenêtre « Tâche ». Est-ce un qualificatif, un pourcentage ou bien un nombre quelconque?
 
-Pour remédier à cette incertitude, nous avons décidé de remplacer le champ texte actuellement présent par un curseur de défilement. Celui-ci aura la double responsabilité de rendre plus explicite le fait que la complétion est un pourcentage, s'assurera qu'il est impossible d'entrer une valeur erronée et sera beaucoup plus facile d'utilisation.
+Pour remédier à cette incertitude, nous avons décidé de remplacer le champ texte actuellement présent par un curseur de défilement (mieux connu sous le nom "slider", en anglais). Celui-ci aura la double responsabilité de rendre plus explicite le fait que la complétion est un pourcentage, s'assurera qu'il est impossible d'entrer une valeur erronée et sera beaucoup plus facile d'utilisation.
 
-Pour entrer un niveau de complétion, l'utilisateur pourra simplement glisser le curseur jusqu'à ce que le pourcentage afficher corresponde à la valeur recherchée. D'un autre coté, il aura aussi le choix de garder les mains sur le clavier en utilisant les flèches du clavier pour faire glisser le curseur vers la droite ou la gauche.
+Pour entrer un niveau de complétion, l'utilisateur pourra simplement glisser le curseur jusqu'à ce que le pourcentage affiché corresponde à la valeur recherchée. D'un autre coté, il aura aussi le choix de garder les mains sur le clavier en utilisant les flèches du clavier pour faire glisser le curseur vers la droite ou la gauche.
 
 Une possibilité supplémentaire qui mérite d'être étudiée est de verrouiller le contrôle et calculer automatiquement le niveau de complétion lorsqu'une tâche à des sous-tâches qui ont elles-mêmes un niveau de complétion. Ainsi, une tâche ayant deux sous-tâches, une complétée à 100 pour cent et l'autre complétée à 50 pour cent, pourrait se faire assigner automatiquement un niveau de complétion de 75 pour cent.
 
@@ -566,7 +567,7 @@ Lorsque nous avons présenté notre application à différents utilisateurs, nou
     \item À quoi sert une alerte?
 \end{itemize}
 
-Comme nous nous trouvions justes à côté des utilisateurs, il était facile pour nous de leur donner des explications. Seulement, s'ils avaient été seuls, il aurait pu être difficile pour eux d'obtenir des réponses à leurs questions.
+Comme nous nous trouvions juste à côté des utilisateurs, il était facile pour nous de leur donner des explications. Seulement, s'ils avaient été seuls, il aurait pu être difficile pour eux d'obtenir des réponses à leurs questions.
 
 Pour tenter de minimiser la courbe d'apprentissage et d'améliorer la compréhension des utilisateurs, nous avons décidé de placer des infobulles expliquant les différentes informations qu'ils peuvent entrer et les différentes actions qu'ils peuvent poser.
 
@@ -602,11 +603,11 @@ Ainsi, pour créer la tâche du laboratoire 3 de LOG350, il suffira de :
 
 En conclusion, ce projet a été l'occasion de faire une incartade dans le monde du développement d'interfaces utilisateurs. Nous avons eu l'occasion de participer et d'en apprendre plus sur les différentes étapes de conception : analyse de tâches, prototype statique et prototype dynamique.
 
-D'abord, l'analyse de tâches et le prototype statique nous ont amenés à comprendre l'importance de bien connaître son public afin de produire des interfaces utilisateurs qui correspondent réellement à ses besoins. Pour ce faire, nous avons utilisé le vieux principe d'être notre propre public cible. Nous nous sommes demandé quels sont les besoins que nous avions pour gérer notre emploi du temps efficacement et avons tenté de concevoir un système qui réponde à ces exigences. Nous sommes partis du principe que, si nous arrivions à produire un logiciel qui réponde à nos propres besoins, le projet pourrait être considéré comme une réussite.
+D'abord, l'analyse de tâches et le prototype statique nous ont amené à comprendre l'importance de bien connaître son public afin de produire des interfaces utilisateurs qui correspondent réellement à ses besoins. Pour ce faire, nous avons utilisé le vieux principe d'être notre propre public cible. Nous nous sommes demandé quels sont les besoins que nous avions pour gérer notre emploi du temps efficacement et avons tenté de concevoir un système qui réponde à ces exigences. Nous sommes partis du principe que, si nous arrivions à produire un logiciel qui réponde à nos propres besoins, le projet pourrait être considéré comme une réussite.
 
 Par la suite, nous nous sommes demandé si une telle application pouvait être utile à un auditoire plus élargi. Nous avons présenté notre concept et nos idées à des personnes tierces et avons recueilli leurs commentaires et réactions afin de peaufiner quelques détails. Cette expérience nous a confortés dans notre idée que, si des concepteurs connaissent bien leurs utilisateurs et arrivent à penser comme eux, le système produit est plus adapté et plus cohérent.
 
-Ensuite, la réalisation du prototype dynamique nous a appris l'importance, pour un développeur, de bien connaître ses outils avant de s'engager dans la conception d'un système. Au début du projet, nous avons décidé d'utiliser la bibliothèque graphique WPF, une technologie nouvelle pour nous, et nous sommes dit que nous l'apprendrions au fils de l'avancement du projet. Ceci s'est avéré plus difficile que prévu.
+Ensuite, la réalisation du prototype dynamique nous a appris l'importance, pour un développeur, de bien connaître ses outils avant de s'engager dans la conception d'un système. Au début du projet, nous avons décidé d'utiliser la bibliothèque graphique WPF, une technologie nouvelle pour nous, et nous sommes dit que nous l'apprendrions au fil de l'avancement du projet. Ceci s'est avéré plus difficile que prévu.
 
 Il s'est d'abord avéré assez rapide et facile de faire fonctionner une interface simple utilisant les composants fournis de base. Malheureusement, la situation s'est complexifiée lorsque nous avons voulu implémenter des interfaces nécessitant des composants qui n'existent pas dans la bibliothèque. Toutes les briques nécessaires pour construire de tels composants sont disponibles, mais acquérir les compétences pour développer de nouveaux contrôles WPF prend beaucoup plus de temps que ce que nous avions à notre disposition.
 
