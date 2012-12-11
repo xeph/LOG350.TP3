@@ -14,6 +14,7 @@
 \usepackage{multibib}
 \usepackage{url}
 \usepackage{newunicodechar}
+\usepackage{supertabular}
 \urlstyle{rm}
 
 \newunicodechar{ }{~}
@@ -22,13 +23,17 @@
 \renewcommand{\labelenumi}{\theenumi}
 \renewcommand{\theenumi}{\arabic{enumi}}
 
+
 \begin{document}
 
 \includepdf[pages=-]{pageTitre.pdf}
 
 \tableofcontents
-\listoftables
-\listoffigures
+
+%\listoftables
+%\listoffigures
+
+\frontmatter
 
 \chapter{Glossaire}
 
@@ -41,8 +46,10 @@
 \item[SQLite] est une bibliothèque écrite en C qui propose un moteur de base de données relationnelle accessible par le langage SQL.\footnote{\url{https://fr.wikipedia.org/wiki/SQLite}}
 \item[Git] est un logiciel de gestion de versions décentralisé. C'est un logiciel libre créé par Linus Torvalds, le créateur du noyau Linux, et distribué selon les termes de la licence publique générale GNU version 2.\footnote{\url{https://fr.wikipedia.org/wiki/Git}}
 \item[DataGridView] est un élément graphique de type grille (table) qui est connecté directement sur la base de données.
-\item[\LaTeX] est un langage et un système de composition de documents créé par Leslie Lamport en 1983. Plus exactement, il s'agit d'une collection de macro-commandes destinées à faciliter l'utilisation du « processeur de texte » TeX de Donald Knuth.\footnote{\url{https://fr.wikipedia.org/wiki/LaTeX}}
+\item[\LaTeX] est un langage et un système de composition de documents créé par Leslie Lamport en 1983. Plus exactement, il s'agit d'une collection de macro-commandes destinées à faciliter l'utilisation du « processeur de texte » TeX de Donald Knuth.\footnote{\url{https://fr.wikipedia.org/wiki/LaTeX}}
 \end{description}
+
+\mainmatter
 
 \chapter{Introduction et sommaire du travail effectué en TP2}
 
@@ -62,7 +69,7 @@ Dans le présent document, les tests qui seront effectués avec des utilisateurs
 	\centering
 	\begin{tabular}{|l|l|}
 		\hline
-		Semaine	& Travail accomplis 								\\ \hline
+		Semaine	& Travail accomplis 								\\ \hline \hline
 		4 novembre	& Choix de la technologie et apprentissage de celle-ci.		\\ \hline
 		11 novembre	& Marc-André : Conception des interfaces. 				\\
 				& Martin : Conception de la base de données.				\\
@@ -101,33 +108,39 @@ Pour la production de la documentation, nous utilisons le processeur de texte \L
 
 \newpage
 
-\section{Captures d'écran}
+\section{Fenêtres développées}
 
-La section suivante décrit brièvement chaque fenêtre de l'application.
+Dans cette section, chaque fenêtre développée est décrite brièvement.
 
 \subsection{Fenêtre principale}
 
-Cette fenêtre permet à l'utilisateur d'avoir plusieurs onglets pour organiser ses listes de tâches et d'événements et, dans de futures versions, effectuer des recherces personnalisées dans ces onglets. Pour faciliter l'ajout, un champ texte ainsi qu'un bouton Ajouter est mis à disposition pour effectuer un ajout rapide. Lorsque l'utilisateur a terminé d'ajouter, il peut faire la gestion de sa liste en modifiant les entrées en double cliquant sur celles-ci. Le menu contextuel est utilisé pour la suppression. De plus, la gestion des priorités se fait via le bouton Configuration. Aux pages 16 et 18 du document, dans l'annexe III, il y a de plus amples informations concernant cette fenêtre.
+Cette fenêtre comporte deux onglets offrant, pour le premier, une vue sur l'ensemble des événements et, pour le second, une vue sur l'ensemble des tâches. Le principe fondamental de l'application étant de permettre la gestion des tâches et des événements, cette fenêtre occupe la place centrale de l'interface utilisateur.
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=1\textwidth]{fenetre_main.png}
-	\caption{Fenêtre concernant la page principale}
+\begin{figure}
+    \includegraphics[scale=0.6]{fenetre_main.png}
+    \caption{Fenêtre principale de l'application}
 \end{figure}
 
-\newpage
+Les onglets se présentent tous selon la même mise en page. Une barre comportant un champ texte et deux boutons se trouve dans la partie supérieure alors qu'une grille occupe l'espace restant. La grille permet d'afficher une liste d'éléments de façon hiérarchisée. Chaque ligne représente un élément et chaque colonne représente un champ d'information sur cet élément.
+
+Lorsqu'un clic droit est fait sur une ligne de la grille, un menu contextuel apparait et offre la possibilité de supprimer l'élément concerné. De plus, double cliquer sur une ligne ouvrira une fenêtre apportant plus d'informations sur l'élément sélectionné.
+
+La barre permet, quant à elle, d'ajouter un élément à la liste. Pour ce faire, il suffit d'entrer le nom du nouvel élément dans le champ texte et d'appuyer sur le bouton « Ajouter ». Le bouton « Configuration » permet, quant à lui, d'accéder aux configurations de l'application\footnote{à l'heure actuelle, la seule configuration possible est la gestion de la liste de priorités.}.
+
+En plus des deux onglets permettant de visualiser l'ensemble des événements et l'ensemble des tâches, il est possible de créer de nouveaux onglets personnalisés à l'aide du bouton « + » prévu à cet effet. Un onglet personnalisé offre exactement les mêmes fonctionnalités qu'un onglet de base, mais offre en plus la possibilité de filtrer la liste d'éléments affichés selon leur respect de certains critères\footnote{En raison de contraintes de temps, nous n'avons malheureusement pas eu le temps d'implémenter cette fonctionnalité. Elle est présentée ici afin de bien saisir le fonctionnement de l'application, une fois celle-ci parfaitement fonctionnelle.}. Ainsi, il est possible de créer une liste n'affichant que les tâches concernant le travail ou bien encore une liste n'affichant que les tâches dont l'échéance se trouve dans les 48 prochaines heures.
+
+Les critères utilisés pour filtrer la liste d'élément sont demandés lors de la création de la liste.
+
+De plus, si une liste personnalisée n'est plus nécessaire, il est possible de la supprimer en cliquant sur le bouton « X » situé sur l'onglet correspondant.
 
 \subsection{Événement}
 
 Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant un événement. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque DataGridView. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=1\textwidth]{fenetre_evenement.png}
+\begin{figure}
+	\includegraphics[scale=0.7]{fenetre_evenement.png}
 	\caption{Fenêtre concernant un événement}
 \end{figure}
-
-\newpage
 
 \subsection{Tâche}
 
@@ -230,7 +243,7 @@ Avant d'effectuer les tests, un document expliquant la nature du projet et le d�
 
 Pour faire les tests avec les utilisateurs, le ou les membres de l'équipe s'asseoiront avec l'utilisateur qui testera l'application. Par la suite, un membre de l'équipe se chargera de dire chaque tâche que l'utilisateur devra effectuer et si l'utilisateur a des questions, il sera chargé de lui fournir les informations. Lorsque l'utilisateur aura terminé de faire une tâche, il y aura une brève pause pour que tout le monde ait le temps de prendre des notes. L'exécution de la tâche suivante se fera lorsque tout le monde aura terminé de prendre les notes pour la tâche courante. Quand toutes les tâches auront été exécutées, l'utilisateur pourra donner son opinion et ses impressions sur l'application, suggérer améliorations, les points positifs et des fonctionnalitées qui pourraient être intéressantes à ajouter ou bien améliorer.
 
-Ce seront principalement des notes concernant la performance et l'usabilité de l'application qui seront prises, car les principaux objectifs que nous voulons atteindre avec notre application 1- facilité d'utilisation et 2- efficacité. Les notes seront tirées de l'interaction de l'utilisateur avec l'application et de la rapidité avec laquelle l'utilisateur effectue les tâches (l'efficacité).
+Ce seront principalement des notes concernant la performance et l'usabilité de l'application qui seront prises, car les principaux objectifs que nous voulons atteindre avec notre application sont 1- la facilité d'utilisation et 2- l'efficacité. Les notes seront tirées de l'interaction de l'utilisateur avec l'application et de la rapidité avec laquelle l'utilisateur effectue les tâches (l'efficacité).
 
 Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en tout temps, décider d'arrêter les tests sans devoir fournir une explication. Les données recueillies seront cependant conservées à moins que l'utilisateur ne demande à ce qu'elles soient détruites.
 
@@ -238,83 +251,45 @@ Les tests se feront dans le calme et le respect. De plus, l'utilisateur peut, en
 
 \section{Liste des tâches}
 
-\begin{table}
-	\centering
-	\begin{tabular}{|l|l|l|}
-		\hline
-		no Tâche	& Titre et description		& Éléments que vous voulez vérifier et hypothèses 	\\ \hline 
-		1		& Ajouter l'événement 		&  Détection de raccourcis.				\\ 
-				& « événement 1 ».			&								\\ \hline
-		2		& Définir l’échéance de 		&								\\
-				& « événement 1 » à 1 		&								\\
-				& janvier 2013.			&								\\ \hline
-		3		& Ajouter le tag « [TAG1] » 	&								\\
-				& à « événement 1 ».		&								\\ \hline
-		4		& Ajouter une alerte « Envoyer 	&								\\
-				& un courriel », « 2 », « jours ».	&								\\ \hline
-		5		& Enregistrer l’événement.	& 								\\ \hline
-		6		& Fermer la fenêtre.		&								\\ \hline
-		7		& Supprimer l’événement		& Détection de menu contextuel.				\\
-				&  « Examen final de PHY332 ».	& 								\\ \hline
-		8		& Ajouter la tâche « tâche 1 ». 	& Détection de raccourcis.					\\ \hline
-		9		& Définir l’échéance de  		&								\\
-				& « tâche 1 » comme étant	&								\\
-				&  l’événement « événement 1 ».	&								\\ \hline
-		10		& Définir la priorité de  « tâche 1 »& Détection de raccourcis.				\\
-				&  à « Très faible ». 		&								\\
-				& <NE PEUT PAS ÊTRE FAIT>	&								\\ \hline
-		11		& Ajouter la priorité « très faible »&								\\
-				& avec une valeur de « 4 » et 	&								\\
-				& Actif à « Vrai » et enregistrer.	&								\\ \hline
-		12		& Définir la priorité de  « tâche 1 »&								\\
-				&  à « Très faible »..		&								\\ \hline
-		13		& Définir la complétion de 		&								\\
-				& « tâche 1 » à « 42 ».		&								\\ \hline
-		14		& Ajouter les tags « [TAG1] » et 	&								\\
-				& « [TAG2] » à « tâche 1 ».	&								\\ \hline
-		15		& Ajouter la description 		&								\\
-				& « lorem ipsum » à « tâche 1 ».	&								\\ \hline
-		16		& Ajouter une alerte 	 	&								\\
-				& « afficher un rappel », « 5 »,	& 								\\
-				&  « minutes » à « tâche 1 ».	&								\\ \hline
-		17		& Créer une sous-tâche		&								\\
-				&  « tâche 1.1 » à « tâche 1 »	&								\\ \hline
-		18		& Créer une sous-tâche		&								\\
-				&  « tâche 1.2 » à « tâche 1 »	&								\\ \hline
-		19		& Enregistrer la tâche.		& 								\\ \hline
-	\end{tabular}
-\end{table}
-
-\newpage
-
-\begin{table}
-	\centering
-	\begin{tabular}{|l|l|l|}
-		\hline
-		no Tâche	& Titre et description		& Éléments que vous voulez vérifier et hypothèses 	\\ \hline 
-		20		& Fermer la fenêtre.		&								\\ \hline
-		21		& Supprimer la « tâche 1.2 »	&								\\ \hline
-		22		& Modifier l’échéance de « tâche 1 »&								\\
-				&  pour le « 3 février 2013 ».	&								\\ \hline
-		23		& Fermer la fenêtre.		&								\\ \hline
-		24		& Appuyer sur « Cancel ».		&								\\ \hline
-		25		& Définir la complétion de la 	&								\\
-				& « tâche 1 » à « 50 ».		&								\\ \hline
-		26		& Fermer la fenêtre.		&								\\ \hline
-		27		& Appuyer sur « Oui ».		&								\\ \hline
-		28		& Appuyer sur le bouton 		&								\\
-				& « Configuration ».		&								\\ \hline
-		29		& Définir la priorité « très faible » &								\\
-				& à « non-actif »			&								\\ \hline
-		30		& Fermer la fenêtre.		&								\\ \hline
-		31		& Appuyer sur « Oui ».		&								\\ \hline
-		32		& Modifier la priorité de la 		&								\\
-				& « tâche 1 » à « faible ».		&								\\ \hline
-		33		& Enregistrer la tâche.		&								\\ \hline
-		34		& Fermer la fenêtre.		&								\\ \hline
-	\end{tabular}
-	\caption{Liste des tâches}
-\end{table}
+\bottomcaption{Liste des tâches}
+\begin{supertabular}{|p{1cm}|p{7.5cm}|p{6cm}|}
+    \hline
+    No tâche & Titre et description & Éléments à vérifier et hypothèses \\ \hline \hline
+    1 & Ajouter l'événement « événement 1 ». & Détection de raccourcis. \\ \hline
+    2 & Définir l’échéance de « événement 1 » au 1 janvier 2013. & \\ \hline
+    3 & Ajouter le tag « [TAG1] » à « événement 1 ». & \\ \hline
+    4 & Ajouter une alerte « Envoyer un courriel », « 2 », « jours ». & \\ \hline
+    5 & Enregistrer l’événement. & \\ \hline
+    6 & Fermer la fenêtre. & \\ \hline
+    7 & Supprimer l’événement « Examen final de PHY332 ». & Détection de menu contextuel. \\ \hline
+    8 & Ajouter la tâche « tâche 1 ». & Détection de raccourcis. \\ \hline
+    9 & Définir l’échéance de « tâche 1 » comme étant l’événement « événement 1 ». & \\ \hline
+    10 & Définir la priorité de  « tâche 1 » à « Très faible ». <NE PEUT PAS ÊTRE FAIT> & Détection de raccourcis. \\ \hline
+    11 & Ajouter la priorité « très faible » avec une valeur de « 4 » et Actif à « Vrai » et enregistrer. & \\ \hline
+    12 & Définir la priorité de  « tâche 1 » à « Très faible ». & L'utilisateur s'attent-il que la liste de prioritées ait été automatiquement actualisée? \\ \hline
+    13 & Définir la complétion de « tâche 1 » à « 42 ». & \\ \hline
+    14 & Ajouter les tags « [TAG1] » et « [TAG2] » à « tâche 1 ». & \\ \hline
+    15 & Ajouter la description « lorem ipsum » à « tâche 1 ». & \\ \hline
+    16 & Ajouter une alerte « afficher un rappel », « 5 », « minutes » à « tâche 1 ». & \\ \hline
+    17 & Créer une sous-tâche « tâche 1.1 » à « tâche 1 ». & \\ \hline
+    18 & Créer une sous-tâche « tâche 1.2 » à « tâche 1 ». & \\ \hline
+    19 & Enregistrer la tâche. & \\ \hline
+    20 & Fermer la fenêtre. & \\ \hline
+    21 & Supprimer la « tâche 1.2 » & \\ \hline
+    22 & Modifier l’échéance de « tâche 1 » pour le « 3 février 2013 ». & \\ \hline
+    23 & Fermer la fenêtre. & L'utilisateur a-t-il pensé qu'il devait enregistrer? \\ \hline
+    24 & Appuyer sur « Annuler ». & \\ \hline
+    25 & Définir la complétion de la « tâche 1 » à « 50 ». & \\ \hline
+    26 & Fermer la fenêtre. & \\ \hline
+    27 & Appuyer sur « Oui ». & \\ \hline
+    28 & Appuyer sur le bouton « Configuration ». & \\ \hline
+    29 & Définir la priorité « très faible » à « non-actif » & \\ \hline
+    30 & Fermer la fenêtre. & \\ \hline
+    31 & Appuyer sur « Oui ». & \\ \hline
+    32 & Modifier la priorité de la « tâche 1 » à « faible ». & L'utilisateur se remarque-t-il que la tâche est toujours valide même si sa prioritée vient d'être désactivée? \\ \hline
+    33 & Enregistrer la tâche. & \\ \hline
+    34 & Fermer la fenêtre. & \\ \hline
+\end{supertabular}
 
 \section{Liste des utilisateurs}
 
@@ -328,7 +303,7 @@ Les caractéristiques principales des utilisateurs choisis sont la gestion de le
 	\centering
 	\begin{tabular}{|l|l|l|}
 	\hline
-	no Tâche	& Points importants de l'observation	\\ \hline
+	no Tâche	& Points importants de l'observation	\\ \hline \hline
 	1		& a ajouté une ligne vide et double	\\ 
 			& cliquer sur l'entrée ensuite		\\ \hline
 	2		& 						\\ \hline
@@ -375,7 +350,7 @@ Les caractéristiques principales des utilisateurs choisis sont la gestion de le
 	\centering
 	\begin{tabular}{|l|l|l|}
 	\hline
-	no Tâche	& Points importants de l'observation	\\ \hline
+	no Tâche	& Points importants de l'observation	\\ \hline \hline
 	1		& n'utilise pas la barre d'ajout rapide	\\ \hline
 	2		& 						\\ \hline
 	3		& 						\\ \hline
@@ -422,11 +397,11 @@ Les caractéristiques principales des utilisateurs choisis sont la gestion de le
 	\centering
 	\begin{tabular}{|l|l|l|}
 	\hline
-	no Tâche	& Résumé	& Recommandation 	\\ \hline
+	no Tâche	& Résumé	& Recommandation 	\\ \hline \hline
 	1		&  n'utilise pas la barre d'ajout rapide		&  mettre la barre plus visible			\\ \hline
 	2		& 							&  							\\ \hline
 	3		& 							&  							\\ \hline
-	4		&  a pesé sur	$\bigtriangleup$ en $1^{er}$	&  remplacer les expander par des groupbox	\\ \hline
+	4		& a pesé sur $\bigtriangleup$ en $1^{er}$	& donner plus d'informations sur les expander \\ \hline
 	5		& 							&  							\\ \hline
 	6		& 							&				  			\\ \hline
 	7		& ne trouve pas coment supprimer		&  fournir un bouton supprimer			\\ \hline
@@ -467,11 +442,11 @@ Les caractéristiques principales des utilisateurs choisis sont la gestion de le
 	\centering
 	\begin{tabular}{|l|l|l|}
 	\hline
-	no Tâche	& Résumé	& Recommandation 	\\ \hline
-	1		&  n'utilise pas la barre d'ajout rapide		&  modifier la barre d'ajout						\\ \hline
+	no Tâche	& Résumé	& Recommandation 	\\ \hline \hline
+	1		&  n'utilise pas la barre d'ajout rapide		&  modifier la barre d'ajout \\ \hline
 	2		& 							&  									\\ \hline
 	3		& 							&  									\\ \hline
-	4		&  a pesé sur	$\bigtriangleup$ en $1^{er}$	&  ne comprends pas le fonctionnement				\\ \hline
+	4		& a pesé sur $\bigtriangleup$ en $1^{er}$	& donner plus d'information sur les expander \\ \hline
 	5		& 							&  									\\ \hline
 	6		& 							&  									\\ \hline
 	7		& ne trouve pas coment supprimer		&  changer l'endroit ou se trouve supprimer			\\ \hline
@@ -518,7 +493,7 @@ Nous avons observé deux faits étonnants concernant la fenêtre principale : la
 
 Après quelques réflexions et discussions avec les utilisateurs, nous avons décidé qu'il serait mieux de revoir la fonction du champ texte, situé en haut des listes de tâche et d'événements, et le transformer en barre de recherche et d'ajout. Ainsi, lorsque du texte sera tapé à l'intérieur, la grille au-dessous sera automatiquement actualisée pour ne contenir que les éléments dont le nom contenant le texte entré. Ceci permettra donc de retrouver plus rapidement un élément précis lorsque la grille sera pleine.
 
-De plus, dès que l'utilisateur commencera à entrer du texte, une bulle contenant le texte « Créer un nouvel élément portant le nom ... » apparaitra sous la barre. Si l'utilisateur appui sur le bouton « entrer » ou clique sur le texte, un nouvel élément sera créé, ajouté à la liste et la barre sera vidée de son texte. Comme l'option d'ajouter une nouvelle tâche n'apparait que lorsque nécessaire, nous allons enlever le bouton « Ajouter » qui serait redondant.
+De plus, dès que l'utilisateur commencera à entrer du texte, une bulle contenant le texte « Créer un nouvel élément portant le nom ... » apparaitra sous la barre. Si l'utilisateur appui sur le bouton « entrer » ou clique sur le texte, un nouvel élément sera créé, ajouté à la liste et la barre sera vidée de son texte. Comme l'option d'ajouter une nouvelle tâche n'apparait que lorsque nécessaire, nous allons enlever le bouton « Ajouter » qui serait redondant.
 
 Ce comportement n'est pas sans rappeler la barre de navigation du logiciel Google Chrome qui, lorsque l'utilisateur commencer à y entrer du texte, lance une recherche dans l'historique de navigation, en affiche les résultats et offre la possibilité de lancer une recherche Google.
 
@@ -529,9 +504,9 @@ Ce comportement n'est pas sans rappeler la barre de navigation du logiciel Googl
 
 \section{Simplifier le champ complétion}
 
-Nous avons aussi remarqué que les utilisateurs n'étaient pas certains de ce qu'ils devaient entrer dans le champ « Complétion » de la fenêtre « Tâche ». Est-ce un qualificatif, un pourcentage ou bien un nombre quelconque?
+Nous avons aussi remarqué que les utilisateurs n'étaient pas certains de ce qu'ils devaient entrer dans le champ « Complétion » de la fenêtre « Tâche ». Est-ce un qualificatif, un pourcentage ou bien un nombre quelconque?
 
-Pour remédier à cette incertitude, nous avons décidé de remplacer le champ texte actuellement présent par un curseur de défilement (mieux connu sous le nom "slider", en anglais). Celui-ci aura la double responsabilité de rendre plus explicite le fait que la complétion est un pourcentage, s'assurera qu'il est impossible d'entrer une valeur erronée et sera beaucoup plus facile d'utilisation.
+Pour remédier à cette incertitude, nous avons décidé de remplacer le champ texte actuellement présent par un curseur de défilement (mieux connu sous le nom « slider », en anglais). Celui-ci aura la double responsabilité de rendre plus explicite le fait que la complétion est un pourcentage, s'assurera qu'il est impossible d'entrer une valeur erronée et sera beaucoup plus facile d'utilisation.
 
 Pour entrer un niveau de complétion, l'utilisateur pourra simplement glisser le curseur jusqu'à ce que le pourcentage affiché corresponde à la valeur recherchée. D'un autre coté, il aura aussi le choix de garder les mains sur le clavier en utilisant les flèches du clavier pour faire glisser le curseur vers la droite ou la gauche.
 
@@ -544,11 +519,11 @@ Une possibilité supplémentaire qui mérite d'être étudiée est de verrouille
 
 \section{Simplifier la barre de tags}
 
-Les utilisateurs ont unanimement affirmé que la façon dont les tags sont actuellement entrés est trop compliquée et sujette à erreurs. Pour rappel, le format actuel est complètement textuel. Un tag est une suite de caractères entourée de crochets et il est possible d'entrer plusieurs tags les plaçant les uns à la suite des autres (e.g. « [ÉTS][LOG350][TP3] »).
+Les utilisateurs ont unanimement affirmé que la façon dont les tags sont actuellement entrés est trop compliquée et sujette à erreurs. Pour rappel, le format actuel est complètement textuel. Un tag est une suite de caractères entourée de crochets et il est possible d'entrer plusieurs tags les plaçant les uns à la suite des autres (e.g. « [ÉTS][LOG350][TP3] »).
 
-Pour faciliter l'entrée de tags, nous avons décidé qu'il serait plus efficace de se baser sur le système d'entrée de tags du site StackOverflow. Le principe est que le champ contenant n'est pas un simple champ texte, mais une liste de tags qu'il est possible de manipuler avec la souris. Ainsi, chaque tag a un petit « x » qui permet de l'enlever de la liste et la liste peut être réordonnée en glissant \& déposant les tags les uns à côté des autres.
+Pour faciliter l'entrée de tags, nous avons décidé qu'il serait plus efficace de se baser sur le système d'entrée de tags du site StackOverflow. Le principe est que le champ contenant n'est pas un simple champ texte, mais une liste de tags qu'il est possible de manipuler avec la souris. Ainsi, chaque tag a un petit « x » qui permet de l'enlever de la liste et la liste peut être réordonnée en glissant \& déposant les tags les uns à côté des autres.
 
-Cependant, c'est lors de l'ajout d'un nouveau tag que la différence est la plus flagrante. Lorsque l'utilisateur commencera à entrer du texte, une fenêtre apparaîtra et offrira une liste de suggestions basées sur les tags déjà présents dans les autres tâches. L'utilisateur pourra alors cliquer sur le tag de son choix pour le sélectionner. De plus, le premier élément de la liste sera surligné par défaut et sera choisi automatiquement si l'utilisateur appuie sur la touche « entrer ».
+Cependant, c'est lors de l'ajout d'un nouveau tag que la différence est la plus flagrante. Lorsque l'utilisateur commencera à entrer du texte, une fenêtre apparaîtra et offrira une liste de suggestions basées sur les tags déjà présents dans les autres tâches. L'utilisateur pourra alors cliquer sur le tag de son choix pour le sélectionner. De plus, le premier élément de la liste sera surligné par défaut et sera choisi automatiquement si l'utilisateur appuie sur la touche « entrer ».
 
 Enfin, si l'utilisateur veut entrer un nouveau tag qui n'apparait pas dans la liste, il suffira d'appuyer sur la barre d'espacement et le nouveau tag sera ajouté à la liste.
 
@@ -589,14 +564,14 @@ La méthode que nous avons choisie pour remédier à cette situation est d'ajout
 Ainsi, pour créer la tâche du laboratoire 3 de LOG350, il suffira de :
 
 \begin{enumerate}
-    \item Entrer « Laboratoire 3 de LOG350 » dans la barre d'ajout.
-    \item Appuyer sur la touche « entrer ».
-    \item Entrer « Réaliser le prototype dynamique » dans la barre d'ajout.
-    \item Appuyer sur la touche « entrer ».
-    \item Sélectionner la tâche « Réaliser le prototype dynamique » et la glisser sur la tâche « Laboratoire 3 de LOG350 ».
-    \item Entrer « Rédaction du rapport » dans la barre d'ajout.
-    \item Appuyer sur la touche « entrer ».
-    \item Sélectionner la tâche « Rédaction du rapport » et la glisser sur la tâche « Laboratoire 3 de LOG350 ».
+    \item Entrer « Laboratoire 3 de LOG350 » dans la barre d'ajout.
+    \item Appuyer sur la touche « entrer ».
+    \item Entrer « Réaliser le prototype dynamique » dans la barre d'ajout.
+    \item Appuyer sur la touche « entrer ».
+    \item Sélectionner la tâche « Réaliser le prototype dynamique » et la glisser sur la tâche « Laboratoire 3 de LOG350 ».
+    \item Entrer « Rédaction du rapport » dans la barre d'ajout.
+    \item Appuyer sur la touche « entrer ».
+    \item Sélectionner la tâche « Rédaction du rapport » et la glisser sur la tâche « Laboratoire 3 de LOG350 ».
 \end{enumerate}
 
 \chapter{Conclusion}
@@ -613,9 +588,9 @@ Il s'est d'abord avéré assez rapide et facile de faire fonctionner une interfa
 
 Le meilleur exemple de ces difficultés rencontrées est le système multionglets. Dans la phase d'analyse et de réalisation du prototype statique, nous avions l'intention d'offrir la possibilité de définir des vues plus spécialisées de la liste de tâches dans des onglets supplémentaires. Il aurait alors été possible de créer une vue qui n'affiche que les tâches concernant l'université ou bien uniquement les tâches qui doivent être complétées dans les 48 prochaines heures. Malheureusement, il a fallu tellement de temps pour réussir à implémenter un contrôle permettant à l'utilisateur de créer et supprimer des onglets que nous n'avons pas eu le temps et les ressources nécessaires pour implémenter la fonctionnalité de requête pour configurer une vue.
 
-Enfin, il est ressorti de nos différentes conversations avec des utilisateurs que plusieurs trouvaient l'application visuellement « ordinaire », mais qu'aucun n'avait la même opinion de ce qui permettrait de la rendre plus « belle ». Parmi les membres de notre équipe, aucun ne se considère comme un artiste et ne sait comment créer un arrangement de formes et de couleurs qui plairait à une majorité. Cette constatation met de l'avant le fait qu'il y a une différence importante entre développer une interface efficace et une interface visuellement attirante. Le cours que nous avons suivi tente de nous apprendre à développer la première, mais ne prétend nullement nous apprendre à développer la seconde.
+Enfin, il est ressorti de nos différentes conversations avec des utilisateurs que plusieurs trouvaient l'application visuellement « ordinaire », mais qu'aucun n'avait la même opinion de ce qui permettrait de la rendre plus « belle ». Parmi les membres de notre équipe, aucun ne se considère comme un artiste et ne sait comment créer un arrangement de formes et de couleurs qui plairait à une majorité. Cette constatation met de l'avant le fait qu'il y a une différence importante entre développer une interface efficace et une interface visuellement attirante. Le cours que nous avons suivi tente de nous apprendre à développer la première, mais ne prétend nullement nous apprendre à développer la seconde.
 
-Concernant le cours, nous suggérons que celui-ci donne une plus grande place aux applications dites de bureau. Celles-ci étant encore très présentes comme applications « grand public » et largement dominantes dans le monde professionnel, il serait intéressant qu'elles occupent une plus grande place. Certaines sont très simples d'utilisation alors que d'autres sont incroyablement complexes. Qu'est-ce qui les distingue? Quelles sont les bonnes habitudes à imiter? Quelles sont les erreurs à ne pas commettre?
+Concernant le cours, nous suggérons que celui-ci donne une plus grande place aux applications dites de bureau. Celles-ci étant encore très présentes comme applications « grand public » et largement dominantes dans le monde professionnel, il serait intéressant qu'elles occupent une plus grande place. Certaines sont très simples d'utilisation alors que d'autres sont incroyablement complexes. Qu'est-ce qui les distingue? Quelles sont les bonnes habitudes à imiter? Quelles sont les erreurs à ne pas commettre?
 
 \appendix
 \multiannexe
@@ -630,7 +605,7 @@ Concernant le cours, nous suggérons que celui-ci donne une plus grande place au
 
 \chapter{Travail Pratique 2}
 
-\includepdf[pages=-]{T2.pdf}
+%\includepdf[pages=-]{T2.pdf}
 
 \chapter{Contrats signés}
 

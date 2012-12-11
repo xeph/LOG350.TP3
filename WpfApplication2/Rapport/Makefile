@@ -1,5 +1,5 @@
 all:
 	pdflatex rapport.tex
-	bibtex rapport.aux
+	#bibtex rapport.aux
 	pdflatex rapport.tex
 	pdflatex rapport.tex
