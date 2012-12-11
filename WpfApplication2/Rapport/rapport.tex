@@ -110,7 +110,7 @@ Pour la production de la documentation, nous utilisons le processeur de texte \L
 
 \section{Fenêtres développées}
 
-Dans cette section, chaque fenêtre développée est décrite brièvement.
+Dans cette section, chaque fenêtre de l'application est décrite brièvement et, par la suite, une justification est apportée pour différents choix de conception.
 
 \subsection{Fenêtre principale}
 
@@ -135,12 +135,18 @@ De plus, si une liste personnalisée n'est plus nécessaire, il est possible de 
 
 \subsection{Événement}
 
-Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant un événement. Lorsque l'utilisateur modifie des informations le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque DataGridView. À la page 21 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre contient les informations détaillées sur un événement. Elle est ouverte lorsque l'utilisateur double-clic sur une ligne de l'onglet « Événements ».
 
 \begin{figure}
-	\includegraphics[scale=0.7]{fenetre_evenement.png}
-	\caption{Fenêtre concernant un événement}
+    \includegraphics[scale=0.7]{fenetre_evenement.png}
+    \caption{Fenêtre concernant un événement}
 \end{figure}
+
+Le nom est un texte identifiant un événement de façon unique (e.g. « Sortie à la ronde »). L'échéance est une date (e.g. « 2 juin 2013 ») et peut être entrée à l'aide d'un calendrier apparaissant lors d'un clic sur l'icône correspondante à droite. Les tags sont des informations permettant de catégoriser un événement (e.g. « [PERSONNEL][SORTIE] »). La description est un champ texte pouvant contenir plusieurs lignes et paragraphes.
+
+La grille d'alertes permet d'entrer des actions (e.g « Envoyer un courriel ») qui devront être exécutées à un moment précis (e.g « 2 jours » avant la date d'échéance). Pour entrer une nouvelle alerte, il suffit d'entrer les informations dans la ligne vide. Un clic droit sur une ligne fera apparaître un menu contextuel permettant de supprimer l'alerte sélectionnée.
+
+Lorsque l'une ou l'autre des informations est modifiée, le bouton « Enregistrer » est déverrouiller affin de permettre de sauvegarder les nouvelles informations. De plus, si la fenêtre est fermée alors qu'il y a des modifications en suspend, une boîte de dialogue demande s'il faut enregistrer avant de procéder à la fermeture de la fenêtre.
 
 \subsection{Tâche}
 
