@@ -18,6 +18,10 @@
 
 \newunicodechar{ }{~}
 
+% this is for \begin{enumerate} to use 1, 2, 3, etc instead of a, b, c
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\theenumi}{\arabic{enumi}}
+
 \begin{document}
 
 \includepdf[pages=-]{pageTitre.pdf}
@@ -505,47 +509,94 @@ La barre d'ajout rapide plante dans un nouvel onglet (SearchTasks.xaml.cs), les 
 
 \chapter{Changements recommandés}
 
-Fournir un menu d'aide (tooltip par exemple) explicant diverses fonctionnalités qui ne sont pas toujours évidente pour l'utilisateur, comme le système de tag ou bien les menus contextuel. Ainsi, l'utilisateur ne se sentira pas abandonné pour utiliser l'application et ceci facilitera aussi son apprentissage des diverses fonctionnalitées de l'application.
+À la suite des tests avec les utilisateurs, nous avons établi une liste de modifications recommandées afin de rendre l'interface utilisateur plus simple et plus efficace.
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=1\textwidth]{tags.png}
-	\caption{Exemple de tooltip sur le champ tag}
+\section{Améliorer la barre d'ajout rapide}
+
+Nous avons observé deux faits étonnants concernant la fenêtre principale : la fonctionnalité d'ajout rapide n'a pas été utilisée et les utilisateurs croyaient que le champ texte servait à rechercher un élément dans la grille. Ceci nous amène à revoir le concept de la barre d'ajout rapide.
+
+Après quelques réflexions et discussions avec les utilisateurs, nous avons décidé qu'il serait mieux de revoir la fonction du champ texte, situé en haut des listes de tâche et d'événements, et le transformer en barre de recherche et d'ajout. Ainsi, lorsque du texte sera tapé à l'intérieur, la grille au-dessous sera automatiquement actualisée pour ne contenir que les éléments dont le nom contenant le texte entré. Ceci permettra donc de retrouver plus rapidement un élément précis lorsque la grille sera pleine.
+
+De plus, dès que l'utilisateur commencera à entrer du texte, une bulle contenant le texte « Créer un nouvel élément portant le nom ... » apparaitra sous la barre. Si l'utilisateur appui sur le bouton « entrer » ou clique sur le texte, un nouvel élément sera créé, ajouté à la liste et la barre sera vidée de son texte. Comme l'option d'ajouter une nouvelle tâche n'apparait que lorsque nécessaire, nous allons enlever le bouton « Ajouter » qui serait redondant.
+
+Ce comportement n'est pas sans rappeler la barre de navigation du logiciel Google Chrome qui, lorsque l'utilisateur commencer à y entrer du texte, lance une recherche dans l'historique de navigation, en affiche les résultats et offre la possibilité de lancer une recherche Google.
+
+\begin{figure}
+    \includegraphics[scale=0.5]{barre_de_navigation_google_chrome.png}
+    \caption{Barre de navigation de Google Chrome}
 \end{figure}
 
-Ajouter un bouton ajouter et supprimer en bas à gauche de chaque datagridview permettant l'ajout et la suppression des éléments dans celui-ci en plus du menu contextuel. En faisant cela, on offre la possibilité, tant aux utilisateurs débutants qu'aux utilisateurs avancés, d'ajouter et de supprimer un élément de diverses facon selon les préférences de chacun. Cela permet aussi à l'utilisateur de moins chercher comment effectuer cette opération.
+\section{Simplifier le champ complétion}
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=0.6\textwidth]{add_delete_button.png}
-	\caption{Boutons ajouter et supprimer sur un datagridview}
+Nous avons aussi remarqué que les utilisateurs n'étaient pas certains de ce qu'ils devaient entrer dans le champ « Complétion » de la fenêtre « Tâche ». Est-ce un qualificatif, un pourcentage ou bien un nombre quelconque?
+
+Pour remédier à cette incertitude, nous avons décidé de remplacer le champ texte actuellement présent par un curseur de défilement. Celui-ci aura la double responsabilité de rendre plus explicite le fait que la complétion est un pourcentage, s'assurera qu'il est impossible d'entrer une valeur erronée et sera beaucoup plus facile d'utilisation.
+
+Pour entrer un niveau de complétion, l'utilisateur pourra simplement glisser le curseur jusqu'à ce que le pourcentage afficher corresponde à la valeur recherchée. D'un autre coté, il aura aussi le choix de garder les mains sur le clavier en utilisant les flèches du clavier pour faire glisser le curseur vers la droite ou la gauche.
+
+Une possibilité supplémentaire qui mérite d'être étudiée est de verrouiller le contrôle et calculer automatiquement le niveau de complétion lorsqu'une tâche à des sous-tâches qui ont elles-mêmes un niveau de complétion. Ainsi, une tâche ayant deux sous-tâches, une complétée à 100 pour cent et l'autre complétée à 50 pour cent, pourrait se faire assigner automatiquement un niveau de complétion de 75 pour cent.
+
+\begin{figure}
+    \includegraphics[scale=0.25]{completion2.png}
+    \caption{Slider de complétion}
 \end{figure}
 
-\newpage
+\section{Simplifier la barre de tags}
 
-Changer le champ complétion dans la fenêtre tâche pour un slider, comme sa l'utilisateur ne pourra pas entrer ce qu'il veut. En faisant cela, on évite qu'une complétion ait au dessus de 100\% et au-dessous de 0\%, ce qui serais complètement illogique. L'utilisateur trouvera aussi plus intuitif d'utiliser ce composant, car il n'aura qu'a glisser jusqu'au niveau de complétion qu'il désire au lieu de l'écrire manuellement et de ce tromper.
+Les utilisateurs ont unanimement affirmé que la façon dont les tags sont actuellement entrés est trop compliquée et sujette à erreurs. Pour rappel, le format actuel est complètement textuel. Un tag est une suite de caractères entourée de crochets et il est possible d'entrer plusieurs tags les plaçant les uns à la suite des autres (e.g. « [ÉTS][LOG350][TP3] »).
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=1\textwidth]{completion.png}
-	\caption{Slider de complétion}
+Pour faciliter l'entrée de tags, nous avons décidé qu'il serait plus efficace de se baser sur le système d'entrée de tags du site StackOverflow. Le principe est que le champ contenant n'est pas un simple champ texte, mais une liste de tags qu'il est possible de manipuler avec la souris. Ainsi, chaque tag a un petit « x » qui permet de l'enlever de la liste et la liste peut être réordonnée en glissant \& déposant les tags les uns à côté des autres.
+
+Cependant, c'est lors de l'ajout d'un nouveau tag que la différence est la plus flagrante. Lorsque l'utilisateur commencera à entrer du texte, une fenêtre apparaîtra et offrira une liste de suggestions basées sur les tags déjà présents dans les autres tâches. L'utilisateur pourra alors cliquer sur le tag de son choix pour le sélectionner. De plus, le premier élément de la liste sera surligné par défaut et sera choisi automatiquement si l'utilisateur appuie sur la touche « entrer ».
+
+Enfin, si l'utilisateur veut entrer un nouveau tag qui n'apparait pas dans la liste, il suffira d'appuyer sur la barre d'espacement et le nouveau tag sera ajouté à la liste.
+
+\begin{figure}
+    \includegraphics[scale=0.5]{tags_stackoverflow.png}
+    \caption{Barre de tags du site www.stackoverflow.com}
 \end{figure}
 
-Changer les expander pour des groupbox, car avec les tests utilisateurs, nous nous sommes rendu compte que ceux-ci n'étaient pas familié avec ce type de composant et qu'aucun d'eux ne savait quoi faire avec ceci. Donc, pour simplifier le fonctionnement de la fenêtre et diminuer son temps d'apprentissage, il vaut mieux faire ce changement.
+\section{Ajouter des infobulles}
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=1\textwidth]{groupbox.png}
-	\caption{Groupbox au lieu d'expander}
+Lorsque nous avons présenté notre application à différents utilisateurs, nous avons occasionnellement eu à répondre à des questions telles que :
+
+\begin{itemize}
+    \item Qu'est-ce qu'une échéance?
+    \item Qu'est-ce qu'un tag?
+    \item À quoi sert une alerte?
+\end{itemize}
+
+Comme nous nous trouvions justes à côté des utilisateurs, il était facile pour nous de leur donner des explications. Seulement, s'ils avaient été seuls, il aurait pu être difficile pour eux d'obtenir des réponses à leurs questions.
+
+Pour tenter de minimiser la courbe d'apprentissage et d'améliorer la compréhension des utilisateurs, nous avons décidé de placer des infobulles expliquant les différentes informations qu'ils peuvent entrer et les différentes actions qu'ils peuvent poser.
+
+Par exemple, le concept de tag peut sembler étrange à quelqu'un qui n'a jamais été confronté à ce concept. Aussi, le fait qu'un événement puisse être considéré comme l'échéance d'une tâche peut ne pas sembler évident au premier abord.
+
+Les infobulles ne serviront donc pas seulement pour les boutons ne comportant pas de texte, mais aussi pour offrir une explication pour la signification de certains composants.
+
+\begin{figure}
+    \includegraphics[scale=0.2]{infobulle.png}
+    \caption{Infobulle expliquant le concept d'échéance}
 \end{figure}
 
-Selon les conclusions tirées des tests utilisateurs, la barre d'ajout rapide n'a pas été utilisé pour faire l'ajout rapide. Pour que les utilisateurs débutants puissent connaître cette fonctionnalité, il sera nécessaire d'inclure une fenêtre d'aide pour spécifier chaque action possible dans une fenêtre comme dans cet image.
+\section{Ajouter le support du glisser \& déposer}
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=0.48\textwidth]{help.png}
-	\caption{Exemple de fenêtre d'aide}
-\end{figure}
+L'objectif principal de la fenêtre d'ajout rapide est de permettre de faire une gestion simple de ses tâches sans avoir à entrer dans la fenêtre de détails d'une tâche. Seulement, s'il est actuellement possible de créer autant de tâches que l'on veut à partir de la fenêtre principale, il est nécessaire d'ouvrir la fenêtre de détails afin de pouvoir créer des sous-tâches.
+
+La méthode que nous avons choisie pour remédier à cette situation est d'ajouter le support du glisser \& déposer dans la grille de la fenêtre principale. L'objectif est de pouvoir modifier la structure de tâches parent-enfant en glissant les tâches les unes sur les autres.
+
+Ainsi, pour créer la tâche du laboratoire 3 de LOG350, il suffira de :
+
+\begin{enumerate}
+    \item Entrer « Laboratoire 3 de LOG350 » dans la barre d'ajout.
+    \item Appuyer sur la touche « entrer ».
+    \item Entrer « Réaliser le prototype dynamique » dans la barre d'ajout.
+    \item Appuyer sur la touche « entrer ».
+    \item Sélectionner la tâche « Réaliser le prototype dynamique » et la glisser sur la tâche « Laboratoire 3 de LOG350 ».
+    \item Entrer « Rédaction du rapport » dans la barre d'ajout.
+    \item Appuyer sur la touche « entrer ».
+    \item Sélectionner la tâche « Rédaction du rapport » et la glisser sur la tâche « Laboratoire 3 de LOG350 ».
+\end{enumerate}
 
 \chapter{Conclusion}
 
