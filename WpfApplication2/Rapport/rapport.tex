@@ -150,25 +150,41 @@ Lorsque l'une ou l'autre des informations est modifiée, le bouton « Enregistr
 
 \subsection{Tâche}
 
-Cette fenêtre permet à l'utilisateur d'entrer les diverses informations concernant une tâche. Lorsque qu'il modifie des données, le programme détecte automatiquement que quelque chose a changé et propose à l'utilisateur de sauvegarder les informations lorsque celui ferme la fenêtre. Si l'utilisateur décide d'ajouter une alerte ou une sous-tâche, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes et sous-tâches présentes. Pour supprimer il n'a qu'à faire apparaitre le menu contextuel de chaque DataGridView. À la page 19 du document, dans l'annexe III, il y a de plus ample informations concernant cette fenêtre.
+Cette fenêtre contient les informations détaillées sur un événement. Elle est ouverte lorsque l'utilisateur double-clic sur une ligne de l'onglet « Événements ».
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=1\textwidth]{fenetre_tache.png}
-	\caption{Fenêtre concernant une tâche}
+\begin{figure}
+    \includegraphics[scale=0.7]{fenetre_tache.png}
+    \caption{Fenêtre concernant une tâche}
 \end{figure}
 
-\newpage
+Le nom est un texte identifiant une tâche de façon unique (e.g. « Faire le devoir de MAT265 »). L'échéance peut être un événement (e.g. doit être complété à l'événement « Examen final de MAT265 ») ou encore une date (e.g. doit être complété le « 14 décembre 2012 »). Dans le premier cas, l'événement peut être choisi dans une liste alors que, dans le deuxième cas, la date peut être entrée de la même manière que pour l'échéance d'un événement.
+
+La priorité est un qualificatif permettant de spécifier qu'une tâche est plus importante qu'un autre et peut être choisie dans une liste. Si la priorité souhaitée ne se trouve pas dans la liste, il suffit de cliquer sur l'hyperlien « Priorité: » et la fenêtre permettant de configurer les priorités apparaitra.
+
+La complétion est un pourcentage indiquant la proportion de la tâche qui est complétée. Les tags sont des informations permettant de catégoriser une tâche (e.g. « [ÉTS][MAT265] »). La description est un champ texte pouvant contenir plusieurs lignes et paragraphes.
+
+La grille d'alerte fonctionne exactement de la même façon que pour un événement.
+
+La grille de sous-tâches permet de séparer une tâche imposante en plusieurs tâches plus petites. Par exemple, la tâche « TP3 de LOG350 » peut être sous-divisée en deux sous-tâches : « Réalisation du prototype dynamique » et « Rédaction du rapport ». Pour créer une nouvelle tâche, il suffit d'entrer les informations dans la ligne vide. Un clic droit sur une ligne fera apparaître un menu contextuel permettant de supprimer la sous-tâche sélectionnée.
+
+De plus, comme les sous-tâches sont des tâches à part entière. Il est possible d'ouvrir la fenêtre de détails d'une sous-tâche en double-cliquant sur la ligne désirée.
+
+Lorsque l'une ou l'autre des informations est modifiée, le bouton « Enregistrer » est déverrouillé afin de permettre de sauvegarder les nouvelles informations. De plus, si la fenêtre est fermée alors qu'il y a des modifications en suspend, une boîte de dialogue demande s'il faut enregistrer avant de procéder à la fermeture de la fenêtre.
 
 \subsection{Priorités}
 
-Cette fenêtre permet à l'utilisateur de faire la gestion des priorités.  Si l'utilisateur décide d'ajouter une priorité, il n'a qu'à double cliquer dans la ligne vide pour effectuer un ajout. De plus, il peut modifier directement les alertes présentes et pour supprimer il n'a qu'a faire apparaitre le menu contextuel de chaque DataGridView. Pour plus d'informations concernant l'ajout et cette fenêtre, se référer à la page 22, (annexe III).
+Cette fenêtre permet de faire la gestion des priorités. Elle est ouverte à partir du bouton «·Configuration·» disponible dans chaque onglet de la fenêtre principale, ainsi qu'à partir de l'hyperlien « Priorité: » de la fenêtre de détails d'une tâche.
 
-\begin{figure}[H!]
-	\centering
-	\includegraphics[width=1\textwidth]{fenetre_priorite.png}
+\begin{figure}
+	\includegraphics[scale=0.85]{fenetre_priorite.png}
 	\caption{Fenêtre concernant les priorités}
 \end{figure}
+
+Le nom est un texte identifiant une priorité de façon unique. La valeur est un nombre donnant un poids aux différentes possibilités et permettant de les comparer entre elles. Ainsi, la priorité « Haute », qui a une la valeur un, est plus importante que la priorité « Faible », qui a la valeur trois.
+
+L'attribut « Actif » indique s'il est possible3 d'utiliser cette priorité lors de la création de nouvelles tâches. Si l'attribut est coché, la priorité apparaitra dans la liste de priorité de la fenêtre de détails d'une tâche. Si l'attribut n'est pas coché, la priorité n'apparaîtra pas dans la liste, sauf si la tâche utilisait déjà la priorité lorsque celle-ci a été désactivée.
+
+Lorsque l'une ou l'autre des informations est modifiée, le bouton « Enregistrer » est déverrouillé afin de permettre de sauvegarder les nouvelles informations. De plus, si la fenêtre est fermée alors qu'il y a des modifications en suspend, une boîte de dialogue demande s'il faut enregistrer avant de procéder à la fermeture de la fenêtre.
 
 \newpage
 
@@ -601,38 +617,28 @@ Concernant le cours, nous suggérons que celui-ci donne une plus grande place au
 \appendix
 \multiannexe
 
-\chapter{Formulaire de consentement des utilisateurs}
-
-\includepdf[pages=-]{form.pdf}
-
 \chapter{Document de présentation du projet}
 
 \includepdf[pages=-]{document.pdf}
+
+\chapter{Formulaires de consentement signés}
+
+%\includepdf[pages=-]{form_u0.pdf}
+%\includepdf[pages=-]{form_u1.pdf}
+%\includepdf[pages=-]{form_u0.pdf}
+%\includepdf[pages=-]{form_u2.pdf}
+
+\chapter{Notes prises}
+
+%\includepdf[pages=-]{notes_p1.pdf}
+%\includepdf[pages=-]{notes_p2.pdf}
+%\includepdf[pages=-]{notes_p3.pdf}
+%\includepdf[pages=-]{notes_p4.pdf}
+%\includepdf[pages=-]{notes_p5.pdf}
 
 \chapter{Travail Pratique 2}
 
 %\includepdf[pages=-]{T2.pdf}
 
-\chapter{Contrats signés}
-
-\includepdf[pages=-]{form_u0.pdf}
-
-\includepdf[pages=-]{form_u1.pdf}
-
-\includepdf[pages=-]{form_u0.pdf}
-
-\includepdf[pages=-]{form_u2.pdf}
-
-\chapter{Notes prises}
-
-\includepdf[pages=-]{notes_p1.pdf}
-
-\includepdf[pages=-]{notes_p2.pdf}
-
-\includepdf[pages=-]{notes_p3.pdf}
-
-\includepdf[pages=-]{notes_p4.pdf}
-
-\includepdf[pages=-]{notes_p5.pdf}
 
 \end{document}
